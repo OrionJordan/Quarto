@@ -1,0 +1,9 @@
+---
+title: "Seperation of Variables"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+## 

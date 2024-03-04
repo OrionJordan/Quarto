@@ -1,0 +1,191 @@
+---
+title: "Geometry"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+## Trigonmetric identities
+
+We have the following identities
+
+$$
+\sin(\alpha + \beta) = \sin(\alpha)\cos(\beta) + \sin(\beta)\cos(\alpha)
+$$
+
+$$
+\sin(\alpha - \beta) = \sin(\alpha)\cos(\beta) - \sin(\beta)\cos(\alpha)
+$$
+
+$$
+\cos(\alpha + \beta) = \cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)
+$$
+
+$$
+\cos(\alpha - \beta) = \cos(\alpha)\cos(\beta) + \sin(\alpha)\sin(\beta)
+$$
+
+::: {.callout-note icon="false"}
+## Theorem (De Moivre's Theorem)
+
+A complex number raised to an integer power is given by
+$$
+Z^n = \left(r(\cos\theta + i\sin\theta)\right)^n= r^n(\cos n\theta + i\sin\theta)
+$$
+
+:::
+
+So for example, if we were given the complex number 
+
+$$
+Z = 2(\cos\theta + i \sin \theta)
+$$
+
+We could easily compute
+
+$$
+Z^2 = 4(\cos 2\theta + i \sin\theta)
+$$
+
+::: {.callout-tip icon="false"}
+## Proof
+
+We begin a proof by induction. We have our base case
+
+$$
+n = 1 \quad Z^1 = r^1(\cos 1\theta + i\sin\theta) = Z
+$$
+
+Assume the statement holds for $k$, then
+
+\begin{align*}
+Z^{k+1} &= Z^kZ = \left(r^k(\cos k\theta + i\sin\theta)\right)\left(r(\cos \theta + i\sin\theta)\right)\\
+&= r^{k+1}\bigg( \left( \cos k \theta \cos \theta - \sin \theta \sin \theta \right) + \\
+&\quad \quad \quad \quad \quad \quad i \left( \sin \theta \cos \theta + \cos k\theta \sin \theta \right)\bigg)\\
+&= r^{k+1}(\cos (k+1)\theta + i\sin\theta)
+\end{align*}
+:::
+
+## Eulers identity
+
+Euler made some crazy identity thingamabob that goes
+
+$$
+e^{i\pi} = -1
+$$
+
+We want to prove this identity. We can start by taylor expanding $e$, $\cos$ and $\sin$ giving
+
+$$
+e^x = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} \cdots
+$$
+$$
+\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} \cdots
+$$
+
+$$
+\sin x = \frac{x}{1!} - \frac{x^3}{3!} + \frac{x^5}{5!} \cdots
+$$
+
+Allow us to expand $e^{xi}$, giving
+
+$$
+e^{xi} = 1 + \frac{ix}{1!} - \frac{x}{2!} - \frac{ix^3}{3!} + \frac{x^4}{4!} + \frac{ix^5}{5!} \cdots
+$$
+
+Which is clearly
+
+$$
+e^{xi} = \cos x + i\sin x
+$$
+
+Thus
+
+$$
+e^{\pi i} = \cos \pi + i \sin \pi
+$$
+
+$$
+e^{\pi i} = -1
+$$
+
+## Induction-duction what is your function
+
+We arrive at the following identites through less than rigourous means (Fishman wrote them on the board)
+
+$$
+1 + 2 + 3 + \cdots + n = \frac{n}{2}(n+1)
+$$
+
+$$
+1^2 + 2^2 + 3^2 + \cdots n^2 = \frac{n}{6}(n+1)(n+2)
+$$
+
+$$
+1^3 + 2^3 + 3^3 + \cdots n^3 = \left(\frac{n}{2}(n+1)\right)^2
+$$
+
+We prove these using induction. But how do we come up with the formulas?
+
+The following telescopic series
+
+$$
+\sum^n_{k=1} k^2 - (k-1)^2 = n^2
+$$
+
+Note
+
+$$
+\sum^n_{k=1} k^2 - (k-1)^2 = 2 \sum^n_{k=1} k - n = n^2
+$$
+
+Thus
+
+$$
+\sum^n_{k=1} k = \frac{n}{2}(n+1)
+$$
+
+We can repeat the same thing to get the next identity.
+
+$$
+\sum^n_{k=1} k^3 - (k-1)^3 = n^3
+$$
+
+$$
+\sum^n_{k=1} k^3 - (k^3 - 3k^2 + 3k - 1)
+$$
+
+$$
+\sum^n_{k=1} 3k^2 - 3k + 1 = 3\sum^n_{k=1} k^2 - 3\sum^n_{k=1} k + n = n^3
+$$
+
+$$
+3\sum^n_{k=1} k^2 - 3\sum^n_{k=1} k = n^3 - n
+$$
+
+$$
+3\sum^n_{k=1} k^2 - 3\frac{n}{2}(n+1) = n^3 - n
+$$
+
+$$
+\sum^n_{k=1} k^2 = \frac{n}{6}(n+1)(n+2)
+$$
+
+Consider the interval $[a,b]$. We say that $P_n$ is a partition of $[a,b]$ if
+
+$$
+P_n = \{x_0,x_1,x_2,\ldots,x_n\}
+$$
+
+Where $x_0 = a$, and $x_n = b$.
+
+We say that $P_m$ is a refinement of $P_n$ if
+
+$$
+P_n \subset P_m
+$$
+
+We also want that if $P_1$ is a subset of $P_2$, is a subset of $P_3$, ect.
+
+Then the maximum distance between points as $n \to \infty$ goes to $0$.

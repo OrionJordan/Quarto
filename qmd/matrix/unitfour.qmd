@@ -1,0 +1,257 @@
+---
+title: "Unit four"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+## Section 4.1
+
+Recall that 
+
+$$
+v \perp w \iff  |v+w|^2 = |v|^2 + |w|^2
+$$
+
+Which only occurs when 
+
+$$
+v\cdot w = 0
+$$
+
+As 
+
+$$
+|v+w|^2 = (v + w) \cdot (v + w) = v \cdot v + 2(v\cdot w) + w\cdot w
+$$
+
+::: {.callout-note icon="false"}
+## Definition 4.1.1
+
+Take $V$ any subspace of $\mathbb{R}^n$. Then
+
+$$
+V^\perp = \{x \in \mathbb{R}^n \mid x \cdot v = 0, \forall v \in V\}
+$$
+
+:::
+
+Because the dot product is linear, we know that $V^\perp$ is a subspace of $\mathbb{R}^n$. For $A (m\times n)$, $\text{Null}(A) = \text{RowSp}(A)^\perp$.
+
+The dimension of $V\perp$ is equal to the dimension of $n - dim V$.
+
+We can see this forming 
+
+\begin{align*}
+A = \begin{pmatrix}
+& \cdots & v_1^T
+\end{pmatrix}
+\end{align*}
+
+Suppose that $V$ is a subspace of $\mathbb{R}^\ell$ of dimension $d$. 
+
+If $v_1,\ldots,v_d$ are linearly independent in $V$, then they are a basis of $V$. If the vectors span $V$, they also form a basis.
+
+This is because any $LI$ subset of $V$ can be enlarged into a basis. Thus the collection of $d$ elements in $V$ clearly forms a basis for $V$. Replace enlarge with shrink and you have a second proof.
+
+::: {.callout-note icon="false"}
+## Definition 4.1.1
+
+For $v,w$ subspaces of $\mathbb{R}^\ell$, $V + W$ is defined to be 
+$\text{Span}(V \cup W)$. 
+:::
+
+If $V \cap W = \{0\}$,then the dimesnions of $v + w$ is the dimesnion of $v$ plus the dimension of $w$. The union of any two bases is a basis. Thus the set $\{v_1,w_e\}$ Spans $V + W$
+
+
+Suppose $c_1v_1 \cdots c_d v_d + b_1 w _ e + \cdots b_ew_e$.
+
+::: {.callout-note icon="false"}
+## Definition 4.1.1
+
+When $V \cup W = 0$. we then denote the sum $V + W$ as a direct sum, and use a circle around the plus sign.
+:::
+
+::: {.callout-note icon="false"}
+## Theorem
+
+Say that the dimension $v = d$, and know that $V^\perp$ has dimension $\ell - d$. Thus $V \intersect V^\perp = \varnothing$.
+:::
+
+Remember that matrix theory doesn't work over complex numbers.
+
+For problem 14 on the homework, assume that $v$ and $w$ are subspaces of $\mathbb{R}^\ell$. Find the basis of $V \ cap W$.
+
+Form $A$ such that the column space is $V + W$, and the rank being the dimensoo. We can construct the Nullspace by using a basis. Thus A is a
+
+We can take a basis of $V \+ W$ amd send it to a basis in order to get a result of dimension V \cup W = the dimension of the Null space of $A$. The rank of V + w + V \cup W = dim V plus dim W,=.
+
+
+## Section 4.2 Projections
+
+Four subspaces for the rank $1$ simple Matrix
+
+$$
+A = \begin{pmatrix}
+1 & 0\\
+0 & 0  
+\end{pmatrix}
+$$
+
+A three dimensional shadow can be visualized
+$$
+A = \begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 0 
+\end{pmatrix}
+$$
+
+The projection of $b$ onto the line created by the vector $a$ is
+
+$$
+P_ab = \mu a
+$$
+
+For some $\mu$. Note that because the perpindicular lines are zero.
+
+$$
+a \cdot P_ab = a \cdot \mu a
+$$
+
+Therefore
+
+$$
+P_ab = \frac{a \cdot b}{a \cdot a}a = \frac{a a^T b}{a^Ta}
+$$
+
+$$
+P_a = \frac{aa^T}{a^Ta}
+$$
+
+Let a = $(1,2)$
+
+$$
+P_a = \frac{1}{5}\{\}
+$$
+
+For homework problems $5,7$, if $a_1 \perp a_2$, then $P_{a_1} + P_{a_2}$ is equal to the projection of the span. In $\mathbb{R}^3$, if you have three orthogonal vectors, then the three projections are equal to the identity matrix.
+
+## Section 4.5
+
+Suppose we have a matrix $A_{m,n}$. This acts as a function mapping $\mathbb{R}^n$ to $\mathbb{R}^m$.
+
+::: {.callout-note icon="false"}
+## Fact
+
+A matrix $A$ maps $\text{RowSp}(A)$ bijectivly to $\text{ColSp}(A)$.
+:::
+
+::: {.callout-note icon="false"}
+## Proposition
+
+Suppose $x_1,\ldots,x_r$ is a basis of $\text{RowSp}(A)$. Then $Ax_1,\ldots,Ax_r$ is a basis of $\text{ColSp}(A)$. 
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+
+Suppose $c_1Ax_1,\ldots,c_rAx_r = 0$. then
+
+$$
+A(c_1x_1,\ldots,c_rx_r) = 0
+$$
+
+All $c_i$ must be zero as $x_1,\ldots,x_r$ is a basis. Thus $Ax$ is independent.
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+The [**pseudoinverser**]{style="color: blue"} of $A$, $A^+$ is basically
+
+$$
+A|_{\text{RowSp}(A)} \colon \text{RowSp}(A) \to \text{ColSp}(A)
+$$
+
+:::
+
+Note that when we multiply $A^+A$, we get an $n\times n$ matrix. Lets look at what happens to each subspace under $A^+A$.
+
+The Null space disapears, as $A$ maps $\text{NullSp}(A) \to 0$. The row space is restored. Thus we have an interesting map
+
+$$
+A^+A|_{\text{Row(A)}} = P_{\text{Row}(A)}
+$$
+
+We also have
+
+$$
+AA^A|_{\text{Col(A)}} = P_{\text{Col}(A)}
+$$
+
+Somewhat suprisingly, $(A^+)^+ = A$. Every subspace of $A$ is the same under $A^T$ and $A^+$.
+
+::: {.callout-warning icon="false"}
+## Example
+
+If $A_{(n\times n)}$ is invertible, Then
+
+$$
+A^+ = A^{-1}.
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Example
+
+Let 
+
+\begin{align*}
+A = 
+\begin{pmatrix}
+0 & 2\\
+0 & 0
+\end{pmatrix}
+\end{align*}
+
+Then
+
+\begin{align*}
+A = 
+\begin{pmatrix}
+0 & 0\\
+\frac{1}{2} & 0
+\end{pmatrix}
+\end{align*}
+
+Note that 
+
+\begin{align*}
+AA^+ = 
+\begin{pmatrix}
+1 & 0\\
+0 & 0
+\end{pmatrix}= P_{\text{Col}(A)}
+\end{align*}
+
+:::
+
+::: {.callout-warning icon="false"}
+## Example
+
+Let 
+
+\begin{align*}
+A = 
+\begin{pmatrix}
+a & 0\\
+0 & 0\\
+0 & b
+\end{pmatrix}
+\end{align*}
+
+
+:::

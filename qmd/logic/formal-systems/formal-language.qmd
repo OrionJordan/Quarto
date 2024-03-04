@@ -1,0 +1,143 @@
+---
+title: "Formal languages"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+To begin with constructing a formal system, we need to first need to know what symbols our logic will be using, and how to connect them. These properties are given by a [**formal language**]{style="color: blue"}.
+
+[**Symbols**]{style="color: blue"}, are individual elements used in a language. These symbols concatenate to form [**formulas**]{style="color: blue"} (sometimes called *words* or *sentences*). The collection of all symbols and formulas in a language, is called an [**alphabet**]{style="color: blue"}.
+
+A formal language is often given a *syntax*, rules for how symbols can be combined. If a formula can be constructed using the syntax attributed to the language, it is called a [**well-formed formula**]{style="color: blue"}, often abbreviated *wff*.
+
+With these definitions, we define a
+
+::: {.callout-note icon="false"}
+## Definition
+
+A formal language $\mathcal{L}$ over an alphabet $A$ is a subset of $A$ consisting of all well-formed formula, as defined by some syntax.
+:::
+
+::: {.callout-warning icon="false" collapse="false"}
+## Example
+
+In order to get more familiar with formal languages, lets turn English into an (in)formal language.
+
+We start by defining the symbols in English
+
+-   **Letters -** The 26 letters in the Latin Alphabet
+
+-   **Punctuation -** Punctation marks like ?, !, and hyphens. (Many more not included)
+
+These symbols can be concatenated to form sentences, such as
+
+$$
+\text{"The quick brown fox jumped over the lazy dog".}
+$$
+
+But without a proper syntax, we would also get sentences like
+
+$$
+\text{"dwahaiyw.dwa??!dawiuh".}
+$$
+
+To prevent this, we'll have our syntax be the rules of English grammar. This gives us a vocabulary, nouns and verbs, and all that good stuff. We can still, however, construct nonsense sentences. For example[^1]
+
+$$
+\text{"Colorless green ideas sleep furiously".}
+$$
+
+This is a common example to show that *syntax*, the formation of formula, has nothing to do with *semantics*, the meaning or truth of a sentence.
+:::
+
+[^1]: This example was given by Noam Chomsky in his thesis [The logical structure of linguistic theory](https://en.wikipedia.org/wiki/The_Logical_Structure_of_Linguistic_Theory)
+
+## First order languages
+
+For a more in-depth look at a formal language, lets take a dive into [**first-order language**]{style="color: blue"}. I'll use the slightly obscure notation used in [Ebbinghaus, Flum, Thomas], as I personally feel they take a very formal approach to developing a formal language.
+
+The alphabet of a first-order language has the following symbols
+
+-   **Connectives -** $\land, \lor, \rightarrow, \leftrightarrow, \lnot$
+
+-   **Quantifiers -** $\forall, \exists$
+
+-   **Variables -** $v_1$,$v_2$,$v_3, \cdots, v_n$
+
+-   **Equality -** The equal sign '$=$'
+
+-   **Parentheses -** Right $)$ and left $($.
+
+-   **Operations -** A first-order language can consist of any amount of countable operations (functions) $f$ of any order.
+
+-   **Relations -** A first-order language can consist of any amount of countable relations $p$ of any order.
+
+-   **Constants -** $c_0$, $c_1$, $c_2$ ect. A first-order language may consist of any countable amount of constants.
+
+For readability sake, parenthesis occur in different sizes, or occasionally as brackets. Commas are also inserted to make formulas easier to read, but are not a formal symbol.
+
+The first five groups listed are denoted $\mathbb{A}$, and $S$ denotes the unique operations, relations, and constants in the language. The set $S$ determines the unique first-order language. We denote the shared alphabet $\mathbb{A}_S = \mathbb{A} \cup S$.
+
+Now we can begin constructing the syntax for first-order languages. We start by defining terms
+
+::: {.callout-note icon="false"}
+## Definition
+
+[**S-terms**]{style="color: blue"} are strings in $\mathbb{A}_S$ which can be formed by the finite application of the following rules
+
+$(T1)$ Every variable is an $S$-term.
+
+$(T2)$ Every constant is an $S$-term.
+
+$(T3)$ If $f$ is an operator of degree $n$ in $S$, and $t_1,t_2,\dots,t_n$ are $S$-terms, then $ft_1,t_2,\dots,t_n$ is an $S$-term.
+:::
+
+The set of all $S$-terms is denoted $T^S$. Through repeated applications of the three rules above, we can create larger terms. For example
+
+```{=tex}
+\begin{alignat*}{2}
+& c_1 & \quad &(T2)\\
+& v_1    &\quad &(T1)\\
+& gc_1v_1   &\quad &(T3) \text{ with $c_1$ and $v_1$ applied to $g$}
+\end{alignat*}
+```
+So $gc_1v_1$ is an $S$-term. Most of the time this is wrote $g(c_1,v_1)$, but to keep things formal we'll use the objectively worse notation for now. We will however introduce shorthand later. Now that we have $S$-terms, we can start creating formulas.
+
+::: {.callout-note icon="false"}
+## Definition
+
+[**S-formulas**]{style="color: blue"} are strings in $\mathbb{A}_S$ which can be formed by the finite application of the following rules
+
+$(F1)$ If $t_1$ and $t_2$ are $S$-terms, then $t_1 = t_2$ is an $S$-formula.
+
+$(F2)$ If $p$ is a relation of degree $n$ in $S$, and $t_1,t_2,\dots,t_n$ are $S$-terms, then $pt_1,t_2,\dots,t_n$ is an $S$-formula.
+
+$(F3)$ If $\phi$ is an $S$-formula, then $\lnot\phi$ is also an $S$-formula.
+
+$(F4)$ If $\phi$ and $\psi$ are $S$-formulas, then $(\phi \land \psi)$, $(\phi \lor \psi)$, $(\phi \rightarrow \psi)$, $(\phi \leftrightarrow \psi)$ are also $S$-formulas.
+
+$(F5)$ If $\phi$ is an $S$-formula, and $x$ is a variable, then $\forall x \phi$ and $\exists x \phi$ are also $S$-formula.
+:::
+
+$S$-formula formed from $(F1)$ or $(F2)$ are known as [**atomic formula**]{style="color: blue"} as they don't use any other formula in their language. Note that an $S$-formula is simply another word for a wff.
+
+We can now introduce some new vocabulary
+
+::: {.callout-note icon="false"}
+## Definition
+
+Given the $S$-formulas (wffs) $\phi, \psi$ we have the following vocabulary
+
+- $\lnot \varphi$ is called the *negation* of $\phi$
+- $(\phi \land \psi)$ is called the *conjunction* of $\phi$ and $\psi$
+- $(\phi \lor \psi)$ is called the *disjunction* of $\phi$ and $\psi$
+- $(\phi \rightarrow \psi)$ is called the *implication* of $\phi$ and $\psi$
+- $(\phi \leftrightarrow \psi)$ is called the *bi-implication* of $\phi$ and $\psi$
+
+:::
+
+We denote the set of $S$-formulas with $\mathcal{L}^S$. This set is called the first-order language associated with the symbol set $S$. And just like that we've created a first-order lanaguage! Lot's of rather tricky notation, but the overall concept is no different than our example in the beginning. 
+
+It is worht nothing that the collection of all first-order languages is denoted $\mathcal{L}_1$, and it will be a commonly used example.

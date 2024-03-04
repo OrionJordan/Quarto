@@ -1,0 +1,539 @@
+---
+title: "Subgroups"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Subgroups are subsets of groups which are also groups in their own right.
+
+## Definition and Properties
+
+::: {.callout-note icon="false"}
+## Definition
+
+Let $(G,\star)$ be a group. A [**subgroup**]{style="color: blue"} of $G$ is a subset $H \subseteq G$ such that
+
+- $e \in H$
+- $x,y \in H \implies x \star y \in H$
+- $x \in H \implies x^{-1} \in H$
+:::
+
+A subgroup $H$ of $G$ is merely a subset $H$ of $G$ such that $H$ is a group under the same operation.
+
+If $H$ is a subgroup of $G$, we write
+
+$$
+H \leq G
+$$
+
+::: {.callout-warning icon="false"}
+## Example
+
+Let $G$ be the group $(\mathbb{Q},+)$. We previously showed that $(\mathbb{Z},+)$ was a group. Because $\mathbb{Z} \subseteq \mathbb{Q}$, we have
+
+$$
+(\mathbb{Z},+) \leq (\mathbb{Q},+)
+$$
+
+:::
+
+Trivially, if $G$ is a group, $H = G$ and $H = e_G$ are both subgroups of $G$.
+
+::: {.callout-warning icon="false"}
+## Example
+
+A slightly harder example, if $m \in \mathbb{Z}$, then
+
+$$
+m\mathbb{Z} := \{ma \mid a \in \mathbb{Z}\} \leq (\mathbb{Z},+).
+$$
+
+Lets define
+
+$$
+\mathbb{Z}^+ := \{n \in \mathbb{Z} \mid n > 0\}.
+$$
+
+It is clear that 
+
+$$
+(\mathbb{Z}^+,+) \not \leq (\mathbb{Z},+),
+$$
+
+As $\mathbb{Z}^+$ has no identity element, or any inverses.
+:::
+
+The relation $\leq$ (is subgroup of) is transitive. The relation is also reflexive, but the relation is not symmetric. 
+
+::: {.callout-note icon="false"}
+## Proposition
+
+If $H, K$ are both subgroups of $G$, then $H \cap K$ is a subgroup of $G$.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof (FINISH)
+
+We can prove that $H \cap K$ fufills the three properties of being a subgroup.
+
+$$
+(1)\, e \in H, e \in K \implies e \in H \cap K
+$$
+
+$$
+(2)\,x,y \in H \cup K \implies x \star y \in H \cup
+$$
+
+:::
+
+There is a simpler way however to check if a group $H$ is a subgroup of $G$, called the *Subgroup criterion*.
+
+::: {.callout-note icon="false"}
+## Theorem (Subgroup criterion)
+
+A group $H$ is a subgroup of $G$ if 
+
+- $H \not = \varnothing$
+- $x,y \in H \implies x \star y^{-1} \in H$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof (Subgroup criterion)
+
+If $H$ is a subgroup of $G$ then $e \in H$, thus $H \not = \varnothing$, and if $x,y \in H$, then $y^{-1}$ is in $H$. Thus $x \star y^{-1}$ is in $H$.
+
+Now if $H$ satisfies the two properties, we have some $x \in H$, as $H$ is not empty. If $y = x$, then 
+
+$$
+x,x \in H \implies x \star x^{-1} \in H \implies e \in H
+$$
+
+And then with $e,x$
+
+$$
+e,x \in H \implies e \star x^{-1} \in H \implies x^{-1} \in H
+$$
+
+If $x,y \in H$ then $y^{-1} \in H$. Thus 
+
+$$
+x,y^{-1} \in H \implies x \star (y^{-1})^{-1} \in H \implies x \star y \in H
+$$
+
+So $H$ is a group.
+
+:::
+
+## Centralizers, Normalizers, Center
+
+::: {.callout-note icon="false"}
+## Definition 
+
+Let $A$ be a subset of a group $G$.
+
+The [**Centralizer**]{style="color: blue"} of $A$ in $G$ is a set of elements of $G$ that commute with all elements of $A$.
+
+$$
+C_G(A) = \{g \in G \mid gag^{-1} = a, \; \forall a \in A\}
+$$
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 
+The centralizer of a subset $A$ of $G$ is a subgroup of $G$.
+$$
+C_G(A) \leq G
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof 
+
+We know
+
+$$
+e \in C_G(A)
+$$
+
+Thus we can fufill the first property of a subgroup $C_G(A) \not = \varnothing$. Now, let $x,y \in C_G(A)$. We see
+
+$$
+y^{-1}yayy^{-1} = y^{-1}ay
+$$
+
+$$
+a = y^{-1}ay = y^{-1}a(y^{-1})^{-1}
+$$
+
+Thus $y^{-1} \in C_G(A)$.
+
+Now we wish to show $xy \in C_G(A)$
+
+$$
+(xy)a(xy)^{-1} = xyay^{-1}x^{-1}
+$$
+
+Because $x,y \in C_G(A)$, we have $xy \in C_G(A)$. Thus
+
+$$
+C_G(A) \leq G
+$$
+
+:::
+
+Attempting to give an explanation, the centralizer is an operation which when given a set $G$, and a subset $A \subset G$, gives all elements of $A$ which commute with every element in $G$.
+
+::: {.callout-note icon="false"}
+## Definition 
+
+The [**center**]{style="color: blue"} of $G$ is defined
+
+$$
+Z(G) = \{g \in G \mid gx = xg,\, \forall x \in G\}
+$$
+
+:::
+
+The center of $G$ is the centralizer where $A = G$. Clearly Then
+
+$$
+Z(G) = C_G(G)
+$$
+
+$$
+Z(G) \leq G
+$$
+
+::: {.callout-note icon="false"}
+## Notation 
+
+Let $A$ be a subset of a group $G$, such that $g \in G$. 
+
+$$
+gAg^{-1} = \{gag^{-1} \mid a \in A\}
+$$
+
+:::
+
+Note that $gag^{-1}$ does not neccessarily have to equal $a$. Given two elements $a,b \in A$, such that
+$$
+gag^{-1} = b\quad gbg^{-1} = a
+$$
+
+We would still write $gAg^{-1} = A$.
+
+::: {.callout-note icon="false"}
+## Definition 
+
+The [**normalizer**]{style="color: blue"} of $A$ in $G$ is denoted
+
+$$
+N_G(A) = \{g \in G \mid gAg^{-1} = A\}
+$$
+
+:::
+
+Note that $C_G(A) \leq N_G(A)$.
+
+If $G$ is abelian, then 
+
+$$
+Z(G) = G, \quad C_G(A) = G, \quad N_G(A) = G
+$$
+
+::: {.callout-warning icon="false"}
+## Example (CHECK)
+
+Let $G = D_8$, and our subset $A = \{e,r,r^2,r^3\}$.
+
+We want to find $C_{D_8}$
+
+We know that $A \subset C_{D_8}(A)$ because rotations are commutative, that meaning
+
+$$
+r^ir^j = r^{i+j} = r^{j+i} = r^jr^i
+$$
+
+We know that $sr \not = rs$, so $s\not \in C_{D_8}(A)$. We now need to check the remaining elements of $D_8$, $sr,sr^2,sr^3$.
+
+Because $C_{D_8}(A) \leq D_8$ we have
+
+$$
+sr^i \in C_{D_8}(A) \implies sr^ir^{-1} = s \in C_{D_8}
+$$
+
+Which is a contradiction, thus
+
+$$
+C_{D_8}(A) = A
+$$
+
+Now lets find $N_{D_8}(A)$.
+
+Because $C_{D_8} \leq N_{D_8}$, we know $A \subseteq N_{D_8}(A)$. We have then
+
+$$
+sAs^{-1} = \{ses^{-1},srs^{-1},sr^2s^{-1},sr^3s^{-1}\}
+$$
+
+Take as a fact $r^is = sr^{-1}$. Thus
+
+$$
+sAs^{-1} = \{e,r^3,r^2,r\}
+$$
+
+Thus $s \in N_{D_8}$. We need now check $sr^i$. Because $N_{D_8}(A) \leq D_8$, we have that $sr^i$ is in the normalizer. Thus
+
+$$
+N_{D_8}(A) = D_8
+$$
+
+We now wish to find the center of $D_8$. Since
+
+$$
+Z(D_8) \leq C_{D_8}(A)
+$$
+
+We know that $Z(D_8) \subseteq A$.
+
+We can check these four elements of $A$ to see if their commutative with everything. We have
+
+$$
+rs = sr^{-1} \not =sr 
+$$
+
+Thus $r$ is not commutative with $s$, and is not in the center. 
+
+$$
+r^2s = sr^{-2} = sr^2
+$$
+
+So $r^2$ commutes with $s$. Now we check if it commutes with $sr^i$.
+
+$$
+r^2sr^i = sr^{-2}r^i = sr^ir^{-2}
+$$
+
+Thus our center is
+$$
+Z(D_8) = \{e,r^2\}
+$$
+
+:::
+
+## Cyclic groups (REWRITE)
+
+::: {.callout-note icon="false"}
+## Definition 
+
+A group $H$ is called [**cyclic**]{style="color: blue"} if it is generated by one element. We denote $H$
+
+$$
+H = \langle x \rangle = \{x^n \mid n \in \mathbb{Z}\}
+$$
+
+$x$ is called a [**generator**]{style="color: blue"} 
+
+:::
+
+For example, $(\mathbb{Z},+)$
+
+$$
+\langle 1 \rangle = \{+(n,1) \mid n\in \mathbb{Z}\}
+$$
+
+But also
+
+$$
+\langle -1 \rangle = \{+(n,-1) \mid n\in \mathbb{Z}\}
+$$
+
+::: {.callout-warning icon="false"}
+## Example 
+
+We can find a generator of
+
+$$
+(\mathbb{Z}/n\mathbb{Z},+)
+$$
+
+Using
+
+$$
+\langle [1] \rangle = \{[1],[2],\cdots,[n]\} = \{+(n,[1])\mid n \in \{ 1,2,\cdots,n\}\}
+$$
+
+:::
+
+::: {.callout-note icon="false"}
+## Corollary 
+
+$(1)$ Assume $|x| = \infty$. Then $H = <x^a>$ iff $a = \pm 1$
+
+$(2)$ Assume $|x| = n < \infty$ then $<x^a> = H$ iff $gcd(a,n) = 1$
+
+:::
+
+Notice
+
+$$
+\mathbb{Z}/6\mathbb{Z} = \left<[1]\right>,\left<[5]\right>.
+$$
+
+::: {.callout-warning icon="false"}
+## Example 
+
+All the generators
+
+$$
+(\mathbb{Z}/12\mathbb{Z},+)
+$$
+
+Which are
+
+$$
+\left<[1]\right>,\left<[5]\right>,\left<[7]\right>,\left<[11]\right>
+$$
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 
+
+If $H = \left<x\right>$ is a cyclic groups
+
+($1$) Every subgroup of $H$ is cyclic
+
+($2$) If $|H| = n < \infty$ then for each positive integer a dividing $n$,  there is a unique subgroup of $H$ of order $\left<x^{\frac{n}{a}}\right>$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof 
+
+($1$) Let $K \leq H = \left<x\right>$
+
+If $K = \{1\}$ then done. Otherwise let $a = \min\{K>0\mid x^k\in K\}$. 
+
+The claim is that $K$ is generated by $\left<x^a\right>$. Suppose not. Suppose there is some $x^b \in K$ such that $a\not| \,b$. Thus
+
+$$
+b = aq + r \quad 0 < r < a
+$$
+
+Note that $x^{aq} \in K$. Meaning $x^{-aq} \in K$. Thus $x^{b-aq} \in K$. Thus $x^r \in K$. But because $r$ is less than $a$, and we assumed $a$ to be the smallest power of $x$ in $K$, we have a contradiction. Thus every subgroup of $H$ is cyclic.
+
+($2$) If $H$ has a finite order $n$, we use our previous proposition to note that $|\left<x^\frac{n}{a}\right>| = a$.
+
+:::
+
+::: {.callout-warning icon="false"}
+## Example 
+
+All the subgroups of $\mathbb{Z}/12\mathbb{Z}$ are
+
+Order 12: $\left<[1]\right>$
+
+Order 6: $\left<[2]\right>$
+
+Order 4: $\left<[3]\right>$
+
+Order 3: $\left<[4]\right>$
+
+Order 2: $\left<[6]\right>$
+
+Order 1: $\left<[0]\right>$
+
+:::
+
+## Subsets
+
+Cyclic groups generated by $x$ are the smallest subgroups containing $x$.
+
+::: {.callout-note icon="false"}
+## Proposition 
+
+For any nonempty collection of subgroups of $G$, the intersection of all of them is also a subgroup of $G$.
+
+:::
+
+::: {.callout-note icon="false"}
+## Definition 
+
+If $A$ is any subset of $G$, then
+
+$$
+\left<A\right> = \bigcap \limits_{\substack{H\leq G\\ A \subseteq H}} H
+$$
+
+I.e, the intersection of all subgroups containing $A$. Thus $\left<A\right>$ is the minimal subgroup of $G$ containing $A$.
+
+:::
+
+Another way to define $\left<A\right>$ is by using generators. Say
+
+$$
+\overline{A} = \left\{ a_1^{\varepsilon_1},a_2^{\varepsilon_2},\cdots,a_n^{\varepsilon_n} \mid n + \mathbb{Z},\:n\geq0,\:a_1\in A,\: \varepsilon_i = \pm 1\right\}
+$$
+
+Thus $\overline{A}$ is the set of finite products of elements of $A$ and inverses of these elements.
+
+::: {.callout-note icon="false"}
+## Proposition 
+
+Our definitions are equal. Symbollically
+$$
+\overline{A} = \left< A \right>
+$$
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+
+First we prove that $\overline{A}$ is a group. Then
+
+$\overline{A} \not= \varnothing$ because $A$ always has the identity.
+
+if $a,b \in A$, then 
+
+\begin{align*}
+a &= a_1^{\varepsilon_1}a_2^{\varepsilon_2}\cdots a_n^{\varepsilon_n}\\
+b &= b_1^{\delta_1}b_2^{\delta_2}\cdots a_n^{\delta_n}
+\end{align*}
+
+then 
+
+$$
+a(b^{-1}) = a_1^{\varepsilon_1}a_2^{\varepsilon_2}\cdots a_n^{\varepsilon_n}a_n^{\delta_n}\cdots b_2^{\delta_2}b_1^{\delta_1} \in A
+$$
+
+Thus 
+
+$$
+\overline{A} \leq G
+$$
+
+So $\left<A\right> \subseteq \overline{A}$.
+
+Now we must show $\overline{A} \subseteq \left<A\right>$. This is true because $\left<A\right>$ is closed under multiplication and inverses.
+
+:::
+
+::: {.callout-warning icon="false"}
+## Example 
+
+The subgroup
+
+$$
+\left<(12),(13)(24)\right> \leq S_4
+$$
+
+Fun fact, (it's not) the subset is isomorphic to $D_8$
+
+:::
+

@@ -1,0 +1,200 @@
+---
+title: "First order differential equations"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+A [**first order differential equation**]{style="color: blue"} is an equation in the form
+
+$$
+y^\prime = f(x,y).
+$$
+
+There is no general solution to a first order differential equation, so we'll have to examine special cases .
+
+## Linear Equations
+
+Consider the general first order linear equation,
+
+$$
+y^\prime + p(x)y = g(x),
+$$
+
+where $p(x)$ and $g(x)$ are continous functions on some interval. Lucky for us, a general solution exists!
+
+::: {.callout-note icon="false"}
+## Theorem
+
+The general solution for a first order linear differential equation is
+
+$$
+y = \frac{1}{\mu(x)}\left(\int \mu(x) g(x) dx + C\right)
+$$
+
+where
+
+$$
+\mu(x) = \exp \left(\int p(x) dx\right)
+$$
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+
+We first need to consider a function $\mu(x)$ such that
+
+$$
+\mu(x) p(x) = \mu^\prime (x)
+$$
+
+On the assumption that $\mu(x)$ exists, 
+
+$$
+\mu(x)y^\prime + \mu^\prime(x)y = \mu(x)g(x).
+$$
+
+Notice that the LHS of the equation looks suspiciously like the product rule, so
+
+$$
+(\mu(x)y(x))^\prime = \mu(x)g(x).
+$$
+
+Integrating and swapping some terms around allows us to isolate $y(x)$
+
+$$
+\mu(x)y(x) + C = \int \mu(x)g(x) dx\\
+y(x) = \frac{1}{\mu(x)}\left(\int \mu(x)g(x) dx + C\right)
+$$
+
+Which gives us our general solution! We just need to find an explicit function $\mu(x)$.
+
+$$
+\mu(x)p(x) = \mu^\prime(x)\\
+p(x) = \frac{\mu^\prime(x)}{\mu(x)}
+$$
+
+Notice the RHS is the general solution of the derivative $\ln f(x)$
+
+$$
+p(x) = \left( \ln \mu(x) \right)^\prime\\
+\int p(x) = \ln \mu(x)\\
+\mu(x) = \exp \left( \int p(x) dx \right)
+$$
+
+Thus we have proved out general solution
+
+:::
+
+An [**Initial value problem**]{style="color: blue"} is a first order differential equation together with an [**initial condition**]{style="color: blue"}, for example
+
+\begin{cases} 
+      y^\prime + ay = 0\\
+      y(0) = 2
+\end{cases}
+
+Using the formula we just proved, the solution to the first equation is simply
+
+$$
+y = Ce^{-ax}.
+$$
+
+But when given an initial condition, we have to pick a value of $C$ such that $y(0) = 2$
+
+$$
+y(0) = Ce^{-a0} = C \implies C = 2  
+$$
+
+So we get the answer to our IVP
+
+$$
+y = 2e^{-ax}
+$$
+
+## Seperable Equations
+
+Consider the equation
+
+$$
+M(x) + N(y)y^\prime = 0
+$$
+
+Where $M(x)$ and $N(y)$ are continous functions. Not every first order differential equation can be wrote like this, but if it can, we call the equation [**seperable**]{style="color: blue"}. 
+
+::: {.callout-note icon="false"}
+## Theorem
+
+The implicit solution for a first order seperable differential equation is given by
+
+$$
+\int M(x) dx = \int -N(y) dy
+$$
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+
+We can seperate our equation such that all the $x$ terms are on one side
+
+$$
+M(x) = -N(y)y^\prime \implies M(x) = -N(y)\frac{dy}{dx}
+$$
+
+Integrate both sides by $x$
+$$
+\int M(x) dx = \int -N(y)\frac{dy}{dx} dx
+$$
+
+Use a dummy substitution $u = y(x)$, giving
+
+$$
+du = y^\prime(x) dx = \frac{dy}{dx} dx \\
+\int M(x) dx = \int -N(u) du
+$$
+
+Then for ease of notation, simply let $u = y$
+
+$$
+\int M(x) dx = \int -N(y) dy
+$$
+:::
+
+For example
+
+::: {.callout-warning icon="false"}
+## Example
+
+The equation
+
+$$
+y^\prime =  6y^2x
+$$
+
+can be seperated into
+
+$$
+\frac{y^\prime}{y^2} - 6x =  0.
+$$
+
+Thus, $M(x) = 6x$ and $N(y) = \frac{1}{y^2}$, and we get our implicit solution
+
+$$
+\int -6x dx = \int -\frac{1}{y^2} dy\\
+$$
+$$
+-3x^2 + C = \frac{1}{y}\\
+$$
+
+Which can easily be converted into our explicit solution
+
+$$
+y = \frac{1}{C - 3x^2}
+$$
+
+:::
+
+## Exact Equations
+

@@ -1,0 +1,25 @@
+---
+title: "Banach Mazur game"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+::: {.callout-note icon="false"}
+## Definition
+
+The [**Banach Mazur game**]{style="color: blue"} (on $\mathbb{R}$) is a game with two players. Let $A \subseteq R$. The players take turns playing open sets one after another, with the condition that every open set is a subset of the set last played.
+:::
+
+While this seems like an arbitrary game, it has interesting properties and theorems associated with it.
+
+::: {.callout-note icon="false"}
+## Theorem
+
+For any set $A \in \mathbb{R}$
+
+1.  $A$ is co-meager if and only if Player $2$ has a winning strategy
+2.  $A$ is meager if and only if Player $1$ has a winning strategy
+:::
+

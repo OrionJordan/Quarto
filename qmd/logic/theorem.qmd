@@ -1,0 +1,330 @@
+---
+title: "Formal Theories"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+A [**theory**]{style="color: blue"} is a set of formulas $T$ in a formal language. We can take these theories as axioms, and combine them with a formal system belonging to *first-order logic* to create a [**first-order theory**]{style="color: blue"}.
+
+We're long overdue for an example, so lets examine the two most popular first-order theories, Zermelo-Fraenkel set theory, and Peano arithmetic.
+
+## First-order theories
+
+$ZF$ and $PA$ are two examples of first-order theories. They use different symbols, so they require different languages.
+
+| First-order language | $\mathcal{L}_\text{ZF}$              | $\mathcal{L}_\text{PA}$                                                                |
+|------------------------|------------------------|------------------------|
+| **Connectives**      | $\land, \lor, \implies, \iff, \lnot$ | $\land, \lor, \implies, \iff, \lnot$                                                   |
+| **Quantifiers**      | $\forall, \exists$                   | $\forall, \exists$                                                                     |
+| **Variables**        | $v_1$,$v_2$,$v_3$ ect.               | $v_1$,$v_2$,$v_3$ ect.                                                                 |
+| **Constants**        | $\varnothing$ (the empty set)        | $\overline{0}$ (zero)                                                                  |
+| **Operations -**     | None                                 | $S$ (successor, degree 1) $+$ (addition, degree 2), $\cdot$ (multiplication, degree 2) |
+| **Relations -**      | $\in$ (belongs to, degree 2)         | $=$ (equality, degree 2)                                                               |
+| **Parentheses -**    | $)$, $($                             | $)$, $($                                                                               |
+
+Both languages have the same syntax for combining symbols into formulas. They also use the same deductive system (any system equivalent to the example shown in the last section). We'll delve deeper into Zermelo-Fraenkel set theory later, so we'll examine Peano arithmetic as the example for the rest of the section.
+
+Peano arithmetic is a first-order theory, so it combines our formal system with a theory, consisting of formulas we define to be true.
+
+::: {.callout-tip icon="false"}
+## Axioms in Peano arithmetic
+
+The first six axioms listed are rather simple. Note that $\overline{0} \not = 0$, as $\overline{0}$ is a formal symbol, not a number.
+
+**A1**. $\forall x \,(\overline{0} \not = S(x))$
+
+**A2**. $\forall x,y \,(S(x) = S(y) \rightarrow x = y)$
+
+**A3**. $\forall x \,(x + \overline{0} = x)$
+
+**A4**. $\forall x \forall y \,(x + S(y) = S(x + y))$
+
+**A5**. $\forall x \,(x \cdot \overline{0} = \overline{0})$
+
+**A6**. $\forall x,y \,(x \cdot S(y) = x \cdot y + x)$
+
+However, the seventh axiom poses a problem for first-order logic. We want an axiom allowing us to use induction. For this we'll have to use something called an [**axiom schema**]{style="color: blue"}, an infinite list of axioms, one for each formula $\phi$ which can be constructed in $PA$.
+
+**A7**. $[\phi(\overline{0}) \land \forall n (\phi(n) \rightarrow \phi(S(n)))] \rightarrow \forall n \phi(n)$
+:::
+
+This has two drawbacks. The first of which being $PA$ is not [**finite axiomatizable**]{style="color: blue"}, meaning we need an infinite amount of axioms to define $PA$. This is annoying, but such is life. The second and more serious drawback is as follows. Each formula $\phi$ can be thought of a set of numbers $n$ such that $\phi(n)$ is true. There exist an uncountable amount of sets $n$, but only a countable amount of formulas $\phi$ can be constructed. Therefore, our induction may prove inadequate for some theorems. This can rectified with [**second-order logic**]{style="color: blue"}, which will be discussed later.
+
+## Formal proofs
+
+Now that we have knowledge of what a first-order theory is, lets look at how to prove statements with them. We first need to give the definition of what a proof.
+
+::: {.callout-note icon="false"}
+## Definition
+
+Let $T$ be a set of first-order formulas. A [**proof**]{style="color: blue"} from $T$ is a finite sequence of formulas such that every step is either a logical axiom, a member of $T$, or a result of one of our rules of inference. A proof a formula $P$ from $T$ is given when $P$ is the last step of a proof from $T$.
+:::
+
+If we can prove $P$ from a theory $T$, we say $T$ proves $P$, denoted $T \vdash P$
+
+::: {.callout-note icon="false"}
+## Definition
+
+If $\varnothing \vdash P$, then $P$ is derivable from only our deductive apparatus, and we call $P$ a [**law of logic**]{style="color: blue"}.
+
+Two formulas $P$ and $Q$ are called [**logically equivalent**]{style="color: blue"} if $\vdash (P \leftrightarrow Q)$
+:::
+
+We denote the set of theorems (statements provable from $T$) in $T$ as $Thm(T)$.
+
+::: {.callout-note icon="false"}
+## Definition
+
+If $Thm(T_1) \subseteq Thm(T_2)$, which is the same as $T_2 \vdash T_1$, we say that $T_1$ is a [**subtheory**]{style="color: blue"} of $T_2$, and $T_2$ is an [**extension**]{style="color: blue"} of $T_1$. If $Thm(T_1) = Thm(T_2)$ then $T_1$ and $T_2$ are equivalent.
+:::
+
+Lots of boring and tedious notation, but such is life. The great thing about proofs is that they are [**computable**]{style="color: blue"}, meaning there exist a machine, i.e. computer program, that can verify the validity of any proof. This does not mean that a computer can create a proof however, just that given one, they can check its accuracy.
+
+One of the great things about first-order logic is that provability and truth are equivalent. That is, if there exist a formula $P$, we can construct it from $T$ with a proof, if and only if $P$ and all statements in $T$ are true!
+
+::: {.callout-note icon="false"}
+## Definition
+
+We say a theory $T$ is [**consistent**]{style="color: blue"} if no contradiction can be derived from it. A formula $P$ is said to be [**independent**]{style="color: blue"} of $T$ if neither $P$ nor $\lnot P$ can be proved from $T$. We call $T$ [**complete**]{style="color: blue"} if no *sentence* (formula with no free variables) of its language is independent of $T$.
+:::
+
+## Metatheorems
+
+Metatheorems are theorems about first-order logic. The following two metatheorems are the most notable.
+
+::: {.callout-note icon="false"}
+## Theorem (Deduction Theorem)
+
+If $T \cup \{P\} \vdash Q$ then $T \vdash (P \rightarrow Q)$
+:::
+
+Which means, if $T$ and $P$ prove $Q$, then $T$ proves that $P$ implies $Q$.
+
+::: {.callout-note icon="false"}
+## Theorem (Universal generalization)
+
+If $T \vdash P(x)$, and $x$ is not a free variable, then $T \vdash \forall x \,P(x)$
+:::
+
+## Example
+
+Below is an example of a formal proof done in $PA$. Note the immense amount of pain that went into crafting it.
+
+::: {.callout-note icon="false"}
+## Lemma (Conjunction introduction)
+
+```{=tex}
+\begin{alignat*}{2}
+&\vdash A          &\quad &\textbf{}\\
+&\vdash B          &\quad &\textbf{}\\
+&\vdash A \land B          &\quad &\textbf{Conjunction introduction}\\
+\end{alignat*}
+```
+This will be assumed true.
+:::
+
+::: {.callout-note icon="false"}
+## Lemma (Symmetry of equality)
+
+```{=tex}
+\begin{alignat*}{2}
+&\vdash \forall x \forall y (x = y \rightarrow y = x)          &\quad &\textbf{Symmetry of equality}\\
+\end{alignat*}
+```
+This will be assumed true.
+:::
+
+::: {.callout-note icon="false"}
+## Lemma (Transitivity of equality)
+
+```{=tex}
+\begin{alignat*}{2}
+&\vdash \forall x \forall y \forall z (x = y \rightarrow (y = z \rightarrow x = z))          &\quad &\textbf{Transitivity of equality}\\
+\end{alignat*}
+```
+This will be assumed true.
+:::
+
+::: {.callout-note icon="false"}
+## Lemma (Conjunction introduction)
+
+```{=tex}
+\begin{alignat*}{2}
+&\vdash A          &\quad &\textbf{}\\
+&\vdash B          &\quad &\textbf{}\\
+&\vdash A \land B          &\quad &\textbf{Conjunction introduction}\\
+\end{alignat*}
+```
+This will be assumed true.
+:::
+
+::: {.callout-note icon="false"}
+## Theorem (Commutative property of addition)
+
+$PA \vdash \forall x \forall y\,(x + y = y + x)$
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+
+We'll prove the theorem through induction on $x$. By axiom **A7** we want to show
+
+$(1)\quad PA \vdash \forall y\,(\overline{0} + y = y + \overline{0})$
+
+$(2)\quad PA \vdash \forall y\,(x + y = y + x) \rightarrow \forall y\,(S(x) + y = y + S(x))$
+
+We start by proving $(1)$. We'll first prove the statement
+
+$PA \vdash \forall y\,(\overline{0} + y = y)$.
+
+By axiom **A7** we want to show
+
+$(1.1) \quad PA \vdash (\overline{0} + \overline{0} = \overline{0})$
+
+$(1.2) \quad PA \vdash (\overline{0} + y = y) \rightarrow (\overline{0} + S(y) = S(y))$
+
+We can prove $(1.1)$
+
+```{=tex}
+\begin{alignat*}{2}
+PA &\vdash \forall x(x + \overline{0} = x)          &\quad &\textbf{A3}\\
+PA &\vdash \forall x(x + \overline{0} = x) \rightarrow (\overline{0} + \overline{0} = \overline{0})          &\quad &\textbf{Q5}\\
+PA &\vdash (\overline{0} + \overline{0} = \overline{0})          &\quad &\textbf{Modus ponens}\\
+\end{alignat*}
+```
+To prove $(1.2)$, let $\phi$ be the formula $(\overline{0} + y = y)$
+
+```{=tex}
+\begin{alignat*}{2}
+PA \cup \phi &\vdash (\overline{0} + y = y)          &\quad &\text{}\\
+PA \cup \phi &\vdash \forall x \forall y (x + S(y) = S(x + y))          &\quad &\textbf{A4}\\
+PA \cup \phi &\vdash \forall x \forall y (x + S(y) = S(x + y)) \rightarrow \overline{0} + S(y) = S(\overline{0} + y)         &\quad &\textbf{Q5}\\
+PA \cup \phi &\vdash \overline{0} + S(y) = S(\overline{0} + y)         &\quad &\textbf{Modus ponens}\\
+PA \cup \phi &\vdash \overline{0} + y = y \rightarrow S(\overline{0} + y) = S(y)          &\quad &\textbf{I9}\\
+PA \cup \phi &\vdash S(\overline{0} + y) = S(y)          &\quad &\textbf{Modus ponens}\\
+PA \cup \phi &\vdash \overline{0} + S(y) = S(y)          &\quad &\textbf{Transitivity of equality}\\
+PA &\vdash (\overline{0} + y = y) \rightarrow (\overline{0} + S(y) = S(y))&\quad &\textbf{Deductive theorem}\\
+\end{alignat*}
+```
+Let $\phi_{1.1}$ be $(\overline{0} + \overline{0} = \overline{0})$ and $\phi_{1.2}$ be $(\overline{0} + y = y) \rightarrow (\overline{0} + S(y) = S(y))$
+
+```{=tex}
+\begin{alignat*}{2}
+PA &\vdash (\overline{0} + \overline{0} = \overline{0})          &\quad &\textbf{1.1}\\
+PA &\vdash (\overline{0} + y = y) \rightarrow (\overline{0} + S(y) = S(y))          &\quad &\textbf{1.2}\\
+PA &\vdash \phi_{1.1} \land \phi_{1.2}          &\quad &\textbf{Conjunction introduction}\\
+PA &\vdash (\phi_{1.1} \land \phi_{1.2}) \rightarrow \forall y (\overline{0} + y = y)&\quad &\textbf{A7}\\
+PA &\vdash \forall y (\overline{0} + y = y)&\quad &\textbf{Modus ponens}\\
+\end{alignat*}
+```
+Now we prove the equivalence to $(1)$.
+
+```{=tex}
+\begin{alignat*}{2}
+PA &\vdash \forall x (x + \overline{0} = x)    &\quad &\textbf{A3}\\
+PA &\vdash \forall x (x + \overline{0} = x) \rightarrow y + \overline{0} = y   &\quad &\textbf{Q5}\\
+PA &\vdash y + \overline{0} = y   &\quad &\textbf{Modus ponens}\\
+PA &\vdash y = y + \overline{0}   &\quad &\textbf{Symmetry of equality}\\
+PA &\vdash \forall y (\overline{0} + y = y) \rightarrow \overline{0} + y = y &\quad &\textbf{Q5}\\
+PA &\vdash \overline{0} + y = y   &\quad &\textbf{Modus ponens}\\
+PA &\vdash \overline{0} + y = y + \overline{0}   &\quad &\textbf{Transitivity of equality}\\
+PA &\vdash \overline{0} + y = y + \overline{0} \rightarrow \forall y \, (\overline{0} + y = y + \overline{0})   &\quad &\textbf{Q7}\\
+PA &\vdash \forall y\,(\overline{0} + y = y + \overline{0})   &\quad &\textbf{Modus ponens}\\
+\end{alignat*}
+```
+Now we can prove $(2)$. We'll start by proving a prerequisite
+
+$PA \vdash \forall y \,(S(x) + y = S(x + y))$
+
+By **A7** we want to show
+
+$(2.1) \quad PA \vdash S(x) + \overline{0} = S(x + \overline{0})$
+
+$(2.2) \quad PA \vdash S(x) + y = S(x + y) \rightarrow S(x) + S(y) = S(x + S(y))$
+
+We can first prove (2.1)
+
+```{=tex}
+\begin{alignat*}{2}
+PA &\vdash \forall x(x + \overline{0} = x)          &\quad &\textbf{A3}\\
+PA &\vdash \forall x(x + \overline{0} = x) \rightarrow S(x) + \overline{0} = S(x)        &\quad &\textbf{Q5}\\
+PA &\vdash S(x) + \overline{0} = S(x)        &\quad &\textbf{Modus ponens}\\
+PA &\vdash \forall x(x + \overline{0} = x)          &\quad &\textbf{A3}\\
+PA &\vdash \forall x(x + \overline{0} = x) \rightarrow x + \overline{0} = x        &\quad &\textbf{Q5}\\
+PA &\vdash x + \overline{0} = x        &\quad &\textbf{Modus ponens}\\
+PA &\vdash x + \overline{0} = x \rightarrow S(x + \overline{0}) = S(x)      &\quad &\textbf{I9}\\
+PA &\vdash S(x + \overline{0}) = S(x)        &\quad &\textbf{Modus ponens}\\
+PA &\vdash S(x) = S(x + \overline{0})        &\quad &\textbf{Symmetry of equality}\\
+PA &\vdash S(x) + \overline{0} = S(x + \overline{0})        &\quad &\textbf{Transitivity of equality}\\
+\end{alignat*}
+```
+Then $(2.2)$. Let $\psi$ be the formula $(S(x) + y = S(x + y))$
+
+```{=tex}
+\begin{alignat*}{2}
+PA \cup \psi &\vdash S(x) + y = S(x + y)          &\quad &\text{}\\
+PA \cup \psi &\vdash \forall x \forall y(x + S(y) = S(x + y))          &\quad &\textbf{A4}\\
+PA \cup \psi &\vdash \forall x \forall y(x + S(y) = S(x + y)) \rightarrow   S(x) + S(y) = S(S(x) + y)    &\quad &\textbf{Q5}\\
+PA \cup \psi &\vdash S(x) + S(y) = S(S(x) + y)    &\quad &\textbf{Modus ponens}\\
+PA \cup \psi &\vdash \forall x \forall y(x + S(y) = S(x + y))          &\quad &\textbf{A4}\\
+PA \cup \psi &\vdash \forall x \forall y(x + S(y) = S(x + y)) \rightarrow   x + S(y) = S(x + y)    &\quad &\textbf{Q5}\\
+PA \cup \psi &\vdash x + S(y) = S(x + y)    &\quad &\textbf{Modus ponens}\\
+PA \cup \psi &\vdash S(x + y) = x + S(y)    &\quad &\textbf{Symmetry of equality}\\
+PA \cup \psi &\vdash S(x) + y = x + S(y)     &\quad &\textbf{Transitivity of equality}\\
+PA \cup \psi &\vdash S(x) + y = x + S(y) \rightarrow S(S(x) + y) = S(x + S(y))     &\quad &\textbf{I9}\\
+PA \cup \psi &\vdash S(S(x) + y) = S(x + S(y))     &\quad &\textbf{Modus ponens}\\
+PA \cup \psi &\vdash S(x) + S(y) = S(x + S(y))     &\quad &\textbf{Transitivity of equality}\\
+PA &\vdash S(x) + y = S(x + y) \rightarrow S(x) + S(y) = S(x + S(y))     &\quad &\textbf{Deductive theorem}\\
+\end{alignat*}
+```
+Let $(2.1)$ and $(2.2)$ be $\psi_{2.1}$ and $\psi_{2.2}$ respectively.
+
+```{=tex}
+\begin{alignat*}{2}
+PA &\vdash S(x) + \overline{0} = S(x + \overline{0})        &\quad &\textbf{2.1}\\
+PA &\vdash S(x) + y = S(x + y) \rightarrow S(x) + S(y) = S(x + S(y))     &\quad &\textbf{2.2}\\
+PA &\vdash   \psi_{2.1} \land \psi_{2.2}      &\quad &\textbf{Conjunction introduction}\\
+PA &\vdash (\psi_{2.1} \land \phi_{2.2}) \rightarrow \forall y (S(x) + y = S(x + y))&\quad &\textbf{A7}\\
+PA &\vdash \forall y (S(x) + y = S(x + y))&\quad &\textbf{Modus ponens}\\
+\end{alignat*}
+```
+Let this formula be denoted $\pi$
+
+Now we can prove $(2)$. Let $\zeta$ be the formula $\forall y(x + y = y + x)$
+
+```{=tex}
+\begin{alignat*}{2}
+PA \cup \zeta &\vdash \forall y(x + y = y + x)          &\quad &\text{}\\
+PA \cup \zeta &\vdash \forall y (S(x) + y = S(x + y))         &\quad &\pmb\pi\\
+PA \cup \zeta &\vdash \forall y (S(x) + y = S(x + y)) \rightarrow S(x) + y = S(x + y)         &\quad &\textbf{Q5}\\
+PA \cup \zeta &\vdash  S(x) + y = S(x + y)         &\quad &\textbf{Modus ponens}\\
+PA \cup \zeta &\vdash \forall y(x + y = y + x) \rightarrow x + y = y + x         &\quad &\textbf{Q5}\\
+PA \cup \zeta &\vdash x + y = y + x         &\quad &\textbf{Modus ponens}\\
+PA \cup \zeta &\vdash x + y = y + x \rightarrow S(x + y) = S(y + x)        &\quad &\textbf{I9}\\
+PA \cup \zeta &\vdash S(x + y) = S(y + x)        &\quad &\textbf{Modus ponens}\\
+PA \cup \zeta &\vdash S(x) + y = S(y + x)        &\quad &\textbf{Transitivity of equality}\\
+PA \cup \zeta &\vdash \forall x \forall y(x + S(y) = S(x + y))          &\quad &\textbf{A4}\\
+PA \cup \zeta &\vdash \forall x \forall y(x + S(y) = S(x + y)) \rightarrow   y + S(x) = S(y + x)    &\quad &\textbf{Q5}\\
+PA \cup \zeta &\vdash y + S(x) = S(y + x)    &\quad &\textbf{Modus ponens}\\
+PA \cup \zeta &\vdash S(y + x) = y + S(x)   &\quad &\textbf{Symmetry of equality}\\
+PA \cup \zeta &\vdash S(x) + y = y + S(x)   &\quad &\textbf{Transitivity of equality}\\
+PA \cup \zeta &\vdash S(x) + y = y + S(x) \rightarrow \forall y (S(x) + y = y + S(x))   &\quad &\textbf{Q7}\\
+PA \cup \zeta &\vdash \forall y (S(x) + y = y + S(x))   &\quad &\textbf{Modus ponens}\\
+PA &\vdash \forall y(x + y = y + x) \rightarrow \forall y (S(x) + y = y + S(x))   &\quad &\textbf{Deductive theorem}\\
+\end{alignat*}
+```
+And finally, let $\gamma_1$ and $\gamma_2$ be $(1)$ and $(2)$ respectively.
+
+```{=tex}
+\begin{alignat*}{2}
+PA &\vdash \forall y\,(\overline{0} + y = y + \overline{0})          &\quad &\pmb\gamma_1\\
+PA &\vdash \forall y\,(x + y = y + x) \rightarrow \forall y\,(S(x) + y = y + S(x))          &\quad &\pmb\gamma_2\\
+PA &\vdash \gamma_1 \land \gamma_2          &\quad &\textbf{Conjunction introduction}\\
+PA &\vdash (\gamma_1 \land \gamma_2) \rightarrow \forall y \forall x(x + y = y + x)  &\quad &\textbf{A7}\\
+PA &\vdash \forall y \forall x(x + y = y + x) &\quad &\textbf{Modus ponens}\\
+\end{alignat*}
+```
+
+:::

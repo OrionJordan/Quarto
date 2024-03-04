@@ -1,0 +1,16 @@
+---
+title: "Introduction to Mathematical Logic"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Mathematical logic is the study of formal reasoning and logic within mathematical systems. The study of logic typically consists of the construction of a [**formal system**]{style="color: blue"}, and then investigating what statements can be made true or false in that system.
+
+## Table of contents
+
+### Formal Systems
+
+## Formal languages
+## Deductive systems

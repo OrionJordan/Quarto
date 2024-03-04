@@ -1,0 +1,220 @@
+---
+title: "Partial fraction decomposition"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Consider the integral shown below.
+
+$$
+\int{{\frac{{3x + 11}}{{{x^2} - x - 6}}\,dx}}
+$$
+
+Our current methods will not work to evaluate the integral. There is no simple way to apply a substitution or the tabular method. However, if we break up the fraction
+
+$$
+\frac{{3x + 11}}{{{x^2} - x - 6}} = \frac{4}{x - 3} - \frac{1}{x + 2}
+$$
+
+The solution becomes trivial
+
+$$
+\int{{\frac{{3x + 11}}{{{x^2} - x - 6}}\,dx}} = 4\ln |x - 3| - \ln |x + 2| + C.
+$$
+
+Finding ways to break up the fractions is known as [**partial fraction decomposition**]{style="color: blue"}. 
+
+## Method
+
+When given an integral in the form
+
+$$
+\int \frac{P(X)}{Q(X)} \, dx 
+$$
+
+Where $P(x)$ and $Q(x)$ are polynomials such that the degree of $Q(x)$ is higher than the degree of $P(x)$. We can decompose the fraction based on the factors of $Q(x)$. There are four cases for the factors of $Q(x)$.
+
+::: {.callout-tip icon="false" collapse="false"}
+## Decomposition cases
+
+**Case I: Distinct linear factors**
+
+When $Q(x)$ has distinct linear factors, i.e.
+
+$$
+Q(x) = (a_1 x + b_1)(a_2 x + b_2)
+$$
+
+We decompose into the following terms
+
+$$
+\frac{P(x)}{Q(x)} = \frac{A}{a_1x + b_1} + \frac{B}{a_2x + b_2}
+$$
+
+**Case 2: Repeated linear factors**
+
+When $Q(x)$ has repeated linear factors, i.e.
+
+$$
+Q(x) = (a x + b)^k
+$$
+
+We decompose into the following terms
+
+$$
+\frac{P(x)}{Q(x)} = \frac{A_1}{ax + b} + \frac{A_2}{(ax + b)^2} + \cdots + \frac{A_k}{(a x + b)^k}
+$$
+
+**Case 3: Distinct quadratic factors**
+
+When $Q(x)$ has distinct quadratic factors, i.e.
+
+$$
+Q(x) = (a_1 x^2 + b_1x + c_1)(a_2 x^2 + b_2x + c_2)
+$$
+
+We decompose into the following terms
+
+$$
+\frac{P(x)}{Q(x)} = \frac{A_1 + B_1}{a_1 x^2 + b_1x + c_1} + \frac{A_2 + B_2}{a_2 x^2 + b_2x + c_2} 
+$$
+
+**Case 4: Repeated quadratic factors**
+
+When $Q(x)$ has repeated quadratic factors, i.e.
+
+$$
+Q(x) = (a x^2 + bx + c)^k
+$$
+
+We decompose into the following terms
+
+$$
+\frac{P(x)}{Q(x)} = \frac{A_1x + B_1}{a x^2 + bx + c} + \cdots + \frac{A_kx + B_k}{(a x^2 + bx + c)^k}
+$$
+
+:::
+
+Note that $Q(x)$ does not have one case of factors exculsivly. For example
+
+$$
+Q(x) = (a_1x+b_1)(a_2x^2 + b_2x + c_2)^2
+$$
+
+Will decompose into 
+
+$$
+\frac{P(x)}{Q(x)} = \frac{A}{a_1x + b_1} + \frac{Bx + C}{a_2 x^2 + b_2x + c_2} + \frac{Dx + E}{(a_2 x^2 + b_2x + c_2)^2}
+$$
+
+Next we need a method for finding the value of the constants in the numerator.
+
+::: {.callout-tip icon="false" collapse="false"}
+## Evaluating constants
+
+Consider the integral from the beginning
+
+$$
+\int \frac{3x + 11}{x^2 - x - 6} \,dx
+$$
+
+We can now decompose the integrand to obtain
+
+$$
+\frac{3x + 11}{x^2 - x - 6} = \frac{A}{x - 3} + \frac{B}{x + 2}
+$$
+
+The problem is now finding values for the constants $A,B$ which make the relation true. By cross multiplying the right side of the equation we get
+
+$$
+\frac{3x + 11}{x^2 - x - 6} = \frac{A(x + 2) + B(x - 3)}{(x - 3)(x + 2)}
+$$
+
+Which simplifies to
+
+$$
+3x + 11 = A(x + 2) + B(x - 3).
+$$
+
+We can then create a system of equations such that the above expression is always true. This method is long but will always work. The faster method (that isn't always possible) is to find values of $x$ such that the equation reduces. Using the faster method, we obtain
+
+$$
+x = 3 \: : \: 3(3) + 11 = A(3 + 2) + B(3 - 3) \implies A = 4\\
+x = -2 \: : \: 3(-2) + 11 = A(-2 + 2) + B(-2 - 3) \implies B = -1
+$$
+
+Which gives us our final expression
+
+$$
+\frac{3x + 11}{x^2 - x - 6} = \frac{4}{x - 3} - \frac{1}{x + 2}
+$$
+
+Which as shown above, makes the integral trivial to solve.
+
+$$
+\int{{\frac{{3x + 11}}{{{x^2} - x - 6}}\,dx}} = 4\ln |x - 3| - \ln |x + 2| + C.
+$$
+:::
+
+## Examples
+
+::: {.callout-warning icon="false"}
+## Joe Foster (Integration by parts - C3)
+
+Evaluate the following integral
+
+$$
+\int \frac{x^3 + x^2 + 2x + 1}{(x^2 + 1)(x^2 + 2)} \, dx 
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+We can break up the integral as it contains distinct quadratic factors.
+
+$$
+\frac{x^3 + x^2 + 2x + 1}{(x^2 + 1)(x^2 + 2)} =  \frac{Ax + B}{x^2 + 1} + \frac{Cx + D}{x^2 + 2}
+$$
+
+Cross multiplying
+$$
+x^3 + x^2 + 2x + 1 = (Ax + B)(x^2 + 2) + (Cx + D)(x^2 + 1)
+$$
+
+Gives us the following system of equations
+
+```{=tex}
+\begin{array}{ll}
+x^3  & = (A + C)x^3\\
+x^2 & = (B + D)x^2\\
+2x & = (2A + C)x \\
+1 & = (2B + D)
+\end{array}
+```
+Solving the system yields
+
+```{=tex}
+\begin{array}{ll}
+A = 1  & B = 0\\
+C = 0 & D = 1
+\end{array}
+```
+
+This solves our decomposition. We now have to integrate
+
+$$
+\int \frac{x}{x^2 + 1} + \frac{1}{x^2 + 2} \, dx 
+$$
+
+The first term can be solved by the substitution $u = x^2$, and the second term can be evaluated with an $\arctan x$. This gives us
+
+$$
+\int \frac{x^3 + x^2 + 2x + 1}{(x^2 + 1)(x^2 + 2)} \, dx = \frac{1}{2}\ln |x^2 + 1| + \frac{1}{\sqrt{2}} \arctan \left( \frac{x}{\sqrt{2}} \right) + C
+$$
+
+:::
+

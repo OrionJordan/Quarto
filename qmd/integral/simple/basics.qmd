@@ -1,0 +1,359 @@
+---
+title: "Basics"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Integration is the inverse of the differentiation. If $f^\prime(x) = g(x)$, then
+
+$$
+\int g(x)\,dx = f(x) + C.
+$$
+
+Integrals have a property called [**linearity**]{style="color: blue"}. This means they are closed under linear transformations of functions, as shown below.
+
+$$
+\int \alpha f(x) + \beta g(x) \,dx = \alpha \int f(x) \,dx+ \beta \int g(x) \,dx
+$$
+
+## Inverse power rule
+
+One of the basic rules of differentiation is that of power rule.
+
+$$
+\frac{d}{dx} x^m = mx^{m-1} 
+$$
+
+Suspecting this will be a useful property, we can derive an expression for the inverse power rule from the definition of an integral.
+
+$$
+\int mx^{m-1} dx = x^m
+$$
+
+Apply linearity and the substituion $n = m-1$
+
+$$
+\int x^{n} dx = \frac{x^{n+1}}{n+1}
+$$
+
+::: {.callout-warning icon="false" collapse="true"}
+## Example
+
+Find the solution to the following integral
+
+$$
+\int 2x^2 - 3x - 1 \, dx
+$$
+
+We first begin by applying linearity
+
+$$
+= 2 \int x^2 \,dx - 3\int x \, dx - \int 1x^0 \, dx
+$$
+
+Then inverse power rule
+
+$$
+= \frac{2x^3}{3} - \frac{3x^2}{2} - x + C
+$$
+
+Giving us a solution to the polynomial. This process can be done for any standard polynomial.
+:::
+
+::: {.callout-note icon="false"}
+## Theorem (Integration of a polynomial)
+
+Let $f(x)$ be a polynomial in the form
+
+$$
+f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + c
+$$
+
+Then
+
+$$
+\int f(x)\,dx = \frac{a_nx^{n+1}}{n+1} + \frac{a_{n-1}x^{n}}{n} +  \cdots + \frac{a_1x^2}{2} + cx + C
+$$
+:::
+
+### Edge case
+
+One may notice that when $n=-1$, inverse power rules gives us an undefined result
+
+$$
+\int x^{-1}\,dx = \frac{1}{0} + C.
+$$
+
+For this particular value of $n$, we get the expression
+
+$$
+\int x^{-1}\,dx = \ln|x| + C.
+$$
+
+Note the absolute value bars. This is because the function $\ln$ is not defined for negative values of $x$, where our integrand is.
+
+## Common identities
+
+This section will cover many commonly used integration identities without much explanation.
+
+### Trig identities
+
+Trigonometry is a huge part of the integration bee, and will repeatedly appear in almost every section of this guide. As such it is crucial to have a complete understanding of these functions and how they interact.
+
+The integrals below are the direct inverse of differentiating the six primary trig functions.
+
+```{=tex}
+\begin{array}{ll}
+\displaystyle\int{{\cos x\,dx}} = \sin x + C \hspace{0.5in} & \displaystyle\int{{\sin x\,dx}} =  - \cos x + C\\ 
+
+\displaystyle\int{{{{\sec }^2}x\,dx}} = \tan x + C \hspace{0.5in} & \displaystyle\int{{{{\csc }^2}x\,dx}} =  - \cot x + C\\ 
+
+\displaystyle\int{{\sec x\tan x\,dx}} = \sec x + C \hspace{0.5in} & \displaystyle\int{{\csc x\cot x\,dx}} =  - \csc x + C
+\end{array}
+```
+It is helpful (for me at least) to memorize the left column of the table, and then derive the right side by replacing each function with its 'compliment', and then negating the result.
+
+### Inverse Trig identities
+
+We can use special formulas to differentiate inverse functions. By differentiating $\arcsin(x)$ and $\arctan(x)$, we get
+
+$$
+\int \frac{1}{x^2 + 1} \, dx = \arctan(x) + C \hspace{0.5in} \int \frac{1}{\sqrt{1-x^2}}\,dx = \arcsin(x) + C
+$$
+
+It is worth noting that
+
+$$
+\frac{d}{dx}\arccos(x) = -\frac{1}{1-x^2}.
+$$
+
+So the second integral can also be solved
+
+$$
+\int \frac{1}{\sqrt{1-x^2}}\,dx = -\arccos(x) + C.
+$$
+
+This is because $\arcsin$ and $-\arccos$ differ by a constant ($\frac{\pi}{2}$).
+
+### Exponential and logarithmic functions
+
+By once again inverting common derivative rules, we get the following identities.
+
+$$
+\int e^x \, dx = e^x + C \hspace{0.5in} \int a^x \,dx = \frac{a^x}{\ln{x}} + C
+$$
+
+## Examples
+
+Some example problems from various websites
+
+### Inverse power rule
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.1.1)
+
+Evaluate the following integral
+
+$$
+\int 6x^5 - 18x^2 + 7 \, dx
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Using the formula for evaluating polynomials
+
+$$
+\int 6x^5 - 18x^2 + 7 \, dx = x^6 - 6x^3 + 7x + C
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.1.1)
+
+Evaluate the following integral
+
+$$
+\int 6x^5\, dx - 18x^2 + 7
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Notice the integral ends at the $dx$, meaning the solution is
+
+$$
+\int 6x^5 - 18x^2 + 7 \, dx = x^6 - 18x^2 + C
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.1.3)
+
+Evaluate the following integral
+
+$$
+\int 12t^7 - t^2 - t + 3 \, dt
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Classic polynomial, the only difference is the use of $t$ instead of $x$
+
+$$
+\int 12t^7 - t^2 - t + 3 \, dt = \frac{3}{2}t^8 - \frac{1}{3}t^3 - \frac{1}{2}t^2 + 3t + C
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.2.6)
+
+Evaluate the following integral
+
+$$
+\int \sqrt[3]{w} + 10\sqrt[5]{w^3}\, dw
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Convert the radicals to fractional exponets
+
+$$
+\int \sqrt[3]{w} + 10\sqrt[5]{w^3}\, dw = \int w^\frac{1}{3} + 10w^\frac{3}{5} \, dw
+$$
+
+And then apply inverse power rule
+
+$$
+\int \sqrt[3]{w} + 10\sqrt[5]{w^3}\, dw = \frac{3}{4}w^\frac{4}{3} + \frac{25}{4}w^\frac{8}{5} + C
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.2.9)
+
+Evaluate the following integral
+
+$$
+\int \frac{7}{3y^6} + \frac{1}{y^{10}} - \frac{2}{\sqrt[3]{y^4}} \, dy
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Convert the radicals to fractional exponents
+
+$$
+\int \frac{7}{3y^6} + \frac{1}{y^{10}} - \frac{2}{\sqrt[3]{y^4}} \, dy = \int \frac{7}{3}y^{-6} + y^{-10} - 2y^{\frac{4}{3}} \, dy
+$$
+
+And then apply inverse power rule
+
+$$
+\int \frac{7}{3y^6} + \frac{1}{y^{10}} - \frac{2}{\sqrt[3]{y^4}} \, dy = -\frac{7}{15}y^{-5} - \frac{1}{9} y^{-9} + 6y^{-\frac{1}{3}} + C 
+$$
+
+Be careful to make sure you have the right answer.
+:::
+
+### Common identites
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.2.14)
+
+Evaluate the following integral
+
+$$
+\int \sin x + 10 \csc^2 x \, dx
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Simply use linearity to break up the integral, and then apply identities
+
+$$
+\int \sin x + 10 \csc^2 x \, dx = -\cos x - 10 \cot x + C
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.2.15)
+
+Evaluate the following integral
+
+$$
+\int 2\cos x - \sec x\tan x \, dx
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Simply use linearity to break up the integral, and then apply identities
+
+$$
+\int 2\cos x - \sec x\tan x \, dx = 2 \sin x - \sec x + C
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.2.16)
+
+Evaluate the following integral
+
+$$
+\int 12 + \csc \theta \left( {\sin  \theta  + \csc  \theta } \right)\,d\theta 
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Multiply out and simplify the equation. $$
+\int 12 + \csc \theta \left( {\sin  \theta  + \csc  \theta } \right)\,d\theta = \int 12 + 1 + \csc^2 \theta \, d\theta
+$$
+
+Because
+
+$$
+\csc x= \frac{1}{\sin x}
+$$
+
+So we get the answer
+
+$$
+\int 12 + \csc \theta \left( {\sin  \theta  + \csc  \theta } \right)\,d\theta = 13 \theta + \cot \theta + C
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.2.20)
+
+Evaluate the following integral
+
+$$
+\int{{\frac{1}{{1 + {x^2}}} + \frac{{12}}{{\sqrt {1 - {x^2}} }}\,dx}}
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Using the inverse trig identities
+
+$$
+\int{{\frac{1}{{1 + {x^2}}} + \frac{{12}}{{\sqrt {1 - {x^2}} }}\,dx}} = \arctan x + 12 \arcsin x + C
+$$
+:::
+

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>OOMN - Formal Theories</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">OOMN</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/graph/GraphTheory.html" rel="" target="">
+ <span class="menu-text">Graph Theory</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/integral/intro.html" rel="" target="">
+ <span class="menu-text">Integral</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/logic/intro.html" rel="" target="">
+ <span class="menu-text">Mathematical Logic</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#first-order-theories" id="toc-first-order-theories" class="nav-link active" data-scroll-target="#first-order-theories">First-order theories</a></li>
+  <li><a href="#formal-proofs" id="toc-formal-proofs" class="nav-link" data-scroll-target="#formal-proofs">Formal proofs</a></li>
+  <li><a href="#metatheorems" id="toc-metatheorems" class="nav-link" data-scroll-target="#metatheorems">Metatheorems</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Formal Theories</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>A <span style="color: blue"><strong>theory</strong></span> is a set of formulas <span class="math inline">T</span> in a formal language. We can take these theories as axioms, and combine them with a formal system belonging to <em>first-order logic</em> to create a <span style="color: blue"><strong>first-order theory</strong></span>.</p>
+<p>We’re long overdue for an example, so lets examine the two most popular first-order theories, Zermelo-Fraenkel set theory, and Peano arithmetic.</p>
+<section id="first-order-theories" class="level2">
+<h2 class="anchored" data-anchor-id="first-order-theories">First-order theories</h2>
+<p><span class="math inline">ZF</span> and <span class="math inline">PA</span> are two examples of first-order theories. They use different symbols, so they require different languages.</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>First-order language</th>
+<th><span class="math inline">\mathcal{L}_\text{ZF}</span></th>
+<th><span class="math inline">\mathcal{L}_\text{PA}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Connectives</strong></td>
+<td><span class="math inline">\land, \lor, \implies, \iff, \lnot</span></td>
+<td><span class="math inline">\land, \lor, \implies, \iff, \lnot</span></td>
+</tr>
+<tr class="even">
+<td><strong>Quantifiers</strong></td>
+<td><span class="math inline">\forall, \exists</span></td>
+<td><span class="math inline">\forall, \exists</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Variables</strong></td>
+<td><span class="math inline">v_1</span>,<span class="math inline">v_2</span>,<span class="math inline">v_3</span> ect.</td>
+<td><span class="math inline">v_1</span>,<span class="math inline">v_2</span>,<span class="math inline">v_3</span> ect.</td>
+</tr>
+<tr class="even">
+<td><strong>Constants</strong></td>
+<td><span class="math inline">\varnothing</span> (the empty set)</td>
+<td><span class="math inline">\overline{0}</span> (zero)</td>
+</tr>
+<tr class="odd">
+<td><strong>Operations -</strong></td>
+<td>None</td>
+<td><span class="math inline">S</span> (successor, degree 1) <span class="math inline">+</span> (addition, degree 2), <span class="math inline">\cdot</span> (multiplication, degree 2)</td>
+</tr>
+<tr class="even">
+<td><strong>Relations -</strong></td>
+<td><span class="math inline">\in</span> (belongs to, degree 2)</td>
+<td><span class="math inline">=</span> (equality, degree 2)</td>
+</tr>
+<tr class="odd">
+<td><strong>Parentheses -</strong></td>
+<td><span class="math inline">)</span>, <span class="math inline">(</span></td>
+<td><span class="math inline">)</span>, <span class="math inline">(</span></td>
+</tr>
+</tbody>
+</table>
+<p>Both languages have the same syntax for combining symbols into formulas. They also use the same deductive system (any system equivalent to the example shown in the last section). We’ll delve deeper into Zermelo-Fraenkel set theory later, so we’ll examine Peano arithmetic as the example for the rest of the section.</p>
+<p>Peano arithmetic is a first-order theory, so it combines our formal system with a theory, consisting of formulas we define to be true.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Axioms in Peano arithmetic
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The first six axioms listed are rather simple. Note that <span class="math inline">\overline{0} \not = 0</span>, as <span class="math inline">\overline{0}</span> is a formal symbol, not a number.</p>
+<p><strong>A1</strong>. <span class="math inline">\forall x \,(\overline{0} \not = S(x))</span></p>
+<p><strong>A2</strong>. <span class="math inline">\forall x,y \,(S(x) = S(y) \rightarrow x = y)</span></p>
+<p><strong>A3</strong>. <span class="math inline">\forall x \,(x + \overline{0} = x)</span></p>
+<p><strong>A4</strong>. <span class="math inline">\forall x \forall y \,(x + S(y) = S(x + y))</span></p>
+<p><strong>A5</strong>. <span class="math inline">\forall x \,(x \cdot \overline{0} = \overline{0})</span></p>
+<p><strong>A6</strong>. <span class="math inline">\forall x,y \,(x \cdot S(y) = x \cdot y + x)</span></p>
+<p>However, the seventh axiom poses a problem for first-order logic. We want an axiom allowing us to use induction. For this we’ll have to use something called an <span style="color: blue"><strong>axiom schema</strong></span>, an infinite list of axioms, one for each formula <span class="math inline">\phi</span> which can be constructed in <span class="math inline">PA</span>.</p>
+<p><strong>A7</strong>. <span class="math inline">[\phi(\overline{0}) \land \forall n (\phi(n) \rightarrow \phi(S(n)))] \rightarrow \forall n \phi(n)</span></p>
+</div>
+</div>
+<p>This has two drawbacks. The first of which being <span class="math inline">PA</span> is not <span style="color: blue"><strong>finite axiomatizable</strong></span>, meaning we need an infinite amount of axioms to define <span class="math inline">PA</span>. This is annoying, but such is life. The second and more serious drawback is as follows. Each formula <span class="math inline">\phi</span> can be thought of a set of numbers <span class="math inline">n</span> such that <span class="math inline">\phi(n)</span> is true. There exist an uncountable amount of sets <span class="math inline">n</span>, but only a countable amount of formulas <span class="math inline">\phi</span> can be constructed. Therefore, our induction may prove inadequate for some theorems. This can rectified with <span style="color: blue"><strong>second-order logic</strong></span>, which will be discussed later.</p>
+</section>
+<section id="formal-proofs" class="level2">
+<h2 class="anchored" data-anchor-id="formal-proofs">Formal proofs</h2>
+<p>Now that we have knowledge of what a first-order theory is, lets look at how to prove statements with them. We first need to give the definition of what a proof.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">T</span> be a set of first-order formulas. A <span style="color: blue"><strong>proof</strong></span> from <span class="math inline">T</span> is a finite sequence of formulas such that every step is either a logical axiom, a member of <span class="math inline">T</span>, or a result of one of our rules of inference. A proof a formula <span class="math inline">P</span> from <span class="math inline">T</span> is given when <span class="math inline">P</span> is the last step of a proof from <span class="math inline">T</span>.</p>
+</div>
+</div>
+<p>If we can prove <span class="math inline">P</span> from a theory <span class="math inline">T</span>, we say <span class="math inline">T</span> proves <span class="math inline">P</span>, denoted <span class="math inline">T \vdash P</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\varnothing \vdash P</span>, then <span class="math inline">P</span> is derivable from only our deductive apparatus, and we call <span class="math inline">P</span> a <span style="color: blue"><strong>law of logic</strong></span>.</p>
+<p>Two formulas <span class="math inline">P</span> and <span class="math inline">Q</span> are called <span style="color: blue"><strong>logically equivalent</strong></span> if <span class="math inline">\vdash (P \leftrightarrow Q)</span></p>
+</div>
+</div>
+<p>We denote the set of theorems (statements provable from <span class="math inline">T</span>) in <span class="math inline">T</span> as <span class="math inline">Thm(T)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">Thm(T_1) \subseteq Thm(T_2)</span>, which is the same as <span class="math inline">T_2 \vdash T_1</span>, we say that <span class="math inline">T_1</span> is a <span style="color: blue"><strong>subtheory</strong></span> of <span class="math inline">T_2</span>, and <span class="math inline">T_2</span> is an <span style="color: blue"><strong>extension</strong></span> of <span class="math inline">T_1</span>. If <span class="math inline">Thm(T_1) = Thm(T_2)</span> then <span class="math inline">T_1</span> and <span class="math inline">T_2</span> are equivalent.</p>
+</div>
+</div>
+<p>Lots of boring and tedious notation, but such is life. The great thing about proofs is that they are <span style="color: blue"><strong>computable</strong></span>, meaning there exist a machine, i.e.&nbsp;computer program, that can verify the validity of any proof. This does not mean that a computer can create a proof however, just that given one, they can check its accuracy.</p>
+<p>One of the great things about first-order logic is that provability and truth are equivalent. That is, if there exist a formula <span class="math inline">P</span>, we can construct it from <span class="math inline">T</span> with a proof, if and only if <span class="math inline">P</span> and all statements in <span class="math inline">T</span> are true!</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We say a theory <span class="math inline">T</span> is <span style="color: blue"><strong>consistent</strong></span> if no contradiction can be derived from it. A formula <span class="math inline">P</span> is said to be <span style="color: blue"><strong>independent</strong></span> of <span class="math inline">T</span> if neither <span class="math inline">P</span> nor <span class="math inline">\lnot P</span> can be proved from <span class="math inline">T</span>. We call <span class="math inline">T</span> <span style="color: blue"><strong>complete</strong></span> if no <em>sentence</em> (formula with no free variables) of its language is independent of <span class="math inline">T</span>.</p>
+</div>
+</div>
+</section>
+<section id="metatheorems" class="level2">
+<h2 class="anchored" data-anchor-id="metatheorems">Metatheorems</h2>
+<p>Metatheorems are theorems about first-order logic. The following two metatheorems are the most notable.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (Deduction Theorem)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">T \cup \{P\} \vdash Q</span> then <span class="math inline">T \vdash (P \rightarrow Q)</span></p>
+</div>
+</div>
+<p>Which means, if <span class="math inline">T</span> and <span class="math inline">P</span> prove <span class="math inline">Q</span>, then <span class="math inline">T</span> proves that <span class="math inline">P</span> implies <span class="math inline">Q</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (Universal generalization)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">T \vdash P(x)</span>, and <span class="math inline">x</span> is not a free variable, then <span class="math inline">T \vdash \forall x \,P(x)</span></p>
+</div>
+</div>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>Below is an example of a formal proof done in <span class="math inline">PA</span>. Note the immense amount of pain that went into crafting it.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lemma (Conjunction introduction)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<span class="math display">\begin{alignat*}{2}
+&amp;\vdash A          &amp;\quad &amp;\textbf{}\\
+&amp;\vdash B          &amp;\quad &amp;\textbf{}\\
+&amp;\vdash A \land B          &amp;\quad &amp;\textbf{Conjunction introduction}\\
+\end{alignat*}</span>
+<p>This will be assumed true.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lemma (Symmetry of equality)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<span class="math display">\begin{alignat*}{2}
+&amp;\vdash \forall x \forall y (x = y \rightarrow y = x)          &amp;\quad &amp;\textbf{Symmetry of equality}\\
+\end{alignat*}</span>
+<p>This will be assumed true.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lemma (Transitivity of equality)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<span class="math display">\begin{alignat*}{2}
+&amp;\vdash \forall x \forall y \forall z (x = y \rightarrow (y = z \rightarrow x = z))          &amp;\quad &amp;\textbf{Transitivity of equality}\\
+\end{alignat*}</span>
+<p>This will be assumed true.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lemma (Conjunction introduction)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<span class="math display">\begin{alignat*}{2}
+&amp;\vdash A          &amp;\quad &amp;\textbf{}\\
+&amp;\vdash B          &amp;\quad &amp;\textbf{}\\
+&amp;\vdash A \land B          &amp;\quad &amp;\textbf{Conjunction introduction}\\
+\end{alignat*}</span>
+<p>This will be assumed true.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (Commutative property of addition)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">PA \vdash \forall x \forall y\,(x + y = y + x)</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We’ll prove the theorem through induction on <span class="math inline">x</span>. By axiom <strong>A7</strong> we want to show</p>
+<p><span class="math inline">(1)\quad PA \vdash \forall y\,(\overline{0} + y = y + \overline{0})</span></p>
+<p><span class="math inline">(2)\quad PA \vdash \forall y\,(x + y = y + x) \rightarrow \forall y\,(S(x) + y = y + S(x))</span></p>
+<p>We start by proving <span class="math inline">(1)</span>. We’ll first prove the statement</p>
+<p><span class="math inline">PA \vdash \forall y\,(\overline{0} + y = y)</span>.</p>
+<p>By axiom <strong>A7</strong> we want to show</p>
+<p><span class="math inline">(1.1) \quad PA \vdash (\overline{0} + \overline{0} = \overline{0})</span></p>
+<p><span class="math inline">(1.2) \quad PA \vdash (\overline{0} + y = y) \rightarrow (\overline{0} + S(y) = S(y))</span></p>
+<p>We can prove <span class="math inline">(1.1)</span></p>
+<span class="math display">\begin{alignat*}{2}
+PA &amp;\vdash \forall x(x + \overline{0} = x)          &amp;\quad &amp;\textbf{A3}\\
+PA &amp;\vdash \forall x(x + \overline{0} = x) \rightarrow (\overline{0} + \overline{0} = \overline{0})          &amp;\quad &amp;\textbf{Q5}\\
+PA &amp;\vdash (\overline{0} + \overline{0} = \overline{0})          &amp;\quad &amp;\textbf{Modus ponens}\\
+\end{alignat*}</span>
+<p>To prove <span class="math inline">(1.2)</span>, let <span class="math inline">\phi</span> be the formula <span class="math inline">(\overline{0} + y = y)</span></p>
+<span class="math display">\begin{alignat*}{2}
+PA \cup \phi &amp;\vdash (\overline{0} + y = y)          &amp;\quad &amp;\text{}\\
+PA \cup \phi &amp;\vdash \forall x \forall y (x + S(y) = S(x + y))          &amp;\quad &amp;\textbf{A4}\\
+PA \cup \phi &amp;\vdash \forall x \forall y (x + S(y) = S(x + y)) \rightarrow \overline{0} + S(y) = S(\overline{0} + y)         &amp;\quad &amp;\textbf{Q5}\\
+PA \cup \phi &amp;\vdash \overline{0} + S(y) = S(\overline{0} + y)         &amp;\quad &amp;\textbf{Modus ponens}\\
+PA \cup \phi &amp;\vdash \overline{0} + y = y \rightarrow S(\overline{0} + y) = S(y)          &amp;\quad &amp;\textbf{I9}\\
+PA \cup \phi &amp;\vdash S(\overline{0} + y) = S(y)          &amp;\quad &amp;\textbf{Modus ponens}\\
+PA \cup \phi &amp;\vdash \overline{0} + S(y) = S(y)          &amp;\quad &amp;\textbf{Transitivity of equality}\\
+PA &amp;\vdash (\overline{0} + y = y) \rightarrow (\overline{0} + S(y) = S(y))&amp;\quad &amp;\textbf{Deductive theorem}\\
+\end{alignat*}</span>
+<p>Let <span class="math inline">\phi_{1.1}</span> be <span class="math inline">(\overline{0} + \overline{0} = \overline{0})</span> and <span class="math inline">\phi_{1.2}</span> be <span class="math inline">(\overline{0} + y = y) \rightarrow (\overline{0} + S(y) = S(y))</span></p>
+<span class="math display">\begin{alignat*}{2}
+PA &amp;\vdash (\overline{0} + \overline{0} = \overline{0})          &amp;\quad &amp;\textbf{1.1}\\
+PA &amp;\vdash (\overline{0} + y = y) \rightarrow (\overline{0} + S(y) = S(y))          &amp;\quad &amp;\textbf{1.2}\\
+PA &amp;\vdash \phi_{1.1} \land \phi_{1.2}          &amp;\quad &amp;\textbf{Conjunction introduction}\\
+PA &amp;\vdash (\phi_{1.1} \land \phi_{1.2}) \rightarrow \forall y (\overline{0} + y = y)&amp;\quad &amp;\textbf{A7}\\
+PA &amp;\vdash \forall y (\overline{0} + y = y)&amp;\quad &amp;\textbf{Modus ponens}\\
+\end{alignat*}</span>
+<p>Now we prove the equivalence to <span class="math inline">(1)</span>.</p>
+<span class="math display">\begin{alignat*}{2}
+PA &amp;\vdash \forall x (x + \overline{0} = x)    &amp;\quad &amp;\textbf{A3}\\
+PA &amp;\vdash \forall x (x + \overline{0} = x) \rightarrow y + \overline{0} = y   &amp;\quad &amp;\textbf{Q5}\\
+PA &amp;\vdash y + \overline{0} = y   &amp;\quad &amp;\textbf{Modus ponens}\\
+PA &amp;\vdash y = y + \overline{0}   &amp;\quad &amp;\textbf{Symmetry of equality}\\
+PA &amp;\vdash \forall y (\overline{0} + y = y) \rightarrow \overline{0} + y = y &amp;\quad &amp;\textbf{Q5}\\
+PA &amp;\vdash \overline{0} + y = y   &amp;\quad &amp;\textbf{Modus ponens}\\
+PA &amp;\vdash \overline{0} + y = y + \overline{0}   &amp;\quad &amp;\textbf{Transitivity of equality}\\
+PA &amp;\vdash \overline{0} + y = y + \overline{0} \rightarrow \forall y \, (\overline{0} + y = y + \overline{0})   &amp;\quad &amp;\textbf{Q7}\\
+PA &amp;\vdash \forall y\,(\overline{0} + y = y + \overline{0})   &amp;\quad &amp;\textbf{Modus ponens}\\
+\end{alignat*}</span>
+<p>Now we can prove <span class="math inline">(2)</span>. We’ll start by proving a prerequisite</p>
+<p><span class="math inline">PA \vdash \forall y \,(S(x) + y = S(x + y))</span></p>
+<p>By <strong>A7</strong> we want to show</p>
+<p><span class="math inline">(2.1) \quad PA \vdash S(x) + \overline{0} = S(x + \overline{0})</span></p>
+<p><span class="math inline">(2.2) \quad PA \vdash S(x) + y = S(x + y) \rightarrow S(x) + S(y) = S(x + S(y))</span></p>
+<p>We can first prove (2.1)</p>
+<span class="math display">\begin{alignat*}{2}
+PA &amp;\vdash \forall x(x + \overline{0} = x)          &amp;\quad &amp;\textbf{A3}\\
+PA &amp;\vdash \forall x(x + \overline{0} = x) \rightarrow S(x) + \overline{0} = S(x)        &amp;\quad &amp;\textbf{Q5}\\
+PA &amp;\vdash S(x) + \overline{0} = S(x)        &amp;\quad &amp;\textbf{Modus ponens}\\
+PA &amp;\vdash \forall x(x + \overline{0} = x)          &amp;\quad &amp;\textbf{A3}\\
+PA &amp;\vdash \forall x(x + \overline{0} = x) \rightarrow x + \overline{0} = x        &amp;\quad &amp;\textbf{Q5}\\
+PA &amp;\vdash x + \overline{0} = x        &amp;\quad &amp;\textbf{Modus ponens}\\
+PA &amp;\vdash x + \overline{0} = x \rightarrow S(x + \overline{0}) = S(x)      &amp;\quad &amp;\textbf{I9}\\
+PA &amp;\vdash S(x + \overline{0}) = S(x)        &amp;\quad &amp;\textbf{Modus ponens}\\
+PA &amp;\vdash S(x) = S(x + \overline{0})        &amp;\quad &amp;\textbf{Symmetry of equality}\\
+PA &amp;\vdash S(x) + \overline{0} = S(x + \overline{0})        &amp;\quad &amp;\textbf{Transitivity of equality}\\
+\end{alignat*}</span>
+<p>Then <span class="math inline">(2.2)</span>. Let <span class="math inline">\psi</span> be the formula <span class="math inline">(S(x) + y = S(x + y))</span></p>
+<span class="math display">\begin{alignat*}{2}
+PA \cup \psi &amp;\vdash S(x) + y = S(x + y)          &amp;\quad &amp;\text{}\\
+PA \cup \psi &amp;\vdash \forall x \forall y(x + S(y) = S(x + y))          &amp;\quad &amp;\textbf{A4}\\
+PA \cup \psi &amp;\vdash \forall x \forall y(x + S(y) = S(x + y)) \rightarrow   S(x) + S(y) = S(S(x) + y)    &amp;\quad &amp;\textbf{Q5}\\
+PA \cup \psi &amp;\vdash S(x) + S(y) = S(S(x) + y)    &amp;\quad &amp;\textbf{Modus ponens}\\
+PA \cup \psi &amp;\vdash \forall x \forall y(x + S(y) = S(x + y))          &amp;\quad &amp;\textbf{A4}\\
+PA \cup \psi &amp;\vdash \forall x \forall y(x + S(y) = S(x + y)) \rightarrow   x + S(y) = S(x + y)    &amp;\quad &amp;\textbf{Q5}\\
+PA \cup \psi &amp;\vdash x + S(y) = S(x + y)    &amp;\quad &amp;\textbf{Modus ponens}\\
+PA \cup \psi &amp;\vdash S(x + y) = x + S(y)    &amp;\quad &amp;\textbf{Symmetry of equality}\\
+PA \cup \psi &amp;\vdash S(x) + y = x + S(y)     &amp;\quad &amp;\textbf{Transitivity of equality}\\
+PA \cup \psi &amp;\vdash S(x) + y = x + S(y) \rightarrow S(S(x) + y) = S(x + S(y))     &amp;\quad &amp;\textbf{I9}\\
+PA \cup \psi &amp;\vdash S(S(x) + y) = S(x + S(y))     &amp;\quad &amp;\textbf{Modus ponens}\\
+PA \cup \psi &amp;\vdash S(x) + S(y) = S(x + S(y))     &amp;\quad &amp;\textbf{Transitivity of equality}\\
+PA &amp;\vdash S(x) + y = S(x + y) \rightarrow S(x) + S(y) = S(x + S(y))     &amp;\quad &amp;\textbf{Deductive theorem}\\
+\end{alignat*}</span>
+<p>Let <span class="math inline">(2.1)</span> and <span class="math inline">(2.2)</span> be <span class="math inline">\psi_{2.1}</span> and <span class="math inline">\psi_{2.2}</span> respectively.</p>
+<span class="math display">\begin{alignat*}{2}
+PA &amp;\vdash S(x) + \overline{0} = S(x + \overline{0})        &amp;\quad &amp;\textbf{2.1}\\
+PA &amp;\vdash S(x) + y = S(x + y) \rightarrow S(x) + S(y) = S(x + S(y))     &amp;\quad &amp;\textbf{2.2}\\
+PA &amp;\vdash   \psi_{2.1} \land \psi_{2.2}      &amp;\quad &amp;\textbf{Conjunction introduction}\\
+PA &amp;\vdash (\psi_{2.1} \land \phi_{2.2}) \rightarrow \forall y (S(x) + y = S(x + y))&amp;\quad &amp;\textbf{A7}\\
+PA &amp;\vdash \forall y (S(x) + y = S(x + y))&amp;\quad &amp;\textbf{Modus ponens}\\
+\end{alignat*}</span>
+<p>Let this formula be denoted <span class="math inline">\pi</span></p>
+<p>Now we can prove <span class="math inline">(2)</span>. Let <span class="math inline">\zeta</span> be the formula <span class="math inline">\forall y(x + y = y + x)</span></p>
+<span class="math display">\begin{alignat*}{2}
+PA \cup \zeta &amp;\vdash \forall y(x + y = y + x)          &amp;\quad &amp;\text{}\\
+PA \cup \zeta &amp;\vdash \forall y (S(x) + y = S(x + y))         &amp;\quad &amp;\pmb\pi\\
+PA \cup \zeta &amp;\vdash \forall y (S(x) + y = S(x + y)) \rightarrow S(x) + y = S(x + y)         &amp;\quad &amp;\textbf{Q5}\\
+PA \cup \zeta &amp;\vdash  S(x) + y = S(x + y)         &amp;\quad &amp;\textbf{Modus ponens}\\
+PA \cup \zeta &amp;\vdash \forall y(x + y = y + x) \rightarrow x + y = y + x         &amp;\quad &amp;\textbf{Q5}\\
+PA \cup \zeta &amp;\vdash x + y = y + x         &amp;\quad &amp;\textbf{Modus ponens}\\
+PA \cup \zeta &amp;\vdash x + y = y + x \rightarrow S(x + y) = S(y + x)        &amp;\quad &amp;\textbf{I9}\\
+PA \cup \zeta &amp;\vdash S(x + y) = S(y + x)        &amp;\quad &amp;\textbf{Modus ponens}\\
+PA \cup \zeta &amp;\vdash S(x) + y = S(y + x)        &amp;\quad &amp;\textbf{Transitivity of equality}\\
+PA \cup \zeta &amp;\vdash \forall x \forall y(x + S(y) = S(x + y))          &amp;\quad &amp;\textbf{A4}\\
+PA \cup \zeta &amp;\vdash \forall x \forall y(x + S(y) = S(x + y)) \rightarrow   y + S(x) = S(y + x)    &amp;\quad &amp;\textbf{Q5}\\
+PA \cup \zeta &amp;\vdash y + S(x) = S(y + x)    &amp;\quad &amp;\textbf{Modus ponens}\\
+PA \cup \zeta &amp;\vdash S(y + x) = y + S(x)   &amp;\quad &amp;\textbf{Symmetry of equality}\\
+PA \cup \zeta &amp;\vdash S(x) + y = y + S(x)   &amp;\quad &amp;\textbf{Transitivity of equality}\\
+PA \cup \zeta &amp;\vdash S(x) + y = y + S(x) \rightarrow \forall y (S(x) + y = y + S(x))   &amp;\quad &amp;\textbf{Q7}\\
+PA \cup \zeta &amp;\vdash \forall y (S(x) + y = y + S(x))   &amp;\quad &amp;\textbf{Modus ponens}\\
+PA &amp;\vdash \forall y(x + y = y + x) \rightarrow \forall y (S(x) + y = y + S(x))   &amp;\quad &amp;\textbf{Deductive theorem}\\
+\end{alignat*}</span>
+<p>And finally, let <span class="math inline">\gamma_1</span> and <span class="math inline">\gamma_2</span> be <span class="math inline">(1)</span> and <span class="math inline">(2)</span> respectively.</p>
+<span class="math display">\begin{alignat*}{2}
+PA &amp;\vdash \forall y\,(\overline{0} + y = y + \overline{0})          &amp;\quad &amp;\pmb\gamma_1\\
+PA &amp;\vdash \forall y\,(x + y = y + x) \rightarrow \forall y\,(S(x) + y = y + S(x))          &amp;\quad &amp;\pmb\gamma_2\\
+PA &amp;\vdash \gamma_1 \land \gamma_2          &amp;\quad &amp;\textbf{Conjunction introduction}\\
+PA &amp;\vdash (\gamma_1 \land \gamma_2) \rightarrow \forall y \forall x(x + y = y + x)  &amp;\quad &amp;\textbf{A7}\\
+PA &amp;\vdash \forall y \forall x(x + y = y + x) &amp;\quad &amp;\textbf{Modus ponens}\\
+\end{alignat*}</span>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,313 @@
+---
+title: "Homomorphisms and Isomorphisms"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+In this section we define what it means for two groups to be equivalent, i.e. have the same group-theoretic structure.
+
+## Definitions
+
+::: {.callout-note icon="false"}
+## Definition
+
+Let $(G,\star)$ and $(H,\diamond)$ be groups. 
+
+Given a map $\varphi \colon G \to H$, if we can show that 
+
+$$
+\forall x,y \in G,\, \varphi (x \star y) = \varphi (x) \diamond \varphi(y)
+$$
+
+The $\varphi$ is a [**homomorphism**]{style="color: blue"}
+:::
+
+One can think of a homomorphism as a map of sets that respect the group operations. When group operations are not specified, we often abbreviate
+
+$$
+\varphi(xy) = \varphi(x)\varphi(y)
+$$
+
+Where the LHS is the $G$ operation, and the RHS is the operation in $H$.
+
+::: {.callout-note icon="false"}
+## Definition
+
+The map
+
+$$
+\varphi \colon G \to H
+$$
+
+is an [**Isomorphisms**]{style="color: blue"} if $\varphi$ is both a homomorphism, and a bijection. If two groups are isomorphic, they are denoted
+
+$$
+G \cong H
+$$
+:::
+
+If two groups are isomorphic, they are essentially the same. Every property satisfied by $G$ will be satisifed by $H$.
+
+A homomorphism from a group to itself is called an [**endomorphism**]{style="color: blue"}, and an isomorphism from a group to itself is called an [**automorphism**]{style="color: blue"}.
+
+::: {.callout-warning icon="false"}
+## Example
+
+Take the map $\varphi$ such that
+
+$$
+\varphi \colon (\mathbb{Z},+) \to (\mathbb{Z}/m\mathbb{Z}, +)
+$$
+
+$$
+x \rightarrowtail [x]
+$$
+
+We can prove $\varphi$ to be a homomorphism, as
+
+$$
+\varphi (x+y) = [x + y]
+$$
+
+$$
+\varphi (x) + \varphi (y) = [x] + [y] = [x + y]
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Example
+
+For any group $G$, the identity map 
+
+$$
+G \rightarrow G
+$$
+
+$$
+x \rightarrowtail x
+$$
+
+is an isomorphism, and an automorphism. Therefore for any group $G$, there exists some $\varphi$ such that $G$ is isomorphic to itself.
+:::
+
+::: {.callout-warning icon="false"}
+## Example
+
+For any groups $G,H$, the map $\varphi$ 
+
+$$
+\varphi \colon G \rightarrow H
+$$
+
+$$
+g \rightarrowtail e_H
+$$
+
+is called the trivial homomorphism. As 
+
+$$
+\varphi(g_1g_2) = e_H
+$$
+
+$$
+\varphi (g_1)\varphi (g_2) = e_He_H = e_H
+$$
+:::
+
+## Properties of morphisms
+
+Now we can be to look at some of the properties of homomorphisms and Isomorphisms.
+
+::: {.callout-note icon="false"}
+## Proposition 1.2.1
+
+Let
+$$
+(G, \star) \quad (H, \diamond) \quad (M, \square).
+$$
+
+Also let
+
+$$
+f \colon G \rightarrow H,\quad g \colon H \rightarrow M
+$$
+
+be homomorphisms. Then
+
+$$
+g \circ f \colon G \rightarrow M
+$$
+
+is a homomorphism.
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof
+
+The proof is just a few lines of algebra
+
+\begin{align*}
+g(f(x \star y)) &= g(f(x) \diamond f(y))\\
+&= g(f(x))\, \square \,g(f(y)))
+\end{align*}
+:::
+
+Additionally
+
+::: {.callout-note icon="false"}
+## Proposition 1.2.2
+
+Let
+
+$$
+\varphi \colon G \rightarrow H
+$$
+
+be a homomorphism. Let $e_H,e_G$ be the identity of $H$ and $G$ respectivly. Then
+
+$$
+\varphi(e_G) = e_H
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof
+
+By algebra
+
+\begin{align*}
+e_G &= e_Ge_G\\
+\varphi(e_G) = \varphi&(e_Ge_G) = \varphi(e_G)\varphi(e_G)\\
+(\varphi(e_G))^{-1}\varphi(e_G) &= (\varphi(e_G))^{-1}\varphi(e_G)\varphi(e_G)\\
+e_H &= e_H\varphi(e_G)\\
+e_H &= \varphi(e_G) \quad\square
+\end{align*}
+:::
+
+::: {.callout-note icon="false"}
+## Proposition 1.2.3
+
+If $\varphi \colon G \rightarrow H$ is an isomorphism, then
+
+- The cardinality of $G$ and $H$ are equivalent
+- If $G$ is abelian, then $H$ is abelian
+- For all $x$ in $G$, the order of $x$ is the order of $\varphi(x)$
+:::
+
+This proposition essentially states that Isomorphisms preserve group structure. The proof will make use of the following lemma
+
+::: {.callout-note icon="false"}
+## Lemma 1.2.4
+
+Let $\varphi \colon G \rightarrow H$ be a homomorphism. Then 
+
+$$
+\varphi(x^n) = \varphi(x)^n \quad \forall n \in \mathbb{Z}
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof (FINISH)
+:::
+
+Now to prove Proposition $1.2.3$.
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof (FINISH)
+
+We have three cases for this proposition
+
+**Case 1:**
+
+**Case 2:**
+
+Suppose the order $|x| = \infty$, $|\phi(x)| = n < \infty$
+
+Note that 
+$$
+\varphi (x^n) = \varphi (x)^n = e_H
+$$
+
+Because
+
+$$
+\varphi (e_G) = e_H
+$$
+
+By the injective property (which we can use because we have a bijection), we have
+
+$$
+x^n = e_G
+$$
+
+Thus $|x| \leq n < \infty$. Thus $|x|$ and $|\varphi(x)|$ must either both be finite or infinite.
+
+**Case 3:**
+
+Suppose $|x| = n$, $|\varphi(x)| = m$. Then
+
+$$
+\varphi(x)^n = \varphi(x^n) = \varphi(e_G) = e_H \implies m \leq n.
+$$
+
+Similarly,
+
+$$
+\varphi (e_G)= e_H = \varphi (x)^m = \varphi(x^m) \implies m \geq n
+$$
+
+Thus 
+
+$$
+m = n
+$$
+:::
+
+Determining if two groups are isomorphic is an NP problem, so it can take a while to prove.    
+
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof (FINISH)
+
+Lets take the following groups $S_3$ and $\mathbb{Z}/6\mathbb{Z}$. There does not exist an isomorphism between these two, as $S_3$ is abelian, and $\mathbb{Z}/6\mathbb{Z}$ is not. Thus
+
+$$
+S_3 \not \cong \mathbb{Z}/6\mathbb{Z}
+$$
+
+There is however, an isomorphism between $D_6$ and $S_3$.
+
+Let 
+
+$$
+D_6 = \{r,s \mid r^3 = s^2 = 1, sr = r^{-1}s\}
+$$
+
+We can map
+
+$$
+S_3 \rightarrow D_6
+$$
+
+$$
+(1\,2\,3) \rightarrowtail r
+$$
+
+$$
+(1\,2) \rightarrowtail s
+$$
+
+Which maps the generators to each other. Thus
+
+$$
+D_6 \cong S_3
+$$
+
+:::
+
+
+

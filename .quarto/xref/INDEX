@@ -1,0 +1,244 @@
+{
+  "index.qmd": {
+    "index.html": "1708d44c"
+  },
+  "about.qmd": {
+    "about.html": "178cffbb"
+  },
+  "hello.qmd": {
+    "hello.html": "1a46e858"
+  },
+  "tutorial.qmd": {
+    "tutorial.html": "5dfa43a9"
+  },
+  "tutorials.qmd": {
+    "tutorials.html": "96ac15e2",
+    "tutorials.tex": "0a04d679"
+  },
+  "howto.qmd": {
+    "howto.html": "71eb17b1"
+  },
+  "sets.qmd": {
+    "sets.html": "9509cded"
+  },
+  "qmd/basics/sets.qmd": {
+    "sets.html": "833df5ee"
+  },
+  "qmd/basics/sets2.qmd": {
+    "sets2.html": "129956f9"
+  },
+  "qmd/basics/sets1.qmd": {
+    "sets1.html": "57da6923"
+  },
+  "qmd/graph/graph.qmd": {
+    "graph.html": "7c132f55"
+  },
+  "qmd/graph/graph2.qmd": {
+    "graph2.html": "bdc92b1f"
+  },
+  "qmd/graph/graph1.qmd": {
+    "graph1.html": "cfff68e6"
+  },
+  "qmd/graph/definitions.qmd": {
+    "definitions.html": "f0c47c04"
+  },
+  "qmd/graph/GraphTheory.qmd": {
+    "GraphTheory.html": "b7c1bcdb"
+  },
+  "qmd/graph/intro/definition.qmd": {
+    "definition.html": "33fbabd9"
+  },
+  "example.qmd": {
+    "example.html": "77f4b852",
+    "example.tex": "f713d96a"
+  },
+  "qmd/graph/intro/graphs.qmd": {
+    "graphs.html": "0f4a0b43"
+  },
+  "qmd/graph/intro/paths.qmd": {
+    "paths.html": "2b3ef989"
+  },
+  "qmd/graph/trees/trees.qmd": {
+    "trees.html": "8da671cb"
+  },
+  "qmd/basics/Banach Mazur Game.qmd": {
+    "Banach Mazur Game.html": "67eca02b"
+  },
+  "qmd/basics/Measure.qmd": {
+    "Measure.html": "94b0188a"
+  },
+  "qmd/graph/intro/Dijkstras.qmd": {
+    "Dijkstras.html": "d9c3b79e"
+  },
+  "qmd/measure/measureline.qmd": {
+    "measureline.html": "d9017a2f"
+  },
+  "qmd/graph/intro/Matchings.qmd": {
+    "Matchings.html": "e63f3cc0"
+  },
+  "qmd/measure/porous.qmd": {
+    "porous.html": "8c9b53ba"
+  },
+  "qmd/integral/intro.qmd": {
+    "intro.html": "c02a77da"
+  },
+  "qmd/about.qmd": {
+    "about.html": "1a5d0f0a"
+  },
+  "qmd/integral/simple/trivial.qmd": {
+    "trivial.html": "df847292"
+  },
+  "qmd/integral/tricky/hyperbolic.qmd": {
+    "hyperbolic.html": "0777da1f"
+  },
+  "qmd/random/discrete.qmd": {
+    "discrete.html": "cbd82278"
+  },
+  "qmd/integral/simple/basics.qmd": {
+    "basics.html": "e875ab1e"
+  },
+  "qmd/integral/simple/substitution.qmd": {
+    "substitution.html": "6a757a7e"
+  },
+  "qmd/integral/simple/intpart.qmd": {
+    "intpart.html": "c611470c"
+  },
+  "qmd/integral/simple/decomp.qmd": {
+    "decomp.html": "2cc82803"
+  },
+  "qmd/integral/simple/trigsub.qmd": {
+    "trigsub.html": "cad1859b"
+  },
+  "qmd/todo/todo.qmd": {
+    "todo.html": "e2a58a2c"
+  },
+  "qmd/bookrev/concrete/recprob.qmd": {
+    "recprob.html": "5a0a9d37"
+  },
+  "qmd/bookrev/towerhanoi.qmd": {
+    "towerhanoi.html": "eeb65101"
+  },
+  "qmd/concrete/recurrent/towerhanoi.qmd": {
+    "towerhanoi.html": "88693427"
+  },
+  "qmd/concrete/recurrent/recprob.qmd": {
+    "recprob.html": "a7f1501e"
+  },
+  "qmd/concrete/intro.qmd": {
+    "intro.html": "48818448"
+  },
+  "qmd/logic/formalsystem.qmd": {
+    "formalsystem.html": "be746ce9"
+  },
+  "qmd/logic/theorem.qmd": {
+    "theorem.html": "b5f43ec4"
+  },
+  "qmd/matrix/unitone.qmd": {
+    "unitone.html": "59a999d1"
+  },
+  "qmd/diffeq/unitone.qmd": {
+    "unitone.html": "9455f968"
+  },
+  "qmd/pde/introduction.qmd": {
+    "introduction.html": "b28a0a2c"
+  },
+  "qmd/pde/unitone.qmd": {
+    "unitone.html": "3a3c5da7"
+  },
+  "qmd/numanal/formalsystem.qmd": {
+    "formalsystem.html": "3b0cdab7"
+  },
+  "qmd/numanal/floatingpoint.qmd": {
+    "floatingpoint.html": "8c35bd9b"
+  },
+  "qmd/pde/heatEquation.qmd": {
+    "heatEquation.html": "7ec927c8"
+  },
+  "qmd/diffeq/fode.qmd": {
+    "fode.html": "f244c6e0"
+  },
+  "qmd/diffeq/introduction.qmd": {
+    "introduction.html": "254e07aa"
+  },
+  "qmd/numanal/fundementals.qmd": {
+    "fundementals.html": "666d2adf"
+  },
+  "qmd/logic/intro.qmd": {
+    "intro.html": "ec197c93"
+  },
+  "qmd/logic/formal-systems/formal-language.qmd": {
+    "formal-language.html": "827cca43"
+  },
+  "qmd/abstract/abstract.qmd": {
+    "abstract.html": "99035449"
+  },
+  "qmd/abstract/intro.qmd": {
+    "intro.html": "a433297e"
+  },
+  "qmd/basics/abstract.qmd": {
+    "abstract.html": "12c2d792"
+  },
+  "qmd/matrix/unittwo.qmd": {
+    "unittwo.html": "630b58aa"
+  },
+  "qmd/pde/introduction copy.qmd": {
+    "introduction copy.html": "3a24ef59"
+  },
+  "qmd/abstract/intro-to-groups/intro.qmd": {
+    "intro.html": "a1a69034"
+  },
+  "qmd/abstract/intro-to-groups/axioms.qmd": {
+    "axioms.html": "043339f8"
+  },
+  "qmd/abstract/intro-to-groups/dihedral-groups.qmd": {
+    "dihedral-groups.html": "abbe149e"
+  },
+  "qmd/matrix/unitthree.qmd": {
+    "unitthree.html": "c63ac944"
+  },
+  "qmd/geometry/geometry.qmd": {
+    "geometry.html": "81c49de2"
+  },
+  "qmd/measure/research.qmd": {
+    "research.html": "d575e724"
+  },
+  "qmd/logic/formal-systems/formal-system.qmd": {
+    "formal-system.html": "3a076d86"
+  },
+  "qmd/logic/formal-systems/deductive-system.qmd": {
+    "deductive-system.html": "eb814c64"
+  },
+  "qmd/logic/formal-systems/truth-and-semantics.qmd": {
+    "truth-and-semantics.html": "4ac4c244"
+  },
+  "qmd/abstract/intro-to-groups/homo-iso.qmd": {
+    "homo-iso.html": "a048f6b6"
+  },
+  "qmd/matrix/unitfour.qmd": {
+    "unitfour.html": "22886134"
+  },
+  "qmd/abstract/intro-to-groups/quotient-group.qmd": {
+    "quotient-group.html": "2152fd72"
+  },
+  "qmd/matrix/unitfive.qmd": {
+    "unitfive.html": "f66bcac3"
+  },
+  "qmd/abstract/Problems.qmd": {
+    "Problems.html": "dcb1a66a"
+  },
+  "qmd/abstract/intro-to-groups/definitions.qmd": {
+    "definitions.html": "fac53b1c"
+  },
+  "qmd/abstract/intro-to-groups/symmetric-groups.qmd": {
+    "symmetric-groups.html": "4f9ee46b"
+  },
+  "qmd/abstract/quotient-groups/quotient-group.qmd": {
+    "quotient-group.html": "38e88d0d"
+  },
+  "qmd/abstract/subgroups/definitions.qmd": {
+    "definitions.html": "9088713e"
+  },
+  "qmd/abstract/intro-to-groups/subgroups.qmd": {
+    "subgroups.html": "915e0824"
+  }
+}

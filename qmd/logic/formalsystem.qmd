@@ -1,0 +1,143 @@
+---
+title: "Formal Systems"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+A [**formal system**]{style="color: blue"} consists of a formal language, with strict rules on what symbols are allowed and how to connect them, combined with a deductive system, containing axioms and rules for deducing true statements.
+
+::: {.callout-note icon="false"}
+## Definition
+
+A formal system is a mathematical structure consisting of
+
+-   A formal language
+-   A deductive system
+:::
+
+Of course, without knowledge of what a language or deductive system is, this definition is useless.
+
+## Formal Languages
+
+A [**formal language**]{style="color: blue"} is defined by its *symbols*, such as quantifiers or connectives, and its *syntax*, rules for combining symbols. The most important class of formal language is known as [**first-order language**]{style="color: blue"}, denoted $\mathcal{L}_1$.
+
+The symbols in a first-order language can be grouped into seven categories. Some authors may however chose to group the symbols into more or less categories, but the disctintion is arbitrary. These categories are
+
+-   **Connectives -** $\land, \lor, \implies, \iff, \lnot$
+
+-   **Quantifiers -** $\forall, \exists$
+
+-   **Variables -** $v_1$,$v_2$,$v_3$ ect. A first-order language may consist of any countable amount of variables.
+
+-   **Constants -** $c_0$, $c_1$, $c_2$ ect. A first-order language may consist of any countable amount of constants.
+
+-   **Operations -** A first-order language can consist of any amount of countable operations (functions) $f$ of any order.
+
+-   **Relations -** A first-order language can consist of any amount of countable relations $p$ of any order.
+
+-   **Parentheses -** Right $)$ and left $($. 
+
+Most of the time $\to$ will be used instead of $\implies$, and $\leftrightarrow$ instead of $\iff$, as the symbols are smaller are easier to read. For readibility sake, parenthesis occur in different sizes, or occansionally as brackets. Commas are also inserted to make formulas easier to read, but are not a formal symbol. 
+
+Now we can begin constructing the syntax for first-order languages.
+
+::: {.callout-note icon="false"}
+## Definition
+
+Every variable or constant is a [**term**]{style="color: blue"}. Additionally, if $f$ is an operator of degree $n$, and $t_1,t_2,\dots,t_n$ are terms, then $f(t_1,t_2,\dots,t_n)$ is a term.
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+If $p$ is a relation of degree $n$, and $t_1,t_2,\dots,t_n$ are terms, then $p(t_1,t_2,\dots,t_n)$ is a [**formula**]{style="color: blue"}.
+
+Additionally, if $P$ and $Q$ are formulas, and $x$ is a variable, then the expressions 
+
+$$
+P \iff Q, P \implies Q, P \land Q, P \lor Q\\
+\lnot P, \forall x P, \exists x P
+$$
+
+are also formulas.
+
+:::
+
+Note that mathematicians almost never write in unabbreviated notation. For example, the equation $x + y$ would be wrote $+(x,y)$, which looks silly.
+
+We now can construct formulas from our symbols. Deciding truth values for these formulas is the role of a deductive system.
+
+## Deductive systems
+
+A deductive system (deductive apparatus) is (usually) a set of axioms and rules of inference which are used to deduce one true statement from another. It is very common in math to use a [**Hilbert System**]{style="color: blue"}, which consist of a large number of axioms, and few to no rules of inferences.
+
+Below is an example of a Hilbert System which describes first-order logic. 
+
+::: {.callout-tip icon="false"}
+## FOL Deductive system example[^1]
+
+**Logical Axioms**
+
+The first four axioms describe propositional logic, which is logic without quantifiers like $\land$ or $\lor$.
+
+**P1.** $\phi \rightarrow \phi$
+
+**P2.** $\phi \rightarrow (\psi \rightarrow \phi)$
+
+**P3.** $(\phi \rightarrow (\psi \rightarrow \zeta)) \rightarrow ((\phi \rightarrow \psi) \rightarrow (\phi \rightarrow \zeta))$
+
+**P4.** $(\lnot \phi \rightarrow \lnot \psi) \rightarrow (\psi \rightarrow \phi)$
+
+Here, $\phi,\psi$ and $\zeta$ refer to formulas, as constructed from our language. Thus, P1 could represent $p \rightarrow p$ or $(p \land q) \rightarrow (p \land q)$. 
+This axiomitization is in no way unique, and in fact axiom P1 can be proven from P2 and P3.
+
+The next three axioms allow us to manipulate quantifiers. 
+
+**Q5.** $\forall x\,(\phi) \rightarrow \phi[x:=t]$ (Meaning $t$ may be substituded for $x$ in $\phi$)
+
+**Q6.** $\forall x\,(\phi \rightarrow \psi) \rightarrow (\forall x\,(\phi) \rightarrow \forall x\, (\psi))$
+
+**Q7.** $\phi \rightarrow \forall x \,(\phi)$ (where $x$ is not free in $\phi$)
+
+These three axioms allow us to use the $\forall$ quantifier. 
+
+For formal systems where equality is not defined as a relation, the following two axioms are necessary.
+
+**I8**. $x = x$ for every variable $x$.
+
+**I9**. $(x = y) \rightarrow (\phi(x) = \phi(y))$
+
+**Rules of inference**
+
+Rules of inference are used to deduce a true statement from a previous. Modus ponens is typically the only used rule of inference.
+
+**R1**. Modus ponens
+
+Modus ponens states that if $p$ and $p \rightarrow q$ are true, then $q$ is true.
+:::
+
+Note any connective can be formed using only $\lnot$ and $\rightarrow$, and the exists quantifier can be defined using connectives and the for all quantifier. 
+
+Now that we've defined a formal language to produce formulas, and a deduction system to define truth, we can construct a formal system.
+
+## First-order logic
+
+Although we can construct many formal systems by combining different languages with different deductive systems, the most popular formal systems belong to [**first-order logic**]{style="color: blue"}, sometimes called predicate logic.
+
+::: {.callout-note icon="false"}
+## Definition
+
+First-order logic refers to a collection of formal systems composed of
+
+-   A first-order language
+-   A deductive system equivalent to the example shown above
+:::
+
+As a concrete example, both ZF (Zermelo-Fraenkel set theory) and PA (Peano arithmetic) are theories in first-order logic. They both use a unique first-order language, and the same deductive system. So they both can be said to use first-order logic.
+
+What exactly ZF and PA are, and what a theory is, are explained in the next part.
+
+
+[^1]: This section is copied from [Wikipedia](https://en.wikipedia.org/wiki/Hilbert_system) almost verbatim.

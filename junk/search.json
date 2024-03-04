@@ -1,0 +1,310 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "qmd/graph/intro/definition.html",
+    "href": "qmd/graph/intro/definition.html",
+    "title": "Graphs",
+    "section": "",
+    "text": "A graph is a set of points called vertices connected by edges.\n(Insert graph example)\n\n\n\n\n\n\nDefinition\n\n\n\nA graph G = (V,E) is a mathematical structure consisting of a vertex set V(G) and an edge set E(G). Each edge e in the edge set connects two (not necessarily distinct) vertices known as the endpoints of e.\n\n\nAn edge is said to join its endpoints. Say an edge e connects two vertices u and v. u is said to be adjacent and a neighbor of v.\n\n\n\n\n\n\nExample\n\n\n\nThe vertex and edge sets of the graph in Figure 1.1.1 are\n\nV(G) = \\{a,b,c,d\\} \\quad\\quad\\quad\\quad E(G) = \\{ab,ac,ad,bc,bd,cd\\}\n\nNotice how we can denote an edge by concatenating its endpoints. This is only possible in cases where exclusively one edge exist between two vertices.\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nAn edge e can be called\n\nA proper edge when the edge joins two distinct vertices\nA loop when e joins a vertex to itself\nA multi-edge when two or more edges connect the same two vertices\n\n\n\nThere are many instances in graph theory where our graphs are both loopless and devoid of multi-edges. In these cases we call the graph simple. If our graph is empty, we call it a null graph. If our graph contains one vertex and no edges, the graph is trivial."
+  },
+  {
+    "objectID": "qmd/graph/graph1.html",
+    "href": "qmd/graph/graph1.html",
+    "title": "Definitions",
+    "section": "",
+    "text": "A graph is a set of points called vertices connected by edges."
+  },
+  {
+    "objectID": "qmd/basics/sets.html",
+    "href": "qmd/basics/sets.html",
+    "title": "Sets",
+    "section": "",
+    "text": "A set is a collection of elements, usually denoted with a capital letter A,B,\\cdots,Z. Important groups of numbers are denoted in Blackboard bold font; for example the set \\mathbb{N}, which refers to the natural numbers. Sets are given the following notation\nA set S containing the numbers 1,2 and 3 as elements is wrote S = \\{1,2,3\\}. The order in which the elements are listed is irrelevant, S = \\{1,2,3\\} = \\{3,2,1\\}. This notation becomes tedious however when attempting to write a set with a large amount of elements. This is where set builder notation comes in. Set builder notation defines a set in the form\nS = \\{\\text{A function of}\\: x \\:|\\: \\text{A predicate of}\\: x\\}\nFor example, the set of all square numbers would be\nS = \\{ x^2 \\:|\\: x \\in \\mathbb{N}\\} = \\{1,4,9,\\ldots\\}\nThere are very commonly used sets we assume the existence of, and denote with special characters to save time\nDefinition: Given any set A, the of A, denoted \\mathcal{P}(\\mathbb{A}) is the set of all subsets of A; i.e.\n\\mathcal{P}(A) = \\{B | B \\subseteq A\\}\nFor example, if A = \\{a,b\\}, then \\mathcal{P}(A) = \\{\\{\\},\\{a\\},\\{b\\},\\{a,b\\}\\} Notice that \\varnothing and A are always elements of \\mathcal{P}(A). Also note a \\not\\in \\mathcal{P}(A), but \\{a\\} \\in \\mathcal{P}(A)."
+  },
+  {
+    "objectID": "qmd/basics/sets.html#footnotes",
+    "href": "qmd/basics/sets.html#footnotes",
+    "title": "Sets",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe notation \\mathbb{Z} for integers comes from the German word Zahlen, which means integer.↩︎"
+  },
+  {
+    "objectID": "qmd/basics/sets2.html",
+    "href": "qmd/basics/sets2.html",
+    "title": "Sets",
+    "section": "",
+    "text": "A set is a collection of elements, usually denoted with a capital letter A,B,\\cdots,Z. Important groups of numbers are denoted in Blackboard bold font; for example the set \\mathbb{N}, which refers to the natural numbers. Sets are given the following notation\nA set S containing the numbers 1,2 and 3 as elements is wrote S = \\{1,2,3\\}. The order in which the elements are listed is irrelevant, S = \\{1,2,3\\} = \\{3,2,1\\}. This notation becomes tedious however when attempting to write a set with a large amount of elements. This is where set builder notation comes in. Set builder notation defines a set in the form\nS = \\{\\text{A function of}\\: x \\:|\\: \\text{A predicate of}\\: x\\}\nFor example, the set of all square numbers would be\nS = \\{ x^2 \\:|\\: x \\in \\mathbb{N}\\} = \\{1,4,9,\\ldots\\}\nThere are very commonly used sets we assume the existence of, and denote with special characters to save time\nDefinition: Given any set A, the of A, denoted \\mathcal{P}(\\mathbb{A}) is the set of all subsets of A; i.e.\n\\mathcal{P}(A) = \\{B | B \\subseteq A\\}\nFor example, if A = \\{a,b\\}, then \\mathcal{P}(A) = \\{\\{\\},\\{a\\},\\{b\\},\\{a,b\\}\\} Notice that \\varnothing and A are always elements of \\mathcal{P}(A). Also note a \\not\\in \\mathcal{P}(A), but \\{a\\} \\in \\mathcal{P}(A)."
+  },
+  {
+    "objectID": "qmd/basics/sets2.html#footnotes",
+    "href": "qmd/basics/sets2.html#footnotes",
+    "title": "Sets",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe notation \\mathbb{Z} for integers comes from the German word Zahlen, which means integer.↩︎"
+  },
+  {
+    "objectID": "qmd/basics/sets1.html",
+    "href": "qmd/basics/sets1.html",
+    "title": "Sets",
+    "section": "",
+    "text": "A set is a collection of elements, usually denoted with a capital letter A,B,\\cdots,Z. Important groups of numbers are denoted in Blackboard bold font; for example the set \\mathbb{N}, which refers to the natural numbers. Sets are given the following notation\nA set S containing the numbers 1,2 and 3 as elements is wrote S = \\{1,2,3\\}. The order in which the elements are listed is irrelevant, S = \\{1,2,3\\} = \\{3,2,1\\}. This notation becomes tedious however when attempting to write a set with a large amount of elements. This is where set builder notation comes in. Set builder notation defines a set in the form\nS = \\{\\text{A function of}\\: x \\:|\\: \\text{A predicate of}\\: x\\}\nFor example, the set of all square numbers would be\nS = \\{ x^2 \\:|\\: x \\in \\mathbb{N}\\} = \\{1,4,9,\\ldots\\}\nThere are very commonly used sets we assume the existence of, and denote with special characters to save time\nDefinition: Given any set A, the of A, denoted \\mathcal{P}(\\mathbb{A}) is the set of all subsets of A; i.e.\n\\mathcal{P}(A) = \\{B | B \\subseteq A\\}\nFor example, if A = \\{a,b\\}, then \\mathcal{P}(A) = \\{\\{\\},\\{a\\},\\{b\\},\\{a,b\\}\\} Notice that \\varnothing and A are always elements of \\mathcal{P}(A). Also note a \\not\\in \\mathcal{P}(A), but \\{a\\} \\in \\mathcal{P}(A)."
+  },
+  {
+    "objectID": "qmd/basics/sets1.html#footnotes",
+    "href": "qmd/basics/sets1.html#footnotes",
+    "title": "Sets",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe notation \\mathbb{Z} for integers comes from the German word Zahlen, which means integer.↩︎"
+  },
+  {
+    "objectID": "qmd/graph/graph2.html",
+    "href": "qmd/graph/graph2.html",
+    "title": "graph",
+    "section": "",
+    "text": "A set is a collection of elements, usually denoted with a capital letter A,B,\\cdots,Z. Important groups of numbers are denoted in Blackboard bold font; for example the set \\mathbb{N}, which refers to the natural numbers. Sets are given the following notation\nA set S containing the numbers 1,2 and 3 as elements is wrote S = \\{1,2,3\\}. The order in which the elements are listed is irrelevant, S = \\{1,2,3\\} = \\{3,2,1\\}. This notation becomes tedious however when attempting to write a set with a large amount of elements. This is where set builder notation comes in. Set builder notation defines a set in the form\nS = \\{\\text{A function of}\\: x \\:|\\: \\text{A predicate of}\\: x\\}\nFor example, the set of all square numbers would be\nS = \\{ x^2 \\:|\\: x \\in \\mathbb{N}\\} = \\{1,4,9,\\ldots\\}\nThere are very commonly used sets we assume the existence of, and denote with special characters to save time\nDefinition: Given any set A, the of A, denoted \\mathcal{P}(\\mathbb{A}) is the set of all subsets of A; i.e.\n\\mathcal{P}(A) = \\{B | B \\subseteq A\\}\nFor example, if A = \\{a,b\\}, then \\mathcal{P}(A) = \\{\\{\\},\\{a\\},\\{b\\},\\{a,b\\}\\} Notice that \\varnothing and A are always elements of \\mathcal{P}(A). Also note a \\not\\in \\mathcal{P}(A), but \\{a\\} \\in \\mathcal{P}(A)."
+  },
+  {
+    "objectID": "qmd/graph/graph2.html#footnotes",
+    "href": "qmd/graph/graph2.html#footnotes",
+    "title": "graph",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe notation \\mathbb{Z} for integers comes from the German word Zahlen, which means integer.↩︎"
+  },
+  {
+    "objectID": "qmd/graph/GraphTheory.html",
+    "href": "qmd/graph/GraphTheory.html",
+    "title": "Graph Theory",
+    "section": "",
+    "text": "Graph Theory is the study of Graphs (Shocking) and their applications. The subject doesn’t require any real prerequisites, except some basic knowledge of naive set theory. Many problems in math and computer science can be modeled with graphs, despite seeming on the surface entirely unrelated. In fact, even chemist have begun to use graphs as a way to model molecules!\n\nTable of Contents\n0 - Graph Theory\n  0.1 - Preface\n  0.2 - Table of Contents\n1 - Introduction\n  1.1 - Graphs\n    1.1.1 - Definition\n    1.1.2 - Common Families of Graphs\n  1.2 - Vertex Degrees\n  1.3 - Paths, Cycles, Trails\n2 - Structure and Representation\n3 - Matching\n4 - Subgraphs\n5 - Trees\n6 - Connectivity\n7 - Planarity\n8 - Coloring\n9 - Flows\n10 - Hamilton Cycles"
+  },
+  {
+    "objectID": "qmd/graph/GraphTheory.html#introduction",
+    "href": "qmd/graph/GraphTheory.html#introduction",
+    "title": "Graph Theory",
+    "section": "§1. Introduction",
+    "text": "§1. Introduction\nThis chapter introduces definitions and key concepts."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Orions Online Math Notes",
+    "section": "",
+    "text": "A work in progress website documenting my varius math and lecture notes"
+  },
+  {
+    "objectID": "qmd/graph/intro/definition.html#simple-graphs-vs.-general-graphs",
+    "href": "qmd/graph/intro/definition.html#simple-graphs-vs.-general-graphs",
+    "title": "Definitions",
+    "section": "Simple Graphs vs. General Graphs",
+    "text": "Simple Graphs vs. General Graphs\nMost of the theorems we will prove work better in cases where graphs lack certain properties\n\n\n\n\n\n\nDefinition\n\n\n\nAn edge e can be called\n\nA proper edge when the edge joins two distinct vertices\nA loop when 4 joins a vertex to itself\nA multi-edge when two or more edges connect the same two vertices\n\n\n\nThese definitions"
+  },
+  {
+    "objectID": "qmd/graph/intro/definition.html#definition-1",
+    "href": "qmd/graph/intro/definition.html#definition-1",
+    "title": "Definitions",
+    "section": "Definition",
+    "text": "Definition\nAn edge e can be called\n\nA proper edge when the edge joins two distinct vertices\nA loop when e joins a vertex to itself\nA multi-edge when two or more edges connect the same two vertices"
+  },
+  {
+    "objectID": "qmd/graph/intro/definition.html#what-is-a-graph",
+    "href": "qmd/graph/intro/definition.html#what-is-a-graph",
+    "title": "Definitions",
+    "section": "",
+    "text": "A graph is a set of points called vertices connected by edges.\n(Insert graph example)\n\n\n\n\n\n\nDefinition\n\n\n\nA graph G = (V,E) is a mathematical structure consisting of a vertex set V(G) and an edge set E(G). Each edge e in the edge set connects two (not necessarily distinct) vertices known as the endpoints of e.\n\n\nAn edge is said to join its endpoints. Say an edge e connects two vertices u and v. u is said to be adjacent and a neighbor of v.\n\n\n\n\n\n\nExample\n\n\n\nThe vertex and edge sets of the graph in Figure 1.1.1 are\n\nV(G) = \\{a,b,c,d\\} \\quad\\quad\\quad\\quad E(G) = \\{ab,ac,ad,bc,bd,cd\\}\n\nNotice how we can denote an edge by concatenating its endpoints. This is only possible in cases where exclusively one edge exist between two vertices.\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nAn edge e can be called\n\nA proper edge when the edge joins two distinct vertices\nA loop when e joins a vertex to itself\nA multi-edge when two or more edges connect the same two vertices\n\n\n\nThere are many instances in graph theory where our graphs are both loopless and devoid of multi-edges. In these cases we call the graph simple. If our graph is empty, we call it a null graph. If our graph contains one vertex and no edges, the graph is trivial."
+  },
+  {
+    "objectID": "qmd/graph/intro/definition.html#common-families-of-graphs",
+    "href": "qmd/graph/intro/definition.html#common-families-of-graphs",
+    "title": "Graphs",
+    "section": "Common Families of Graphs",
+    "text": "Common Families of Graphs\n\nComplete Graphs\n\n\n\n\n\n\nDefinition\n\n\n\nA complete graph is a simple graph where there exist an edge between every pair of distinct vertices. A complete graph with n vertices is notated K_n.\n\n\n(Insert picture of graphs K1 through K5)\n\n\n\n\n\n\nTheorem\n\n\n\nA complete graph K_n contains \\binom{n}{2} edges.\n\n\n\n\n\n\n\n\nProof\n\n\n\nThe graph K_n has an edge between every pair of distinct vertices. Because order doesn’t affect edges (e = uv is equivalent to e = vu), the number of edges is analougous to n choose 2, \\binom{n}{2}.\n\n\n\n\nBipartite Graphs\n\n\n\n\n\n\nDefinition\n\n\n\nA bipartite graph G is a simple graph whose vertex set can be partitioned into two subsets U and V, such that every edge in G has one endpoint in U, and one edpoint in V.\n\n\n(Insert picture of a few bipartite graphs)\n\n\n\n\n\n\nProposition\n\n\n\nA bipartite graph cannot contain any loops.\n\n\n\n\n\n\n\n\nProof\n\n\n\nIf an edge was loop, it would connect the same vertex to both endpoints, which contradicts our definition of a bipartite graph."
+  },
+  {
+    "objectID": "qmd/graph/intro/definition.html#definition",
+    "href": "qmd/graph/intro/definition.html#definition",
+    "title": "Graphs",
+    "section": "",
+    "text": "A graph is a set of points called vertices connected by edges.\n(Insert graph example)\n\n\n\n\n\n\nDefinition\n\n\n\nA graph G = (V,E) is a mathematical structure consisting of a vertex set V(G) and an edge set E(G). Each edge e in the edge set connects two (not necessarily distinct) vertices known as the endpoints of e.\n\n\nAn edge is said to join its endpoints. Say an edge e connects two vertices u and v. u is said to be adjacent and a neighbor of v.\n\n\n\n\n\n\nExample\n\n\n\nThe vertex and edge sets of the graph in Figure 1.1.1 are\n\nV(G) = \\{a,b,c,d\\} \\quad\\quad\\quad\\quad E(G) = \\{ab,ac,ad,bc,bd,cd\\}\n\nNotice how we can denote an edge by concatenating its endpoints. This is only possible in cases where exclusively one edge exist between two vertices.\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nAn edge e can be called\n\nA proper edge when the edge joins two distinct vertices\nA loop when e joins a vertex to itself\nA multi-edge when two or more edges connect the same two vertices\n\n\n\nThere are many instances in graph theory where our graphs are both loopless and devoid of multi-edges. In these cases we call the graph simple. If our graph is empty, we call it a null graph. If our graph contains one vertex and no edges, the graph is trivial."
+  },
+  {
+    "objectID": "qmd/graph/GraphTheory.html#history",
+    "href": "qmd/graph/GraphTheory.html#history",
+    "title": "Graph Theory",
+    "section": "§1.1 History",
+    "text": "§1.1 History\nThis section explains the history and motivation behind Graph Theory."
+  },
+  {
+    "objectID": "qmd/graph/GraphTheory.html#graphs",
+    "href": "qmd/graph/GraphTheory.html#graphs",
+    "title": "Graph Theory",
+    "section": "§1.2 Graphs",
+    "text": "§1.2 Graphs\nThis section explains what a graph is, common families of graphs,,"
+  },
+  {
+    "objectID": "qmd/graph/GraphTheory.html#paths-trails-cycles",
+    "href": "qmd/graph/GraphTheory.html#paths-trails-cycles",
+    "title": "Graph Theory",
+    "section": "§1.3 Paths, Trails, Cycles",
+    "text": "§1.3 Paths, Trails, Cycles"
+  },
+  {
+    "objectID": "qmd/graph/intro/graphs.html",
+    "href": "qmd/graph/intro/graphs.html",
+    "title": "Graphs",
+    "section": "",
+    "text": "This section covers the definition of a graph, and common families of graphs."
+  },
+  {
+    "objectID": "qmd/graph/intro/graphs.html#definition",
+    "href": "qmd/graph/intro/graphs.html#definition",
+    "title": "Graphs",
+    "section": "",
+    "text": "A graph is a set of points called vertices connected by edges.\n\n\n\n\n\n\nThe Petersen Graph, a notable graph in Graph Theory\n\n\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA graph G = (V,E) is a mathematical structure consisting of a vertex set V(G) and an edge set E(G). Each edge e in the edge set connects two (not necessarily distinct) vertices known as the endpoints of e.\n\n\nAn edge is said to join its endpoints. Say an edge e connects two vertices u and v. u is said to be adjacent and a neighbor of v.\n\n\n\n\n\n\nExample\n\n\n\n\n\n\n\n\n\n\n\n\nThe vertex and edge sets of the graph G above are\n\nV(G) = \\{a,b,c,d\\} \\quad\\quad\\quad\\quad E(G) = \\{ab,ac,ad,bc,bd,cd\\}\n\nNotice how we can denote an edge by concatenating its endpoints. This is only possible in cases where exclusively one edge exist between two vertices.\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nAn edge e can be called\n\nA proper edge when the edge joins two distinct vertices\nA loop when e joins a vertex to itself\nA multi-edge when two or more edges connect the same two vertices\n\n\n\nThere are many instances in graph theory where our graphs are both loopless and devoid of multi-edges. In these cases we call the graph simple. If our graph is empty, we call it a null graph. If our graph contains one vertex and no edges, the graph is trivial.\n\n\nA more rigourous definition of a graph"
+  },
+  {
+    "objectID": "qmd/graph/intro/graphs.html#common-families-of-graphs",
+    "href": "qmd/graph/intro/graphs.html#common-families-of-graphs",
+    "title": "Graphs",
+    "section": "Common Families of Graphs",
+    "text": "Common Families of Graphs\n\nComplete Graphs\n\n\n\n\n\n\nDefinition\n\n\n\nA complete graph is a simple graph where there exist an edge between every pair of distinct vertices. A complete graph with n vertices is notated K_n.\n\n\n(Insert picture of graphs K1 through K5)\n\n\n\n\n\n\nTheorem\n\n\n\nA complete graph K_n contains \\binom{n}{2} edges.\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nThe graph K_n has an edge between every pair of distinct vertices. Because order doesn’t affect edges (e = uv is equivalent to e = vu), the number of edges is analougous to n choose 2, \\binom{n}{2}.\n\n\n\n\n\nBipartite Graphs\n\n\n\n\n\n\nDefinition\n\n\n\nA bipartite graph G is a simple graph whose vertex set can be partitioned into two subsets U and V, such that every edge in G has one endpoint in U, and one edpoint in V.\n\n\n(Insert picture of a few bipartite graphs)\n\n\n\n\n\n\nProposition\n\n\n\nA bipartite graph cannot contain any loops.\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nIf an edge was loop, it would connect the same vertex to both endpoints, which contradicts our definition of a bipartite graph.\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA complete bipartite graph G is a simple bipartite graph such that every vertex in one of the bipartition subsets is joined to every other vertex in the other bipartite subset. A complete bipartite graph is notated K_{m,n} where m is the number of vertices in one of the graphs bipartite set, and n is the number of vertices in the other.\n\n\n(Example of a complete bipartite graph)\n\n\nRegular Graphs\nTo look at regular graphs, we first have to establish the degree of a vertex.\n\n\n\n\n\n\nDefinition\n\n\n\nThe degree of a vertex v is a positive integer equal to the number of vertices in the neighborhood of v.\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA k-regular graph is a graph where each vertex has k other vertices in it’s neighborhood.\n\n\n\n\n\n\n\n\nExample\n\n\n\n\n\n\n\n\n\n\n\n\nFor example, the Petersen graph is 3-regular, as each vertex in the graph has three other vertices in it’s neighborhood."
+  },
+  {
+    "objectID": "qmd/graph/intro/paths.html",
+    "href": "qmd/graph/intro/paths.html",
+    "title": "Definitions",
+    "section": "",
+    "text": "A graph is a set of points called vertices connected by edges.\n(Insert graph example)\n\n\n\n\n\n\nDefinition\n\n\n\nA graph G = (V,E) is a mathematical structure consisting of a vertex set V(G) and an edge set E(G). Each edge e in the edge set connects two (not necessarily distinct) vertices known as the endpoints of e.\n\n\nAn edge is said to join its endpoints. Say an edge e connects two vertices u and v. u is said to be adjacent and a neighbor of v.\n\n\n\n\n\n\nExample\n\n\n\nThe vertex and edge sets of the graph in Figure 1.1.1 are\n\nV(G) = \\{a,b,c,d\\} \\quad\\quad\\quad\\quad E(G) = \\{ab,ac,ad,bc,bd,cd\\}\n\nNotice how we can denote an edge by concatenating its endpoints. This is only possible in cases where exclusively one edge exist between two vertices.\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nAn edge e can be called\n\nA proper edge when the edge joins two distinct vertices\nA loop when e joins a vertex to itself\nA multi-edge when two or more edges connect the same two vertices\n\n\n\nThere are many instances in graph theory where our graphs are both loopless and devoid of multi-edges. In these cases we call the graph simple. If our graph is empty, we call it a null graph. If our graph contains one vertex and no edges, the graph is trivial."
+  },
+  {
+    "objectID": "qmd/graph/intro/paths.html#what-is-a-graph",
+    "href": "qmd/graph/intro/paths.html#what-is-a-graph",
+    "title": "Definitions",
+    "section": "",
+    "text": "A graph is a set of points called vertices connected by edges.\n(Insert graph example)\n\n\n\n\n\n\nDefinition\n\n\n\nA graph G = (V,E) is a mathematical structure consisting of a vertex set V(G) and an edge set E(G). Each edge e in the edge set connects two (not necessarily distinct) vertices known as the endpoints of e.\n\n\nAn edge is said to join its endpoints. Say an edge e connects two vertices u and v. u is said to be adjacent and a neighbor of v.\n\n\n\n\n\n\nExample\n\n\n\nThe vertex and edge sets of the graph in Figure 1.1.1 are\n\nV(G) = \\{a,b,c,d\\} \\quad\\quad\\quad\\quad E(G) = \\{ab,ac,ad,bc,bd,cd\\}\n\nNotice how we can denote an edge by concatenating its endpoints. This is only possible in cases where exclusively one edge exist between two vertices.\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nAn edge e can be called\n\nA proper edge when the edge joins two distinct vertices\nA loop when e joins a vertex to itself\nA multi-edge when two or more edges connect the same two vertices\n\n\n\nThere are many instances in graph theory where our graphs are both loopless and devoid of multi-edges. In these cases we call the graph simple. If our graph is empty, we call it a null graph. If our graph contains one vertex and no edges, the graph is trivial."
+  },
+  {
+    "objectID": "qmd/graph/intro/paths.html#common-families-of-graphs",
+    "href": "qmd/graph/intro/paths.html#common-families-of-graphs",
+    "title": "Definitions",
+    "section": "Common Families of Graphs",
+    "text": "Common Families of Graphs\n\nComplete Graphs\n\n\n\n\n\n\nDefinition\n\n\n\nA complete graph is a simple graph where there exist an edge between every pair of distinct vertices. A complete graph with n vertices is notated K_n.\n\n\n(Insert picture of graphs K1 through K5)\n\n\n\n\n\n\nTheorem\n\n\n\nA complete graph K_n contains \\binom{n}{2} edges.\n\n\n\n\n\n\n\n\nProof\n\n\n\nThe graph K_n has an edge between every pair of distinct vertices. Because order doesn’t affect edges (e = uv is equivalent to e = vu), the number of edges is analougous to n choose 2, \\binom{n}{2}.\n\n\n\n\nBipartite Graphs\n\n\n\n\n\n\nDefinition\n\n\n\nA bipartite graph G is a simple graph whose vertex set can be partitioned into two subsets U and V, such that every edge in G has one endpoint in U, and one edpoint in V.\n\n\n(Insert picture of a few bipartite graphs)\n\n\n\n\n\n\nProposition\n\n\n\nA bipartite graph cannot contain any loops.\n\n\n\n\n\n\n\n\nProof\n\n\n\nIf an edge was loop, it would connect the same vertex to both endpoints, which contradicts our definition of a bipartite graph."
+  },
+  {
+    "objectID": "qmd/graph/trees/trees.html",
+    "href": "qmd/graph/trees/trees.html",
+    "title": "Trees",
+    "section": "",
+    "text": "Recall that there are \\binom{n}{2}^2 graphs on n vertices.\nQuestion: How many trees are there on n vertices?\nThis question is not at all obvious, and has a suprisingly simple solution! We’ll count trees as distinct if their graphs are distinct, i.e. two isomorphic trees will be counted as distinct.\n(Give example on K_3)\nIn order to solve this question, we’ll first establish the concept of a prüfer code\n\n\nTake any tree T. The need may occasionally arise where we wish to represent T as a sequence of integers, similar to degree sequences for graphs.\n\n\n\n\n\n\nDefinition (Cayley’s Theorem)\n\n\n\nA prüfer code is a sequence of length n-2 of integers in \\{1,2,\\ldots,n\\} that corresponds to a tree of n.\n\n\nWe’re claiming that any tree can be represented by a prüfer code. In order to find the prüfer code for a tree, we use the following algorithm.\n\n\n\n\n\n\nAlgorithm\n\n\n\nGiven a tree T on n vertices, delete the least leaf of T and record the vertex that this leaf was adjacent to in T. Continue until the tree has 2 vertices.\n\n\n\n\n\n\n\n\nExample\n\n\n\n(Give two examples of the algorithm)\n\n\nWe can now represent every tree as a prüfer code. What makes prüfer code so useful is that unlike degree sequences, every distinct tree has a unique prüfer code."
+  },
+  {
+    "objectID": "qmd/graph/trees/trees.html#cayleys-theorem",
+    "href": "qmd/graph/trees/trees.html#cayleys-theorem",
+    "title": "Trees",
+    "section": "",
+    "text": "Recall that there are \\binom{n}{2}^2 graphs on n vertices.\nQuestion: How many trees are there on n vertices?\nThis question is not at all obvious, and has a suprisingly simple solution! We’ll count trees as distinct if their graphs are distinct, i.e. two isomorphic trees will be counted as distinct.\n(Give example on K_3)\nIn order to solve this question, we’ll first establish the concept of a prüfer code\n\n\nTake any tree T. The need may occasionally arise where we wish to represent T as a sequence of integers, similar to degree sequences for graphs.\n\n\n\n\n\n\nDefinition (Cayley’s Theorem)\n\n\n\nA prüfer code is a sequence of length n-2 of integers in \\{1,2,\\ldots,n\\} that corresponds to a tree of n.\n\n\nWe’re claiming that any tree can be represented by a prüfer code. In order to find the prüfer code for a tree, we use the following algorithm.\n\n\n\n\n\n\nAlgorithm\n\n\n\nGiven a tree T on n vertices, delete the least leaf of T and record the vertex that this leaf was adjacent to in T. Continue until the tree has 2 vertices.\n\n\n\n\n\n\n\n\nExample\n\n\n\n(Give two examples of the algorithm)\n\n\nWe can now represent every tree as a prüfer code. What makes prüfer code so useful is that unlike degree sequences, every distinct tree has a unique prüfer code."
+  },
+  {
+    "objectID": "qmd/graph/trees/trees.html#theorem-cayleys-theorem",
+    "href": "qmd/graph/trees/trees.html#theorem-cayleys-theorem",
+    "title": "Trees",
+    "section": "Theorem (Cayley’s Theorem)",
+    "text": "Theorem (Cayley’s Theorem)\nThere are exactly n^{n-2} many trees on n vertices\n:::\n\n\n\n\n\n\nProof\n\n\n\nA prüfer code is a sequence of length n-2 of integers in \\{1,2,\\ldots,n\\}.\nGiven a tree T on n vertices, we will associate to T a prüfer code according to the following algorithm.\nAlgorithm: Given a tree T on n vertices, delete the least leaf of T and record the vertex that this leaf was adjacent to in T. Continue until the tree has 2 vertices.\n(Give example of the algorithm.)"
+  },
+  {
+    "objectID": "qmd/graph/intro/graphs.html#alternate-definition",
+    "href": "qmd/graph/intro/graphs.html#alternate-definition",
+    "title": "Graphs",
+    "section": "Alternate definition",
+    "text": "Alternate definition\nA more rigourous definition of a graph G will include an incidence function \\psi_G that connects vertices to edges.\n\n\n\n\n\n\nDefinition\n\n\n\nA graph G is an ordered pair (V(G),E(G)) where V(G) is a set of vertices and E(G) is a set, disjoint from V(G), of edges, along with an incidence function \\psi_G that associates each edge in E(G) an unordered pair of vertices in V(G).\n\n\nAn edge e is said to join its endpoints u,v if \\psi_G(e) = \\{u,v\\}.\n\n\n\n\n\n\nExample (Rigourous Graph)\n\n\n\n\n\nAn example of a rigourous graph G is\n\nG = (V(G),E(G))\n\nwhere\n\nV(G) = \\{a,b,c,d,e\\}\\\\\nE(G) = \\{e_1,e_2,e_3,e_4,e_5,e_6,e_7,e_8\\}\n\nand \\psi_G conncects\n\n\\psi_G(e_1) = \\{a,b\\}, \\psi_G(e_2) = \\{a,a\\}, \\psi_G(e_3) = \\{a,c\\}, \\psi_G(e_4) = \\{b,e\\}\\\\\n\\psi_G(e_5) = \\{b,a\\}, \\psi_G(e_6) = \\{c,b\\}, \\psi_G(e_7) = \\{d,d\\}, \\psi_G(e_8) = \\{c,e\\}"
+  },
+  {
+    "objectID": "qmd/graph/intro/graphs.html#complete-graphs",
+    "href": "qmd/graph/intro/graphs.html#complete-graphs",
+    "title": "Graphs",
+    "section": "Complete Graphs",
+    "text": "Complete Graphs\n\n\n\n\n\n\nDefinition\n\n\n\nA complete graph is a simple graph where there exist an edge between every pair of distinct vertices. A complete graph with n vertices is notated K_n.\n\n\n(Insert picture of graphs K1 through K5)\n\n\n\n\n\n\nTheorem\n\n\n\nA complete graph K_n contains \\binom{n}{2} edges.\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nThe graph K_n has an edge between every pair of distinct vertices. Because order doesn’t affect edges (e = uv is equivalent to e = vu), the number of edges is analougous to n choose 2, \\binom{n}{2}."
+  },
+  {
+    "objectID": "qmd/graph/intro/graphs.html#bipartite-graphs",
+    "href": "qmd/graph/intro/graphs.html#bipartite-graphs",
+    "title": "Graphs",
+    "section": "Bipartite Graphs",
+    "text": "Bipartite Graphs\n\n\n\n\n\n\nDefinition\n\n\n\nA bipartite graph G is a simple graph whose vertex set can be partitioned into two subsets U and V, such that every edge in G has one endpoint in U, and one edpoint in V.\n\n\n(Insert picture of a few bipartite graphs)\n\n\n\n\n\n\nProposition\n\n\n\nA bipartite graph cannot contain any loops.\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nIf an edge was loop, it would connect the same vertex to both endpoints, which contradicts our definition of a bipartite graph.\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA complete bipartite graph G is a simple bipartite graph such that every vertex in one of the bipartition subsets is joined to every other vertex in the other bipartite subset. A complete bipartite graph is notated K_{m,n} where m is the number of vertices in one of the graphs bipartite set, and n is the number of vertices in the other.\n\n\n(Example of a complete bipartite graph)"
+  },
+  {
+    "objectID": "qmd/graph/intro/graphs.html#regular-graphs",
+    "href": "qmd/graph/intro/graphs.html#regular-graphs",
+    "title": "Graphs",
+    "section": "Regular Graphs",
+    "text": "Regular Graphs\nTo look at regular graphs, we first have to establish the degree of a vertex.\n\n\n\n\n\n\nDefinition\n\n\n\nThe degree of a vertex v is a positive integer equal to the number of vertices in the neighborhood of v.\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA k-regular graph is a graph where each vertex has k other vertices in it’s neighborhood.\n\n\n\n\n\n\n\n\nExample\n\n\n\n\n\n\n\n\n\n\n\n\nFor example, the Petersen graph is 3-regular, as each vertex in the graph has three other vertices in it’s neighborhood."
+  },
+  {
+    "objectID": "qmd/basics/Banach Mazur Game.html",
+    "href": "qmd/basics/Banach Mazur Game.html",
+    "title": "Banach Mazur game",
+    "section": "",
+    "text": "Definition\n\n\n\nThe Banach Mazur game (on \\mathbb{R}) is a game with two players. Let A \\subseteq R. The players take turns playing open sets one after another, with the condition that every open set is a subset of the set last played.\n\n\nWhile this seems like an arbitrary game, it has interesting properties and theorems associated with it.\n\n\n\n\n\n\nTheorem\n\n\n\nFor any set A \\in \\mathbb{R}\n\nA is co-meager if and only if Player 2 has a winning strategy\nA is meager if and only if Player 1 has a winning strategy"
+  },
+  {
+    "objectID": "qmd/basics/Measure.html",
+    "href": "qmd/basics/Measure.html",
+    "title": "Lebesgue Measure",
+    "section": "",
+    "text": "Measures are used to formalize notions of length, area, and volume and expand the notions into more cases. There are many ways to define a measure functions, but they each satisfy the following properties.\n\n\n\n\n\n\nNote\n\n\n\nWe will define \\ell(I_k) to be the length of the interval. For example \\ell([a,b]) = b - a\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA measure is a function from the measurable sets \\mathscr{M} to the non-negative real numbers m \\colon \\mathscr{M} \\to \\mathbb{R}_{\\geq 0} such that the following hold.\n\nThe measure of an interval is its length. Meaning the measure of every nonempty interval I is \nm(I) = \\ell(I)\n\nMeasure is translation invariant. Meaning that if E is a measurable set, than E + y = \\{x+y | x \\in E\\} is also measurable and\n\n\nm(E) = m(E + y)\n\n\nMeasure is countably additive over a disjoint union of sets. Meaning that if \\{E_k\\}_{k=1}^\\infty if a collection of disjoint measurable sets, then\n\n\nm\\left(\\bigcup_{k=1}^\\infty E_k \\right) = \\sum_{k=1}^{\\infty}m(E_k)\n\n\n\nIn order to construct the Lebesgue measure can, we define a function m^* \\colon \\mathcal{P}(\\mathbb{R}) \\to \\mathbb{R} called the outer measure. We then define a collection \\mathcal{M} such that m^* restricted to \\mathscr{M} fufills our requirements of being measure as defined above.\n\n\n\n\n\n\nDefinition\n\n\n\nFor any subset E \\subseteq \\mathbb{R} A Lebesgue outer measure on E is defined\n\nm^*(E) = inf\\left\\{ \\sum_{k=1}^{\\infty} \\ell(I_k) \\right\\}\n\nWhere E \\subseteq \\bigcup_{k=1}^\\infty I_k\n\n\nIn English, the Lebesgue Outer Measure is composed of the least collection of intervals which cover E without overlapping. The total of the outer measure may overestimate E however, as the intervals may contain points that aren’t in E.\n\n\n\n\n\n\nDefinition\n\n\n\nA set E \\subseteq \\mathbb{R} is measurable if and only if for any A \\subseteq \\mathbb{R}\n\nm^*(A) = m^*(A \\cap E) + m^*(A \\cap E^c)"
+  },
+  {
+    "objectID": "qmd/graph/intro/Dijkstras.html",
+    "href": "qmd/graph/intro/Dijkstras.html",
+    "title": "Dijkstra’s algorithm",
+    "section": "",
+    "text": "Let G be a weighted connected graph G. Given two vertices u,v, by the least weight path from u to v.\n\n\n\n\n\n\nAlgorithm\n\n\n\nStart with a vertex u_0. At the end of step k-1, will have a set S_{k-1} \\subseteq V(G), and a function t defined on S_{k-1} \\cup N(S_{k-1}). We want to define our function t to tell us the minimum distance to u on S_{k-1}. On N(S_{k-1}), t will tell us the tentative distance to u.\nAt step k: Take a vertex w in N(S_{k-1}) \\backslash S_{k-1}"
+  },
+  {
+    "objectID": "qmd/measure/measureline.html",
+    "href": "qmd/measure/measureline.html",
+    "title": "Measure and Category on the Line",
+    "section": "",
+    "text": "This section covers measure and category on \\mathbb{R}.\n\n\n\n\n\n\nTheorem 1.1 (Cantor)\n\n\n\nFor any sequence \\{a_n\\} of real numbers and for any interval I there exists a point p in I such that p \\not = a_n for every n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nLet I_1 be a closed subinterval of I such that a_1 \\not \\in I_1. Let I_2 be a closed subinterval of I_1 such that a_2 \\not \\in I_2. We can continue this pattern inductively, where I_n is a closed interval of I_{n-1} such that a_n \\not \\in I_n. The nested sequence of closed intervals I_n has a non-empty intersection. If p \\in \\bigcap I_n, then p \\in I and p \\not = a_n for every n.\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA set A is nowhere dense if it is dense in no interval on \\mathbb{R}. This is equivalent to saying that every interval on \\mathbb{R} has a subinterval entirely contained in the compliment of A. An equivalent definition is that A is nowhere dense if and only if Int(Clos(A)) = \\varnothing\n\n\n\n\n\n\n\n\nTheorem 1.2\n\n\n\nNowhere dense sets are closed under certain options, namely:\n\nAny subset of nowhere dense sets is nowhere dense.\nThe union of finitely many nowhere dense sets is nowhere dense.\nThe closure of a nowhere dense set is nowhere dense.\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nAny subset of nowhere dense sets is nowhere dense.\n\nLet A be a nowhere dense set. If B \\subseteq A is dense in some interval on \\mathbb{R}, than A must be too, which contradicts our assumption A is nowhere dense. Therefore B is also nowhere dense.\n\nThe union of finitely many nowhere dense sets is nowhere dense.\n\nIf A_1 and A_2 are nowhere dense, than for each interval I there exist subintervals I_1 such that I_1 \\cap A_1 = \\varnothing and a subinterval I_2 \\subseteq I_1 such that I_2 \\cap A_2 = \\varnothing. Hence I_2 \\cap (A_1 \\cap A_2) = \\varnothing. Thus A_1 \\cup A_2 is nowhere dense.\n\nThe closure of a nowhere dense set is nowhere dense.\n\nFor this proof we use the second definition of a nowhere dense set, A is nowhere dense if and only iff Int(Clos(A)) = \\varnothing. Note that Clos(A) = Clos(Clos(A)).\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA set A is meagre if it is a countable union of nowhere dense sets. A set is comeagre if its complement is meagre.\n\n\n\n\n\n\n\n\nExample\n\n\n\n\\mathbb{Q} is a meagre set, because it is composed of a countable union of singletons, i.e.\n\n\\mathbb{Q} = \\bigcup_{q \\in \\mathbb{Q}} q\n\n\n\n\n\n\n\n\n\nTheorem 1.3 (Baire)\n\n\n\nAll comeagre sets are dense.\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nLet A be a meagre set and A = \\bigcup A_n be the representation of A as a countable union of nowhere dense sets. Let I be any interval on \\mathbb{R}. Let I_1 = I - A_1, I_2 = I_1 - A_2, I_n = I_{n-1} - A_n. The interval \\bigcup I_n is a non-empty subset of I - A. So any interval on \\mathbb{R} contains points in A^c, therefore A^c is dense in \\mathbb{R}.\n\n\n\n\n\n\n\n\n\nCorollary\n\n\n\nNo interval in \\mathbb{R} is meagre\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nLet A be a meagre set. Because every interval contains points in A^c, there is no interval fully contained in A.\n\n\n\n\n\n\n\n\n\nTheorem 1.4\n\n\n\nAny subset of a meagre set is meagre. The union of any countable family of meagre sets is meagre.\n\n\nThe properties above are obvious for meagre sets. However, the closure of a set A is meagre if and only if A is nowhere dense. Therefore the closure of a meagre set may not be meagre.\n\n\n\n\n\n\nDefinition\n\n\n\nA class (informal collection) of sets that contains countable unions and arbitrary subsets of its members is called a \\pmb\\sigma-ideal.\n\n\nThe class of meagre sets is a \\sigma-ideal, along with the class of countable sets. The class of nullsets (sets of measure zero) also forms a \\sigma-ideal\n\n\n\n\n\n\nDefinition\n\n\n\nLet the length of an interval I be given by |I|. A set A \\subseteq R is called a nullset if for all \\varepsilon &gt; 0, there exist a sequence of intervals I_n such that A \\subset \\bigcup I_n and \\Sigma |I_n| &lt; \\varepsilon.\n\n\n\n\n\n\n\n\nTheorem 1.5 (Borel)\n\n\n\nIf a finite or infinite sequence of intervals I_n covers an interval I, \\Sigma |I_n| \\geq |I|\n\n\nThe proof is too long for me to want to write down. The theorem implies that no interval is a nullset.\nEvery countable set is both meagre and of measure zero. However, some uncountable sets also have these two properties.\n\n\n\n\n\n\nExample\n\n\n\nThe Cantor set C is both meagre and a nullset.\nMeagre\nThe Cantor set is nowhere dense, because for any C_n, the largest interval is of length \\frac{1}{3^n}. For any interval I \\subset R, there exist a sufficiently large n such that a hole can be found in I.\nNullset\nThe sum of the lengths of all closed intervals for any step C_n is exactly \\frac{2}{3^n}. There exist a sufficiently large n such that for any \\varepsilon &gt; 0, the sum of the interval length is below \\varepsilon."
+  },
+  {
+    "objectID": "qmd/graph/intro/Matchings.html",
+    "href": "qmd/graph/intro/Matchings.html",
+    "title": "Matchings",
+    "section": "",
+    "text": "A Matching is a name given to a collection of edges in a graph G with no common vertex.\n\n\n\n\n\n\nDefinition\n\n\n\nGiven a graph G and a matching M\nAn alternating path is a path that alternates between edges in M and edges outside of M.\nAn augmented Path is an alternating path that starts and ends on vertices not included in the matching.\n\n\nNote that is (G,M) has an augmented path, than M is not a maximum matching, as flipping each edge to be in M if it wasn’t before, or out of M if it was produces a matching with more edges.\n\n\n\n\n\n\nDefinition\n\n\n\nA perfect matching is a matching where every vertex is in the matching.\n\n\n\n\n\n\n\n\nTheorem\n\n\n\nA matching M in a graph G is maximum if and only if there are no augementing paths in G\n\n\n\n\n\n\n\n\nProof\n\n\n\nWe already know that if G,M has an augmented path, then M is not maximum. All we need to prove is thay if there are no augmented paths, than M is maximum. If we assume M is not maximum, there exist a matching M^\\prime such that |M^\\prime| &gt; |M|.\nConsider the graph with a vertex set of V(G) and an edge set M \\Delta M^\\prime. Every vertex in this graph has a degree less than or equal to 2. Any connected componet of this new graph will be either a path or a cycle."
+  },
+  {
+    "objectID": "qmd/measure/porous.html",
+    "href": "qmd/measure/porous.html",
+    "title": "Porous sets",
+    "section": "",
+    "text": "There are several ways to define a small set, like Meager and Measure-zero. Porous sets are an alternate way to measure how small a set is."
+  },
+  {
+    "objectID": "qmd/measure/porous.html#definition",
+    "href": "qmd/measure/porous.html#definition",
+    "title": "Porous sets",
+    "section": "Definition",
+    "text": "Definition\nA set is porous if every interval I in \\mathbb{R} contains an interval I_2 completly missing the set, such that |I_2| = \\alpha |I| where 0 &lt; \\alpha &lt; 1.\nFormalizing this definition requires a few steps.\n\n\n\n\n\n\nDefinition\n\n\n\nLet E be a set in \\mathbb{R}, and x \\in \\mathbb{R}. The right porosity of E at x is denoted p^+(E,x) and is given by\n\np^+(E,x) = \\limsup_{\\varepsilon \\to 0^+} \\frac{k}{k+h}\n\nwhere (x + h, x + h + k) \\cap E = \\varnothing, h + k &lt; \\varepsilon and h,k &gt; 0, and \\sup refers to the lowest greater bound. Similary, the left porosity of E, denoted p^-(E,x) is defined by (x - h - k, x - h) \\cap E = \\varnothing\nThen the porosity of E at x is defined by\n\np(E,x) = \\max\\{p^-(E,x),p^+(E,x)\\}\n\nIt is clear the value of p is inbetween [0,1]. We say that E is porous at \\bf x if p(E,x) &gt; 0, and that E is porous if p(E,x) &gt; 0 for all x \\in E.\n\n\n\n\n\n\n\n\nExample\n\n\n\nAre the following sets porous at x?\n\nIs the set E = [0,1] porous at x = \\frac{1}{2}?\n\nLet’s start by trying to find the left porosity of E at x. It’s clear that when \\varepsilon &lt; \\frac{1}{2}, no values of h,k satisfy (x + h, x + h + k) \\cap E = \\varnothing, h + k &lt; \\varepsilon. Therefore, the set does not have a defined left porosity. Similary the set does not have a defined right porosity, so the set is not porous at x = \\frac{1}{2}.\n\nIs the set E = C porous at x = \\frac{1}{3}?\n\nIn this case C refers to the Cantor ternary set. At x = \\frac{1}{3}, it is clear that p^+(C,\\frac{1}{3}) = 1, because h can get arbitrarily small while completly avoiding C. Because p^- can’t possibly be greater than 1, p(C,\\frac{1}{3}) = 1, and the Cantor ternary set is porous at x = \\frac{1}{3}."
+  },
+  {
+    "objectID": "qmd/measure/porous.html#beta-porous",
+    "href": "qmd/measure/porous.html#beta-porous",
+    "title": "Porous sets",
+    "section": "Beta-porous",
+    "text": "Beta-porous\n\n\n\n\n\n\nDefinition\n\n\n\nLet A \\subseteq \\mathbb{R}, \\beta \\in (0,1). Then A is \\beta-porous iff for every (a,b) \\in \\mathbb{R}, \\exists(a^\\prime,b^\\prime) \\subseteq (a,b) such that (b^\\prime - a^\\prime) = \\beta(b-a)"
+  },
+  {
+    "objectID": "qmd/integral/intro.html",
+    "href": "qmd/integral/intro.html",
+    "title": "Integration Bee",
+    "section": "",
+    "text": "This section is all about my practice for the UNT 2024 Integration Bee. This contest contains only indefinite integrals."
+  }
+]

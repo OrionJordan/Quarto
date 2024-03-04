@@ -1,0 +1,162 @@
+---
+title: "Definitions and basic properties"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+This section examines the definitions and important properties of groups.
+
+## Binary operations
+
+We start by examining *binary operations*
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**binary operation**]{style="color: blue"} $\star$ on a set $G$ is a function $\star \colon G \times G \to G$.
+:::
+
+We commonly denote $\star(a,b)$ as $a \star b$. Binary operations may have the following two properties
+
+-   A binary relation is [**associative**]{style="color: blue"} on a set $G$ if for all $a,b \in G$
+
+$$
+(a \star b) \star c = a \star (b \star c)
+$$
+
+-   A binary operation is [**commutative**]{style="color: blue"} on a set $G$ if for all $a,b{\;\in\;}G,$
+
+$$
+a \star b = b \star a
+$$
+
+Addition is an example of an associative and commutative binary operation on $\mathbb{Z}$. Multiplication is also an associative and commutative binary operation, whereas something like subtraction is neither associative nor commutative.
+
+## Groups
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**group**]{style="color: blue"} is an ordered pair $(G,\star)$ where $G$ is a set and $\star$ is an associative binary relation on that set, such that
+
+-   There exists an element $e$ in $G$ known as the [**identity**]{style="color: blue"} such that for all $a \in G$,
+
+$$
+a \star e = e \star a = a
+$$
+
+-   For each $a \in G$, there exists an element $a^{-1} \in G$ called the [**inverse**]{style="color: blue"} of $a$, such that
+
+$$
+a \star a^{-1} = a^{-1} \star a = e
+$$
+:::
+
+We call a group [**abelian**]{style="color: blue"} if the binary operation $\star$ is commutative on $G$.
+
+::: {.callout-warning icon="false"}
+## Example
+
+Is the ordered pair $(\mathbb{Z},+)$ a group?
+
+We know the addition operator is associative, so we just need to prove that there exists an identity element in $G$, and an inverse element for each $a \in \mathbb{Z}$.
+
+-   The element $0$ is the identity of $(\mathbb{Z},+)$, as for every $a \in \mathbb{Z}$
+
+$$
+a + 0 = 0 + a = a
+$$
+
+-   For each $a \in G$, $a^{-1} = -a$, because
+
+$$
+a + (-a) = (-a) + a = 0
+$$
+
+Therefore $(\mathbb{Z},+)$ is a group.
+:::
+
+Groups have the following properties
+
+::: {.callout-note icon="false"}
+## Proposition 1.1.1
+
+Given a group $G$ under an binary operation $\star$, the following hold
+
+$(1)$ The identity element $e$ of $G$ is unique.
+
+$(2)$ For each $a \in G$, there exist a unique $a^{-1}$.
+
+$(3)$ $(a^{-1})^{-1} = a$ for all $a \in G$.
+
+$(4)$ $(a \star b)^{-1} = b^{-1} \star a^{-1}$ for all $a,b \in G$.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof
+
+$(1)$ Suppose there exists two identity elements $e_1$ and $e_2$. By the definition of an identity element, $e_1 \star e_2 = e_1$ and $e_1 \star e_2 = e_2$. Thus $e_1 = e_2$, so the identity is unique.
+
+$(2)$ Suppose $b$ and $c$ are both inverses of $a$ and let $e$ be the identity of $G$. By the definition of an inverse element $a \star b = e$ and $c \star a = e$. Note the following relation
+
+$$
+c = c \star e = c \star (a \star b) = (c \star a) \star b = e \star b = b
+$$
+
+$(3)$ Rather straightforwardly $a \star a^{-1} = a^{-1} \star a = e$. So by the definition of an inverse element, $(a^{-1})^{-1} = a$.
+
+$(4)$ Let $c = (a \star b)^{-1}$. Therefore $(a \star b) \star c = e$. Using algebra
+
+```{=tex}
+\begin{align*}
+a^{-1} \star (a \star b) \star c &= a^{-1} \star e\\
+(a^{-1} \star a) \star (b \star c) &= a^{-1}\\
+(b \star c) &= a^{-1}\\
+c &= b^{-1} \star a^{-1}
+\end{align*}
+```
+:::
+
+Additionally
+
+::: {.callout-note icon="false"}
+## Proposition 1.1.2
+
+Let $G$ be a group under an binary operation $\star$, and $a,b \in G$. The equations $a \star x = b$ and $y \star a = b$ have unique solutions for all $x,y \in G$. In particular
+
+$(1)$ If $a \star u = a \star v$ then $u = v$
+
+$(2)$ If $u \star b = v \star b$ then $u = v$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof
+
+$(1)$ The existence of a solution to $a \star x = b$ is given by $x = a^{-1} \star b$. This is unique as proved in the previous proposition.
+
+$(2)$ The proof is nearly identical for $(y \star a) = b$, where $y = b \star a^{-1}$.
+:::
+
+Because it is often tedious to write the full notation of a group, it is often abbreviated. For example, the group $(G,\star)$ is commonly wrote as "the group $G$" where the operation is implied.
+
+Additionally, we often write $ab$ as an abbreviation for $a \star b$. Because group operations are associative, we write $a^n$ to abbreviate $a\star \cdots \star a$ ($n$ times).
+
+## Order
+
+As always, we start with a definition.
+
+::: {.callout-note icon="false"}
+## Definition
+
+For a group $G$ and $x \in G$, the [**order**]{style="color: blue"} of $x$ is the smallest positive integer $n$ such that $x \star x \star \cdots \star x$ ($n$ times) is equal to the identity element $e$.
+:::
+
+Note that we notate $x \star x \star x \cdots$ as $x^n$. We also denote the order of $x$ as $|x|$. This is an abuse of notation with both cardinailty and absolute value. So that sucks.
+
+For any group $G$, it's clear that $|e| = 1$. If $x^n \not = e$ for any $n$, we say that $x$ has order infinity. For example, given the group $(\mathbb{Z}/15\mathbb{Z},\times)$, the element $2$ has an order of $4$.
+
+$$
+2 = 2,\quad 2^2 = 4,\quad 2^3 = 8,\quad 2^4 = 16 = 1 = e
+$$

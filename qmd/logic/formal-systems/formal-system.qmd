@@ -1,0 +1,9 @@
+---
+title: "Formal languages"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+A [**formal system**]{style="color: blue"} consists of a *formal language* along with a *deductive system*. 

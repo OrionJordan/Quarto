@@ -1,0 +1,9 @@
+---
+title: "Deductive systems"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+I

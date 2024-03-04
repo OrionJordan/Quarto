@@ -1,0 +1,123 @@
+---
+title: "Problems"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+### Problem 1
+
+Is the function $f \colon \mathbb{N} \to \mathbb{N}$, $f(x) = x + 1$ surjective?
+
+Yes, let $n = x + 1$.
+
+### Problem 2
+
+Let $G$ be a finite group such that the order of $G$ is equal to $n > 2$. Prove $G$ cannot have a subgroup $H$ of order $n - 1$. 
+
+This can proved using Lagranges theorem. Towards a contradiction, assume there exists a subgroup $H$ or $G$ with order $n-1$. By lagranges theorem, the order of $H$ must divide the order of $G$. This means
+
+$$
+\exists n \in \mathbb{N}, n > 2, \; n - 1 \mid n
+$$
+
+Which is a contradiction.
+
+### Problem 3
+
+Let $n \geq 3$. Prove $D_{2n}$ has a normal subgroup $\left<r\right>$. 
+
+### Problem 5
+
+Let $[42] \in \mathbb{Z}/180\mathbb{Z}$. Find $|[42]|$.
+
+Because $\gcd(42,180) = 6$, and $|x| = \frac{n}{\gcd(x,n)}$. Thus $|[42]| = 30$. 
+
+### Problem 10
+
+Let $GL_n(R)$ be the group of $(n\times n)$ matrices with non-zero determinates. Let $SL_n(R)$ be the group of $(n \times n)$ matrices with determinate $1$. Prove that $SL_N(R) \leq GL_n(R)$
+
+Note that $SL_n(R)$ is a subset of $GL_n(R)$, because for every $A \in SL_n(R)$, $\det(A) = 1 \not = 0$, thus $A \in GL_n(R)$. We know $SL_n(R)$ is not empty as the $(n \times n)$ identity matrix has determinate $1$.
+
+Let $A,B \in SL_n(R)$. Note that $AB^{-1}$ has determinate $1$. through algebra
+
+$$
+\det(AB^{-1}) = \det(A)\det(B^{-1}) = 1 \not = 0
+$$
+
+Thus $AB^{-1} \in SL_n(R)$. Thus by subgroup criterian, we have shown $SL_n(R) \leq GL_n(R)$.
+
+Note that $SL_n \trianglelefteq GL_n(R)$. To see this, take $L \in Ln(R)$ with $\det(L) = x$. Thus for any $\mathcal{o} \in SL_n(R)$,\
+
+$$
+\det(LoL^{-1}) = \det(L)\det(o)\det(L^{-1}) = 1.
+$$
+
+### Problem 11
+
+Given cycles
+
+$$
+\sigma = (1523)(47)
+$$
+
+$$
+\tau = (183462)((57))
+$$
+
+We compute 
+
+$$
+\sigma\tau = (18)(2543657)
+$$
+
+And the orders of $\sigma$ and $\tau$ as the lcm of the cycle lengths.
+
+### Problem 12
+
+Let $G$ be a group with $a,b,c \in G$ and a unique $x$ such that $axb = c$.
+
+We can prove $x$ exists, because $a^{-1},b^{-1} \in G$, and thus 
+
+$$
+x = a^{-1}cb^{-1}.
+$$
+
+Suppose there exists two solutions $x_1,x_2$.
+
+### Problem 13
+
+Let $A$ be an abelian group, and $B$ be a subgroup of $A$. Then $A/B$ is also abelian.
+
+Let $a_n \in A, b_n \in B$, and $n \in \mathbb{N}$. Because were constructing a set $A/B$, we know that
+
+$$
+aBa^{-1} \subseteq B
+$$
+
+For any $b \in B$. Thus $B$ can be though of as $\ker(\phi)$ where
+
+$$
+\phi \colon A \to A/B
+$$
+
+Thus $A/B$ is the group containing the fibers of $\phi$. The fibers of $\phi$ will be denoted with $x_n \in A/B$.
+
+Each $x_n$ is related to a single $a_n$, so
+
+$$
+a_1 \star a_2 = a_2 \star a_1 \implies x_1 \star x_2 = x_2 \star x_1
+$$
+
+### Problem 15
+
+Prove the identity element $e$ of a group is unique.
+
+Towards a contradiction, let $G$ be a group with two identity elements $e_1$, and $e_2$.
+
+### Problem 18
+
+Let $G$ be a group with identity $e$. Suppose that the order of $G$ is equal to $n$. Prove $x^n = e$.
+
+

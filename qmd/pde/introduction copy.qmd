@@ -1,0 +1,164 @@
+---
+title: "PDE"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+## Newtons method
+
+When given the equation $f(x) = 0$, and $f$ is a noninvertable function. We can apply newtons method. Take $x_k$ to be close to our solution. Then we use the following
+$$
+x_{k+1} = x_k + \delta
+$$
+
+Where $\delta$ is the error. By taylor expanding $f(x)$, we can get the following formula
+
+$$
+x_{k+1} = x_k - \frac{f(x_k)}{f^\prime(x_k)}
+$$
+
+## Second Order Linear Constant Coefficients
+
+The general equation is 
+
+\begin{cases} 
+      (p(x)y^{\prime})^\prime + q(x)y + \lambda r(x)y = 0 \\
+      \alpha_1 y(a) + \beta_1 y^\prime(a) = 0 \\
+      \alpha_2 y(b) + \beta_2 y^\prime(b) = 0 
+\end{cases}
+
+::: {.callout-tip icon="false"}
+## Theorem 
+
+All eigenfunctions are orthagonal.
+
+$$
+\int_a^b R(x)y_i(x)y_j(x)\,dx = 0, \iff y_i \not = y_j
+$$
+:::
+
+Take the equation
+
+\begin{cases} 
+      y^{\prime\prime} + \lambda y = 0 \\
+      y(0) = 0 \\
+      y(1) + y^\prime(1) = 0 
+\end{cases}
+
+Solving the equation gets us 
+
+$$
+y_i(x) = \sin\left(x\sqrt{\lambda}\right)
+$$
+
+Let $s_i = \sqrt{\lambda_i}$. We can then plug this into our integral and get
+
+$$
+\int_0^1 \sin(s_i x) \sin(s_j x)\, dx.
+$$
+
+Using wolframalpha,
+
+$$
+\frac{b\cos(b)\sin(a) - a\cos(a)\sin(b)}{a^2 - b^2}
+$$
+
+Using the equation
+
+$$
+s_i\cos(s_i) + \sin s_i = 0
+$$
+
+We can simplify and get
+
+$$
+\frac{b\cos(b)\sin(a) - a\cos(a)\sin(b)}{a^2 - b^2} = 0
+$$
+
+## Laplaces Equation
+
+Given the PDE
+
+$$
+u_{xx} + u_{yy} = 0
+$$
+
+We rewrite using the $\overline{\nabla}$ operator, defined
+
+$$
+\overline{\nabla} = \frac{\partial}{\partial x}\hat{i} + \frac{\partial}{\partial y}\hat{j} + \frac{\partial}{\partial z}\hat{k}
+$$
+
+Recall
+
+$$
+\overline{\nabla}^2u = 0
+$$
+
+We have from the divergence theorem
+
+$$
+-k\iint\limits_S \overline{\nabla}u \cdot \hat{u}\,dS = -k\iiint\limits_V \overline{\nabla}u \, dV
+$$
+
+## Example of an ill posed problem
+
+If given a problem like 
+
+\begin{cases} 
+      u_{xx} + u_{yy} = 0 \\
+      u(0,y) = u(\pi,y) = 0 \\
+      u(x,0) = 1\\
+      \frac{\partial x}{\partial y}(x,0) = 0 
+\end{cases}
+
+We see that the fourier series diverges, and there is no solution for $y > 0$.
+
+Ellipitcal equations need to have boundary conditions upon their boundary, unlike parabloic or hyperbolic equations.
+
+Occasionally when we have a problem with a shperical boundary like a circle, we will need to set up a boundary problem in polar coordinates.
+
+## Wave function
+
+The general solution for a wave equation is in the form
+
+$$
+u(x,t) = \frac{f(x+ct)+f(x-ct)}{2} + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)ds
+$$
+
+When given a wave function in the form
+
+\begin{cases} 
+      u_{tt} = c^2u_{xx}\\
+      u(x,0) = f(x) \\
+      u_t(x,0) = g(x)\\
+      u(0,t) = 0 
+\end{cases}
+
+We can invent a function $f(x)$ such that $f(x)$ is odd, forcing the solution to be zero. For example
+
+\begin{cases} 
+      u_{tt} = c^2u_{xx}\\
+      u(x,0) = x^2\\
+      u_t(x,0) = 0\\
+      u(0,t) = 0 
+\end{cases}
+
+Clearly in this case the function $x^2$ is even. Because we are restricted to the positive realm, we can write $f(x) = x|x|$, which perfectly models $x^2$ when $x>0$, but is an odd function. Thus we can easily find the solution.
+
+::: {.callout-warning icon="false"}
+## Example 
+
+Given the following, solve for $x \geq 0, t > 0$
+
+\begin{cases} 
+      u_{tt} = c^2u_{xx}\\
+      u(x,0) = e^{-x}\\
+      u_t(x,0) = \sin(x)\\
+      u(0,t) = 0 
+\end{cases}
+
+Note that $\sin(x)$ is already odd, and we can convert $e^{-x}$ to be odd using $\frac{x}{|x|}e^{-|x|}$
+:::

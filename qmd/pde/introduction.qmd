@@ -1,0 +1,32 @@
+---
+title: "Partial differential equations"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Partial differential equations is the study of functions with partial derivatives, and two or more independent variables. PDE's are incredibly useful models, and appear in almost every natural science.
+
+The way that heat is transferred through material is given by a PDE, known as the Heat transfer equation
+
+$$
+\frac{\partial u}{\partial t} = a \frac{\partial^2u}{\partial x^2}
+$$
+
+The equation of the displacment in a wave over time can be given by a PDE,
+
+$$
+\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2u}{\partial x^2}
+$$
+
+And the Poisson equation, used in a wide variety of fields in physics.
+
+$$
+\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2u}{\partial y^2} = P(x,y)
+$$
+
+
+## Table of contents
+
+

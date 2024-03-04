@@ -1,0 +1,11 @@
+{
+  "hash": "4b034c2598b7aaa8446e8f591d5645f5",
+  "result": {
+    "markdown": "---\ntitle: \"Definitions\"\nformat:\n  html:\n    toc: true\n    html-math-method: katex\n---\n\nA [**graph**]{style=\"color: blue\"} is a set of points called [**vertices**]{style=\"color: blue\"} connected by [**edges**]{style=\"color:blue\"}.\n\n(Insert graph example)\n\n```{tikz}\n#| echo: false\n#| fig.align: center\n\n\\begin{tikzpicture}\n  \\draw (0,0) -- (4,0) -- (4,4) -- (0,4) -- (0,0);\n\\end{tikzpicture}\n```\n\n\n::: {.callout-note icon=\"false\"}\n## Definition\n\nA graph $G = (V,E)$ is a mathematical structure consisting of a [**vertex set**]{style=\"color: blue\"} $V(G)$ and an [**edge set**]{style=\"color: blue\"} $E(G)$. Each edge $e$ in the edge set connects two (not necessarily distinct) vertices known as the [**endpoints**]{style=\"color: blue\"} of $e$.\n:::\n\nAn edge is said to [**join**]{style=\"color: blue\"} its endpoints. Say an edge $e$ connects two vertices $u$ and $v$. $u$ is said to be a [**neighbor**]{style=\"color: blue\"} of $v$.\n\n::: {.callout-note icon=\"false\"}\n## Example\n\nThe vertex and edge sets of the graph in Figure 1.1.1 are\n\n$$\nV(G) = \\{a,b,c,d\\} \\quad\\quad\\quad\\quad E(G) = \\{ab,ac,ad,bc,bd,cd\\}\n$$\n\nNotice how we can denote an edge by concatenating its endpoints. This is only possible in cases where exclusively one edge exist between two vertices.\n:::\n\n::: {.callout-note icon=\"false\"}\n\n## Definition\n\nAn edge $e$ can be called\n\n-   A [**proper edge**]{style=\"color: blue\"} when the edge joins two distinct vertices\n\n-   A [**loop**]{style=\"color: blue\"} when $e$ joins a vertex to itself\n\n-   A [**multi-edge**]{style=\"color: blue\"} when two or more edges connect the same two vertices\n:::\n\nThere are many instances in graph theory where our graphs are both loopless and devoid of multi-edges. In these cases we call the graph [**simple**]{style=\"color: blue\"}.\n\n",
+    "supporting": [
+      "definition_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

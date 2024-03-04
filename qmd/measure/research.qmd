@@ -1,0 +1,110 @@
+---
+title: "Porous sets"
+format:
+  html:
+    css: ../../../styles.css
+    echo: false
+    toc: true
+    html-math-method: katex
+---
+
+There are several ways to define a *small* set, like Meager and Measure-zero. Porous sets are an alternate way to measure how *small* a set is.
+
+## Nowhere dense sets
+
+::: {.callout-note icon="false"}
+## Definition
+
+A set $A$ is [**nowhere dense**]{style="color: blue"} (nwd) if for every interval $I$, there exists a subinterval $J \subset I$ such that 
+
+$$
+J \cap A = \varnothing
+$$
+
+:::
+
+Thus, a set is nowhere dense if the set is full of 'holes'. Lets look at an example of a nowhere dense set.
+
+::: {.callout-warning icon="false"}
+## Example
+
+Lets see if the set $\mathbb{Z}$ is nowhere dense. Take any interval $I = (a,b)$. \
+
+If $I \cap \mathbb{Z}$, then we are done. If $I$ contains any point $x \in \mathbb{Z}$, we can construct subinterval $J$ such that $x \not \in J$. 
+
+There are a finite amount of integers in any interval $I$, so this process can be repeated until $J \cap \mathbb{Z} = \varnothing$.
+
+:::
+
+And an example of a not-nwd set
+
+::: {.callout-warning icon="false"}
+## Example
+
+The set $\mathbb{Q}$ is dense in $\mathbb{R}$. This means that for any interval $I = (a,b)$, there exists a $q \in \mathbb{Q}$ such that $q \in I$. This means that every subinterval $J$ will intersect $\mathbb{Q}$, and $\mathbb{Q}$ is not a nowhere dense set.
+
+:::
+
+## f-porous sets
+
+We define a set to be $f$-porous as follows
+
+::: {.callout-note icon="false"}
+## Definition
+
+Let $f \colon \mathbb{R}^+ \to \mathbb{R}^+$ such that $f(x) < \frac{x}{2}$.
+
+A set $A$ is [**$f$-porous**]{style="color: blue"} if and only if $\forall I, \exists \varepsilon_I > 0$ such that for any 
+
+$J \subseteq I$ where $|J| < \varepsilon_I$, $\exists K \subseteq J$ such that $|K| = f(|J|)$ and 
+
+$K \cap A =\varnothing$.
+:::
+
+Lets take for example the set of all integers $\mathbb{Z}$ and test if the function is $f$-porous for 
+
+$$
+f(x) = \frac{x}{3}.
+$$
+
+For any interval $I = (a,b)$, there should exists an $\varepsilon_I$ such that $|J| < \varepsilon_I$. We want to choose $\varepsilon_I$ such that $|K| = f(|J|)$. I'll choose 
+
+$$
+\varepsilon_I = 1.
+$$
+
+We want to show that for any $J \subset I$ where $J < 1$, there exists an interval $K \subseteq J$ such that $|K| = f(|J|)$ and $K \cap A = \varnothing$. 
+
+If $J$ does not intersect $\mathbb{Z}$, we are done. $J$ intersects the set at most once, as $|J| < 1$ and the elements in $\mathbb{Z}$ are spaced apart by a length of $1$. The intersection point between $J$ and $\mathbb{Z}$ will be denoted $x$.
+
+We want to find a $K \subseteq J$ of length $|K| = f(|J|) = \frac{|J|}{3}$ for every $J$. We can explicitly construct $K$ by dividing $J$ into three equal subintervals $J_1, J_2, J_3$ each with length $\frac{|J|}{3}$. Because $x$ is the singular intersection point, let $K = J_n$ for whichever $J_n \cap \mathbb{Z} = \varnothing$.
+
+Thus, we have proved $\mathbb{Z}$ is $f$-porous for $f(x) = \frac{x}{3}$.
+
+::: {.callout-note icon="false"}
+## Theorem
+
+A set is $f$-porous if and only if the set is nowhere dense. 
+
+:::
+
+::: {.callout-tip icon="false" collapse="false"}
+## Proof
+
+If a set $A$ is $f$-porous for some $f$, then clearly the set is nowhere dense, as for any interval $I$, we have some interval $K$ which misses the set.
+
+The harder direction is proving that for some nowhere dense $A$, that $A$ is $f$-porous. We will need to construct a function $f$ for any arbitrary nowhere dense set.
+
+Take any interval $I = (a,b)$. Lets divide the interval into three equal subintervals 
+
+$$
+I_1 = (a,\frac{b-a}{3})\quad I_2 = (\frac{b-a}{3},\frac{2(b-a)}{3}) \quad I_3 = (\frac{2(b-a)}{3},b)
+$$
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem
+
+If a set $A$ is $f$-porous for every $f$, then $A$ is countable.
+:::

@@ -1,0 +1,396 @@
+---
+title: "Fundementals"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+## Basics
+
+
+Let $\mathbb{R}^m$ be the space of column vectors with real entries, symbollically read
+
+$$
+\mathbb{R}^m = \{vector : x_i \in \mathbb{R}\}
+$$
+
+We use this to define a [**Linear combination**]{style="color: blue"}
+
+::: {.callout-note icon="false"}
+## Definition
+
+If $v,w$ are both in $\mathbb{R}^m$, and $a,b$ in $\mathbb{R}$, then $av + bw$ is a linear combination.
+
+:::
+
+There are two ways of looking at a matrix. Suppose we have a $m$ by $n$ matrix $A$.
+
+\begin{align*}
+A = 
+\begin{pmatrix}
+A_{1,1} & \cdots & A_{m,1}\\
+\vdots &  & \vdots\\
+A_{1,n} & \cdots & A_{m,n}
+\end{pmatrix}
+\end{align*}
+
+We have the column view of $A$, and the row view of $A$. Write
+
+::: {.callout-note icon="false"}
+## Definition
+
+Let $A$ be an $m$ by $n$ matrix. We define the [**Transpose**]{style="color: blue"} of $A$, denoted $A^T$, as
+
+:::
+
+We immeditally get the following properties
+
+- $A_{m\times n} = A^T_{n\times m}$
+- $(A^T)^T = A$
+
+We can define a matrix
+
+::: {.callout-note icon="false"}
+## Definition
+
+A matrix $(m \times n)$ is a function $f \colon \mathbb{R} \rightarrow \mathbb{R}$
+
+If $A_{m \times n},\, x \in \mathbb{R}^n$, then 
+
+A_x = A vector x = a linear combination of A col$ = col of row vecs
+:::
+
+Matrix multiplication
+
+We denote the [**standard basis**]{style="color: blue"} of $\mathbb{R}^m$ as
+
+\begin{align*}
+e_1 = 
+\begin{pmatrix}
+1\\
+0\\
+\vdots\\
+0
+\end{pmatrix}, e_2 =
+\begin{pmatrix}
+0\\
+1\\
+\vdots\\
+0
+\end{pmatrix}, e_m =
+\begin{pmatrix}
+0\\
+0\\
+\vdots\\
+1
+\end{pmatrix}
+\end{align*}
+
+Any vector in $\mathbb{R}^m$ is a linear combination of these $e_i$'s, in a unique way. For example
+
+
+\begin{align*}
+x = 
+\begin{pmatrix}
+x_1\\
+\vdots\\
+x_m
+\end{pmatrix} =
+x_1 e_1 + \cdots + x_m e_m
+\end{align*}
+
+We define the [**identity matrix**]{style="color: blue"}
+
+\begin{align*}
+Col_j I = e_j, I = \begin{pmatrix}
+1 & & 0\\
+ & \ddots & \\
+0 & & 1
+\end{pmatrix}
+\end{align*}
+
+## Dot product
+
+If $x,y \in \mathbb{R}^m$, then
+
+\begin{align*}
+x^T y = \begin{pmatrix}
+x_1 & \cdots & x_m
+\end{pmatrix}
+\begin{pmatrix}
+y_1\\
+\vdots\\
+y_n
+\end{pmatrix} = x \cdot y =
+\sum^m_{i = 1}x_iy_i
+\end{align*}
+
+::: {.callout-note icon="false"}
+## Definition
+
+We define the [**unit vector**]{style="color: blue"} in the direction of $x$ (if $x \not = 0$)
+
+$$
+\hat{x} = \frac{x}{|x|}
+$$
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+We say $x$ is [**perpendicular**]{style="color: blue"} to $y$, denoted $x \perp y$, if $x \cdot y = 0$
+:::
+
+::: {.callout-tip icon="false"}
+## Fact (Law of cosines)
+
+Let $\alpha$ be the angle between our vectors $x$ and $y$. Then
+
+$$
+\cos\alpha = \frac{x \cdot y}{|x||y|}
+$$
+:::
+
+::: {.callout-tip icon="false"}
+## Theorem (Schwarz inequality)
+
+For all $x,y \in \mathbb{R}^T$
+
+$$
+|x \cdot y| \leq |x||y|
+$$
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+We define the [**orthagonal component**]{style="color: blue"} of a column vector $x$
+
+\begin{align*}
+x^\perp = \begin{pmatrix}
+x_1\\
+\vdots\\
+x_m
+\end{pmatrix}^\perp
+
+=
+
+\{\text{All $y$ in $\mathbb{R}^m$ perpendicular to $x$}\}
+\end{align*}
+
+symbollically
+
+\begin{align*}
+x^\perp = \begin{pmatrix}
+x_1\\
+\vdots\\
+x_m
+\end{pmatrix}^\perp
+
+=
+
+\left\{y = 
+
+\begin{pmatrix}
+y_1\\
+\vdots\\
+y_m
+\end{pmatrix}
+
+\colon
+
+x_1 y_1 + \cdots + x_m y_m = 0
+\right\}
+\end{align*}
+
+:::
+
+
+## Subspaces
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**subspace**]{style="color: blue"} $V$ of $\mathbb{R}^m$ is a subset closed under addition and scalar multiplication.
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+The [**column space**]{style="color: blue"} of a matrix $A_{(m \times n)}$ is $\text{Range}(A \colon \mathbb{R}^n \rightarrow \mathbb{R}^m)$
+
+:::
+
+We can use these definitions to prove some facts about subspaces.
+
+::: {.callout-note icon="false"}
+## Claim
+
+The function $A \colon \mathbb{R}^n \to \mathbb{R}^m$ has [**linearity**]{style="color: blue"}.
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof
+
+Write later
+
+:::
+
+::: {.callout-note icon="false"}
+## Claim
+
+$\text{ColSp}(A)$ is a subspace of $\mathbb{R}^m$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof
+
+Suppose we have to vertices in the column space
+
+$$
+Av, Av^\prime
+$$
+
+Note we then have
+
+$Av + Av^\prime = A(v + v^\prime) \in \text{Range}(A) = \text{ColSp}(A)$
+
+and
+
+$\lambda(Av) = A(\lambda v)$
+
+Fufilling the requirements for a subspace.
+
+:::
+
+It might help to look at some examples
+
+
+::: {.callout-warning icon="false"}
+## Example
+
+Do column space examples
+
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+Suppose $v_1,\ldots,v_n$ are all vectors in $\mathbb{R}^m$. Then 
+
+$$
+\text{Span} \{ v_1,\ldots,v_n \} = \{ \text{All linear combinations of } v_i \}
+$$ 
+
+:::
+
+::: {.callout-note icon="false"}
+## Claim
+
+The $\text{Span}\{v_1,\ldots,v_n\}$ is a subspace of $\mathbb{R}^m$
+
+:::
+
+::: {.callout-note icon="false"}
+## Claim
+
+The $\text{ColSp}(A) = \text{Span}\{\text{Columns of }A\}$
+
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+A set $\{v_1,\ldots,v_n\}$ in $\mathbb{R}^m$ is [**linearly dependent**]{style="color: blue"} if for some $k$, $v_k \in \text{Span}\{v_1,\ldots,v_{k-1}\}$.
+Otherwise we say the set is [**linearly independent**]{style="color: blue"}
+:::
+
+Suppose we have a matrix $A$ with a [**rank**]{style="color: blue"} of $1$. This means that our $\text{ColSp}(A)$ is $1$ dimensional.
+
+::: {.callout-note icon="false"}
+## Definition
+
+The $\text{RowSp}(A) = \text{Span}\{\text{Transposes of Rows}\} = \text{ColSp}(A^T)$
+:::
+
+If the $\text{ColSp}(A)$ is one dimensional, than so is $\text{RowSp}(A)$. This is because 
+
+$$
+A = vc^T = expand this later
+$$
+
+## Matrix multiplication
+
+Suppose we have two matricies $A_{(m\times n)}$ and $Z_{(l\times m)}$. Recall the function definition of a matrix. Then
+
+$$
+Z \circ A \colon \mathbb{R}^n \to \mathbb{R}^l
+$$
+
+::: {.callout-note icon="false"}
+## Claim
+
+$Z \circ A$ is linear
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+
+$(Z \circ A)(v_1 + v_2)$ = Later
+:::
+
+So $Z \circ A$ is some $(l \times n)$ matrix, which can be computed as follows.
+
+\begin{align*}
+Z \circ A
+
+\begin{pmatrix}
+x_1\\
+\vdots\\
+x_n
+\end{pmatrix}
+
+&=
+
+Z\left(A \begin{pmatrix}
+x_1\\
+\vdots\\
+x_n
+\end{pmatrix}\right)\\
+
+&=
+
+Z\left( x_1 \text{Col}_1 A + \cdots + x_n \text{Col}_n A \right)\\
+
+&= 
+
+\begin{pmatrix}
+Z\text{Col}_1 A & \cdots & Z \text{Col}_n A
+\end{pmatrix}
+
+\end{align*}
+
+Thus we have a fomula to compose two matrices. Matrix multiplication is associative because it's function composition. There are three ways that we multiply matrices, each giving the same result.
+
+$$
+\text{Column view:} \quad  ZA = (Z\text{Col}_1 A  \cdots  Z \text{Col}_n A)\\
+\text{Row-Column view:} \quad (ZA)_{ij} = (\text{Row}_{i}Z) \cdot (\text{Col}_j A)\\
+\text{Row view:} \quad  ZA = \text{Row}_1(Z)A\\
+\text{Column-Row view:} \quad (ZA)_{ij} = (\text{Col}_1 Z)(\text{Row}_1 A) + \cdots + (\text{Col}_m Z)(\text{Row}_m A)
+$$
+
+### Row-column decomposition
+
+Let $A = CR$. Construct $C$ as follows.
+
+\begin{align*}
+\text{Col}_1 C &= \text{First non-$0$ column of $A$}\\
+\text{Col}_2 C &= \text{First column of $A$ not parallel to } \text{Col}_1 A\\
+&\vdots\\
+\text{Col}_r C &= \text{First column of $A$ not in Span}\{\text{Col}_1C, \cdots, \text{Col}_{r-1} C\}\\
+\end{align*}
+
+Thus $C$ is an $(m \times r)$ matrix, whose column space is identitcal to that of $A$.

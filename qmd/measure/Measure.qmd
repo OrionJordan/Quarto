@@ -1,0 +1,63 @@
+---
+title: "Lebesgue Measure"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Measures are used to formalize notions of length, area, and volume and expand the notions into more cases. There are many ways to define a measure functions, but they each satisfy the following properties.
+
+::: {.callout-note icon="false"}
+## Note
+
+We will define $\ell(I_k)$ to be the *length* of the interval. For example $\ell([a,b]) = b - a$
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+A measure is a function from the measurable sets $\mathscr{M}$ to the non-negative real numbers $m \colon \mathscr{M} \to \mathbb{R}_{\geq 0}$ such that the following hold.
+
+-   **The measure of an interval is its length**. Meaning the measure of every nonempty interval $I$ is $$
+    m(I) = \ell(I)
+    $$
+
+-   **Measure is translation invariant**. Meaning that if $E$ is a measurable set, than $E + y = \{x+y | x \in E\}$ is also measurable and
+
+$$
+m(E) = m(E + y)
+$$
+
+-   **Measure is countably additive over a disjoint union of sets**. Meaning that if $\{E_k\}_{k=1}^\infty$ if a collection of disjoint measurable sets, then
+
+$$
+m\left(\bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^{\infty}m(E_k)
+$$
+:::
+
+In order to construct the Lebesgue measure can, we define a function $m^* \colon \mathcal{P}(\mathbb{R}) \to \mathbb{R}$ called the *outer measure*. We then define a collection $\mathcal{M}$ such that $m^*$ restricted to $\mathscr{M}$ fufills our requirements of being measure as defined above.
+
+::: {.callout-note icon="false"}
+## Definition
+
+For any subset $E \subseteq \mathbb{R}$ A [**Lebesgue outer measure**]{style="color: blue"} on $E$ is defined
+
+$$
+m^*(E) = inf\left\{ \sum_{k=1}^{\infty} \ell(I_k) \right\}
+$$
+
+Where $E \subseteq \bigcup_{k=1}^\infty I_k$
+:::
+
+In English, the Lebesgue Outer Measure is composed of the least collection of intervals which cover $E$ without overlapping. The total of the outer measure may overestimate $E$ however, as the intervals may contain points that aren't in $E$.
+
+::: {.callout-note icon="false"}
+## Definition
+
+A set $E \subseteq \mathbb{R}$ is measurable if and only if for any $A \subseteq \mathbb{R}$
+
+$$
+m^*(A) = m^*(A \cap E) + m^*(A \cap E^c)
+$$
+:::

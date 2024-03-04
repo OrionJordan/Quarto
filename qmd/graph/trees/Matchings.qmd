@@ -1,0 +1,48 @@
+---
+title: "Matchings"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+A [**Matching**]{style="color: blue"} is a name given to a collection of edges in a graph $G$ with no common vertex.
+
+::: {.callout-note icon="false"}
+## Definition 
+Given a graph $G$ and a matching $M$
+ 
+An [**alternating path**]{style="color: blue"} is a path that 
+alternates between edges in $M$ and edges outside of $M$.
+
+An [**augmented Path**]{style="color: blue"} is an alternating path 
+that starts and ends on vertices not included in the matching.
+
+:::
+
+Note that is $(G,M)$ has an augmented path, than $M$ is not a maximum matching, as *flipping* each edge to be in $M$ if it wasn't before, or out of $M$ if it was produces a matching with more edges.
+
+::: {.callout-note icon="false"}
+## Definition 
+
+A [**perfect matching**]{style="color: blue"} is a matching where every vertex is in the matching.
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 
+
+A matching $M$ in a graph $G$ is maximum if and only if there are no augementing paths in $G$
+
+:::
+
+::: {.callout-note icon="false"}
+## Proof 
+
+We already know that if $G,M$ has an augmented path, then $M$ is not 
+maximum. All we need to prove is thay if there are no augmented paths, than $M$ is maximum. If we assume $M$ is not maximum, there exist a matching $M^\prime$ such that $|M^\prime| > |M|$. 
+
+Consider the graph with a vertex set of $V(G)$ and an edge set $M \Delta M^\prime$. Every vertex in this graph has a degree less than or equal to $2$. Any connected componet of this new graph will be either a path or a cycle. 
+
+:::
+

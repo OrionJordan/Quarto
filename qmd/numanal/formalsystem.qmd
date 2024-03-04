@@ -1,0 +1,18 @@
+---
+title: "Numerical Analysis"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+A [**formal system**]{style="color: blue"} consists of a formal language, with strict rules on what symbols are allowed and how to connect them, combined with a deductive system, containing axioms and rules for deducing true statements.
+
+::: {.callout-note icon="false"}
+## Definition
+
+A formal system is a mathematical structure consisting of
+
+-   A formal language
+-   A deductive system
+:::

@@ -1,0 +1,41 @@
+---
+title: "Todo"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Todo list for the website
+
+## Website
+
+-   Makeover
+
+-   Add about page, change math notes to one section
+
+-   Copy castles notes
+
+## Integrals
+
+-   Make everything less plagarized
+
+-   make the equations fit on mobile
+
+
+## Latin
+
+M. Tullī Cicerō, quid agis? Istī prō multīs factīs
+malīs poenās dare nunc dēbent; eōs enim ad mortem dūcere dēbēs, quod Rōmam
+in multa perīcula trāxērunt. Saepe Rōmānī in hāc cīvitāte etiam cīvēs morte
+multāvērunt. Sed nōn dēbēs cōgitāre hōs malōs esse cīvēs, nam numquam in hāc
+urbe prōditōrēs patriae iūra cīvium tenuērunt; hī iūra sua āmīsērunt. Populus
+Rōmānus tibi magnās grātiās aget, M. Tullī, sī istōs cum virtūte nunc multābis.
+
+M. Tulli Cicero, what are you doing? Those men now ought to pay
+for their many evil deeds; you ought to lead them to death, because
+they dragged rome into multiple troubles. Often the state has punished Roman 
+citizens by death. But you ought to think these evil men citizens, the betrayers 
+of the Fatherland have never been citizens; these men have lost their rights
+as citizens. The Roman people will give you many great thanks, M. Tulli, if
+you now punish those men with virtue.

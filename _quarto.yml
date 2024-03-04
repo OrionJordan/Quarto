@@ -1,0 +1,62 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: OOMN
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Graph Theory"
+        file: "./qmd/graph/GraphTheory.qmd"
+      - text: "Integral"
+        file: "./qmd/integral/intro.qmd"
+      - text: "Mathematical Logic"
+        file: "./qmd/logic/intro.qmd"
+
+  sidebar:
+    - title: "graph"
+      contents:
+      - "./qmd/graph/GraphTheory.qmd"
+      - section: "**Introduction**"
+        contents:
+        - "./qmd/graph/intro/graphs.qmd"
+
+    - title: "integral"
+      contents:
+      - "./qmd/integral/intro.qmd"
+      - section: "**Simple Techniques**"
+        contents:
+        - "./qmd/integral/simple/basics.qmd"
+        - "./qmd/integral/simple/substitution.qmd"
+        - "./qmd/integral/simple/intpart.qmd"
+        - "./qmd/integral/simple/decomp.qmd"
+        - "./qmd/integral/simple/trigsub.qmd"
+      - section: "**Tricky Techniques**"
+        contents:
+        - "./qmd/integral/tricky/hyperbolic.qmd"
+
+    - title: "Logic"
+      contents:
+      - "./qmd/logic/intro.qmd"
+      - section: "**Formal systems**"
+        contents:
+        - "./qmd/logic/formal-systems/formal-language.qmd"
+
+    - title: "Abstract Algebra"
+      contents:
+      - "./qmd/abstract/intro.qmd"
+      - section: "**Introduction into Groups**"
+        contents:
+        - "./qmd/abstract/intro-to-groups/definitions.qmd"
+        - "./qmd/abstract/intro-to-groups/symmetric-groups.qmd"
+        - "./qmd/abstract/intro-to-groups/homo-iso.qmd"
+        - "./qmd/abstract/intro-to-groups/subgroups.qmd"
+      - section: "**Quotient Groups**"
+        contents:
+        - "./qmd/abstract/quotient-groups/quotient-group.qmd"
+
+
+
+

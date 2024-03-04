@@ -1,0 +1,93 @@
+---
+title: "Definitions"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+## What is a graph?
+
+A [**graph**]{style="color: blue"} is a set of points called [**vertices**]{style="color: blue"} connected by [**edges**]{style="color:blue"}.
+
+(Insert graph example)
+
+::: {.callout-note icon="false"}
+## Definition
+
+A graph $G = (V,E)$ is a mathematical structure consisting of a [**vertex set**]{style="color: blue"} $V(G)$ and an [**edge set**]{style="color: blue"} $E(G)$. Each edge $e$ in the edge set connects two (not necessarily distinct) vertices known as the [**endpoints**]{style="color: blue"} of $e$.
+:::
+
+An edge is said to [**join**]{style="color: blue"} its endpoints. Say an edge $e$ connects two vertices $u$ and $v$. $u$ is said to be [**adjacent**]{style="color: blue"} and a [**neighbor**]{style="color: blue"} of $v$.
+
+::: {.callout-note icon="false"}
+## Example
+
+The vertex and edge sets of the graph in Figure 1.1.1 are
+
+$$
+V(G) = \{a,b,c,d\} \quad\quad\quad\quad E(G) = \{ab,ac,ad,bc,bd,cd\}
+$$
+
+Notice how we can denote an edge by concatenating its endpoints. This is only possible in cases where exclusively one edge exist between two vertices.
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+An edge $e$ can be called
+
+-   A [**proper edge**]{style="color: blue"} when the edge joins two distinct vertices
+
+-   A [**loop**]{style="color: blue"} when $e$ joins a vertex to itself
+
+-   A [**multi-edge**]{style="color: blue"} when two or more edges connect the same two vertices
+:::
+
+There are many instances in graph theory where our graphs are both loopless and devoid of multi-edges. In these cases we call the graph [**simple**]{style="color: blue"}. If our graph is empty, we call it a [**null graph**]{style="color: blue"}. If our graph contains one vertex and no edges, the graph is [**trivial**]{style="color: blue"}.
+
+## Common Families of Graphs
+
+### Complete Graphs
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**complete graph**]{style="color: blue"} is a simple graph where there exist an edge between every pair of distinct vertices. A complete graph with $n$ vertices is notated $K_n$.
+:::
+
+(Insert picture of graphs K1 through K5)
+
+::: {.callout-note icon="false"}
+## Theorem
+
+A complete graph $K_n$ contains $\binom{n}{2}$ edges.
+:::
+
+::: {.callout-note icon="false"}
+## Proof
+
+The graph $K_n$ has an edge between every pair of distinct vertices. Because order doesn't affect edges ($e = uv$ is equivalent to $e = vu$), the number of edges is analougous to $n$ choose $2$, $\binom{n}{2}$.
+:::
+
+### Bipartite Graphs
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**bipartite graph**]{style="color: blue"} $G$ is a simple graph whose vertex set can be partitioned into two subsets $U$ and $V$, such that every edge in $G$ has one endpoint in $U$, and one edpoint in $V$.
+:::
+
+(Insert picture of a few bipartite graphs)
+
+::: {.callout-note icon="false"}
+## Proposition
+
+A bipartite graph cannot contain any loops.
+:::
+
+::: {.callout-note icon="false"}
+## Proof
+
+If an edge was loop, it would connect the same vertex to both endpoints, which contradicts our definition of a bipartite graph.
+:::

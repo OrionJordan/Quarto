@@ -1,0 +1,321 @@
+---
+title: "Unit three"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+## Vector spaces, Subspaces
+
+We have vector spaces
+
+$$
+\mathbb{R}^n \text{ (scalars are in $\mathbb{R}$) }
+$$
+
+$$
+\mathbb{C}^n \text{ (scalars are in $\mathbb{C}$) }
+$$
+
+And subspaces, subsets of $\mathbb{R}^n$ closed under addition and scalar multiplication.
+
+$$
+x_1,x_2 \in S \implies c_1x_1 + c_2x_2 \in S \quad\forall c_1,c_2 \in \mathbb{R}
+$$
+
+Fun fact, $Ax = b$ can be solved for $x$ if and only if $b \in \text{Col}(A)$, that meaning $b$ is a linear combination of the columns of $A$.
+
+## Section 3.2
+
+Let $A$ of size $m \times n$ be an arbitrary matrix.
+
+We have
+
+$$
+\text{Null}(A) = \{x \in \mathbb{R}^n \mid Ax = 0\}
+$$
+
+If $\text{Null}(A)$ is a subspace of $\mathbb{R}^n$, then linearity applies.
+
+Fact. $Ax = 0$ if and only if $x \perp \text{RowSp}(A)$.
+
+We say $\text{Null}(A) = \text{Row}(A)^\perp$. How do we find $\text{Null}(A)$? Row operations on $A$ don't affect the null space.
+
+A strategy to find the null space on $A$ is to convert $A$ into reduced row echelon form $R$. The row space remains the same so the null space remains the same. The column spaces however are entirely different.
+
+Converting to RREF is simple. So I won't write it down. 
+
+## Section 3.4
+
+Recall that for vectors $v_1,\cdots,v_n$ in $R^n$.
+
+- $\text{Span}(\{v_1,\ldots,v_n\})$ is the set of all linear combinations of $v_1$ to $v_n$.
+- $v_1,\ldots,v_n$ are linearly dependent if $\exists c_1,\ldots,c_n$ not all zero such that $c_1v_1,\ldots,c_nv_n = 0$.
+- If the vectors are not linearly dependent, then they are linearly independent.
+
+::: {.callout-note icon="false"}
+## Theorem 3.4.1
+
+Suppose $v_1,\ldots,v_n$ are linearly independent in $\mathbb{R}^m$ and 
+$$
+w \in \mathbb{R}^m, w \not \in \text{Span}(\{v_1,\ldots,v_n\})
+$$
+
+Then $\{v_1,\ldots,v_n,w\}$ is linearly independent.
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.4.1
+
+
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 3.4.2
+
+Suppose $v_1,\ldots,v_n$ are linearly dependent in $\mathbb{R}^m$. Then for some $j$
+
+$$
+\text{Span}\{v_1,\ldots,v_{j-1},v_{j+1},\ldots,v_n\} = \text{Span}\{v_1,\ldots,v_n\}
+$$
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.4.2
+
+
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 3.4.3
+
+Suppose $v_1,\ldots,v_n$ are linearly dependent in $\mathbb{R}^m$ for $n>m$, then the vectors are linearly dependent.
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.4.3
+
+Set 
+
+\begin{align*}
+A = \begin{pmatrix}
+1 & & 1\\
+v_1 & \cdots & v_n\\
+1 & & 1
+\end{pmatrix}
+\end{align*}
+
+Note $n>m \implies \text{Null}(A) \not = \varnothing$, by row reduction. Thus there exist some $Ac = 0, c \not = 0$. So the vectors are linearly dependent
+
+:::
+
+::: {.callout-note icon="false"}
+## Definition (Basis)
+
+Let $V$ be a subspace of $\mathbb{R}^m$. A [**basis**]{style="color: blue"} of $V$ is a linearly independent set of vectors $v_1,\ldots,v_r \in V$ such that their span is equal to the span of $V$.
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 3.4.4
+
+- Any linearly independent subset of $V$ can be enlarged to a basis.
+- Any subset of $V$ which spans $V$ can be shrunk to a basis.
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.4.4
+
+Suppose $\{w_i,\ldots,w_s\}$ are linearly independent in $V$. If their span is $V$, done. If not, take $w_{s+1}$ in $V$, not in the span. Then $w_i,\ldots,w_{s+1}$ is linearly independent. By Fact $3.4.3$, this terminates at some $r \leq m$.
+
+Given a set $S$ of vectors which span $V$, let $T$ be a subset of $S$ of minimal size which spans $V$. $S$ is linearly independent.
+ 
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 3.4.5
+
+Suppose $V$ is a subspace of $\mathbb{R}^m$. Let
+
+- $u_1,\ldots,u_p$ span $V$ 
+- $w_1,\ldots,u_r$ are linearly independent in $V$.
+
+Using only vectors belonging to $u$, we can enlarge $w$ to a basis. 
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.4.5
+
+If $w$ spans $V$, we are done. If not, there exists some $u$ not in $\text{Span}(w)$. Add $u$ to $w$, and repeat until $w$ spans $V$.
+ 
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 3.4.6
+
+Suppose $V$ is a subspace of $\mathbb{R}^m$, such that $w_1,\ldots,w_r$ is a basis of $V$. Suppose we also have $u_1,\ldots,u_p \in V, p > r$. Then $u_1,\ldots,u_p$ are linearly dependent.
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.4.6
+
+We want $c's$ in $\mathbb{R}$, not all $0$, such that $u_1c_1 + \cdots + u_pc_p = 0$. Because $w$ is a basis, we have
+
+$$
+u_1 = w_1A_{11} + \cdots + w_r A_{r1}
+$$
+$$
+u_2 = w_1A_{12} + \cdots + w_r A_{r2}
+$$
+
+$$
+\vdots
+$$
+$$
+u_p = w_1A_{1p} + \cdots + w_r A_{rp}
+$$
+
+Multipliying each $u_i$ by $c_i$, we get
+
+$$
+u_1c_1 + \cdots + u_pc_p = w_1(Ac)_1 + \cdots + w_p(Ac)_p
+$$
+ 
+Because $p > r$, we have a non empty null space, thus we prove that the $c$ we want exists.
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 3.4.7
+
+Suppose $V$ is a subspace of $\mathbb{R}^m$. All bases of $V$ are the same size, which is called the dimension of $V$.
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.4.7
+
+Suppose we have two bases $w$ and $u$ of size $r$ and $p$ respecitvly. If $r > p$, then by fact $3.4.6$, $w$ would not be a basis. If $p < r$, then $u$ would not be a basis. Thus $r = p$. 
+ 
+:::
+
+## Section 3.5
+
+::: {.callout-note icon="false"}
+## Theorem 3.5.1
+
+Let $A$ be an $(m\times n)$ matrix. Row operations on $A$ do not change the row space. Thus
+
+$$
+\text{RowSp(EA) = RowSp(A)}
+$$
+
+If $E$ is an invertable matrix. Similarly for column space,
+
+$$
+\text{ColSp(AE) = ColSp(A)}.
+$$
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.5.1
+
+Each row operation on $A$ merely takes a linear combination of rows and and replaces some row with it. Thus the span of the rows remains the same.
+ 
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 3.5.2
+
+Let $E$ be an $(m\times m)$ invertable matrix, $V$ a subspace of $\mathbb{R}^m$. Then $EV = \{Ev \mid v \in V\}$ is also a subspace, and $E$ maps bases of $V$ to bases of $EV$.
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.5.2
+
+Because $c_1w_1, + \cdots + c_rw_r = 0$, We have $Ew = E0 = 0$. Thus $Ew$ is linearly independent and a basis. 
+ 
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 3.5.3
+
+Row operations do not change the dimension of the column space, nor the span of the column space. The same applies to column operations.
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.5.3
+
+This immeditally follows from $3.5.2$. After applying row operations we are left with $EA$. 
+
+$$
+\text{ColSp}(Ea) = E\text{ColSp}(A).
+$$
+ 
+The same applies to column operations.
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 3.5.4
+
+Suppose $v_1,\ldots,v_p$ in $\mathbb{R}^\ell$ have span $V$.
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.5.4
+
+This immeditally follows from $3.5.2$. After applying row operations we are left with $EA$. 
+
+$$
+\text{ColSp}(Ea) = E\text{ColSp}(A).
+$$
+ 
+The same applies to column operations.
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 3.5.5
+
+The row space and column space of any matrix $A$ have the same dimension
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 3.5.5
+
+Let $A_{m\times n}$ be a linear map $A \colon \mathbb{R^n} \to \mathbb{R}^m$
+
+Our null space of $A$ has dimension $n - r$, while our row space has dimension $r$. Note that
+
+$$
+\text{Image}(A) = A(\mathbb{R}^n) = \text{ColSp}(A)
+$$
+
+:::
+
+Note that
+
+$$
+\text{Rank}(A) = \text{Rank}(A^T)
+$$
+
+The dimension of our $\text{Null}(A) = n-r$, where the basis is our special solutions.
+
+
+The Nullspace matrix of the checkers matrix is
+
+- A negated rowspace with the standard basis tacked on. 

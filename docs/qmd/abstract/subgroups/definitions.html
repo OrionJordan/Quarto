@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>OOMN - Subgroups</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">OOMN</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmd/graph/GraphTheory.html" rel="" target="">
+ <span class="menu-text">Graph Theory</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmd/integral/intro.html" rel="" target="">
+ <span class="menu-text">Integral</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../qmd/logic/intro.html" rel="" target="">
+ <span class="menu-text">Mathematical Logic</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#subgroups" id="toc-subgroups" class="nav-link active" data-scroll-target="#subgroups">Subgroups</a></li>
+  <li><a href="#centralizers-normalizers-center" id="toc-centralizers-normalizers-center" class="nav-link" data-scroll-target="#centralizers-normalizers-center">Centralizers, Normalizers, Center</a></li>
+  <li><a href="#subgroups-generated-by-subsets" id="toc-subgroups-generated-by-subsets" class="nav-link" data-scroll-target="#subgroups-generated-by-subsets">2.4 Subgroups generated by subsets</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Subgroups</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="subgroups" class="level2">
+<h2 class="anchored" data-anchor-id="subgroups">Subgroups</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">(G,\star)</span> be a group. A <span style="color: blue"><strong>subgroup</strong></span> of <span class="math inline">G</span> is a subset <span class="math inline">H \subseteq G</span> such that</p>
+<ul>
+<li><span class="math inline">e \in H</span></li>
+<li><span class="math inline">x,y \in H \implies x \star y \in H</span></li>
+<li><span class="math inline">x \in H \implies x^{-1} \in H</span></li>
+</ul>
+</div>
+</div>
+<p>A subgroup <span class="math inline">H</span> of <span class="math inline">G</span> is merely a subset <span class="math inline">H</span> of <span class="math inline">G</span> such that <span class="math inline">H</span> is a group under the same notation.</p>
+<p>This is notated</p>
+<p><span class="math display">
+H \leq G
+</span></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lets look at some subgroups</p>
+<ul>
+<li><span class="math inline">(\mathbb{Z},+) \leq (\mathbb{Q},+)</span></li>
+<li><span class="math inline">(\mathbb{Q}\backslash \{0\},x) \leq (\mathbb{R}\backslash\{0\},x)</span></li>
+</ul>
+</div>
+</div>
+<p>If <span class="math inline">G</span> is a group, and <span class="math inline">H = G</span>, or <span class="math inline">H = \{e_G\}</span>, these are both subgroups of <span class="math inline">G</span>.</p>
+<p>A slightly harder example, if <span class="math inline">m \in \mathbb{Z}</span>, then</p>
+<p><span class="math display">
+m\mathbb{Z} := \{ma \mid a \in \mathbb{Z}\} \leq (\mathbb{Z},+).
+</span></p>
+<p>Lets define</p>
+<p><span class="math display">
+\mathbb{Z}^+ := \{n \in \mathbb{Z} \mid n &gt; 0\}.
+</span></p>
+<p>It is clear that</p>
+<p><span class="math display">
+(\mathbb{Z}^+,+) \not \leq (\mathbb{Z},+),
+</span></p>
+<p>As <span class="math inline">\mathbb{Z}^+</span> has no identity element, or any inverses.</p>
+<p>The relation <span class="math inline">\leq</span> (is subgroup of) is transitive. The relation is also reflexive, but the relation is not symmetric. This the relation is not an equivalence relation.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">H, K</span> are both subgroups of <span class="math inline">G</span>, then <span class="math inline">H \cap K</span> is a subgroup of <span class="math inline">G</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can prove that <span class="math inline">H \cap K</span> fufills the three properties of being a subgroup.</p>
+<p><span class="math display">
+(1)\, e \in H, e \in K \implies e \in H \cup K
+</span></p>
+<p><span class="math display">
+(2) x,y \in H \cup K \implies
+</span></p>
+</div>
+</div>
+<p>There is a simple way to check a subgroup</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (Subgroup criterion)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A group <span class="math inline">H</span> is a subgroup of <span class="math inline">G</span> if</p>
+<ul>
+<li><span class="math inline">H \not = \varnothing</span></li>
+<li><span class="math inline">x,y \in H \implies x \star y^{-1} \in H</span></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem (Subgroup criterion)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">H</span> is a subgroup of <span class="math inline">G</span> then <span class="math inline">e \in H</span>, thus <span class="math inline">H \not = \varnothing</span>, and if <span class="math inline">x,y \in H</span>, then <span class="math inline">y^{-1}</span> is in <span class="math inline">H</span>. Thus <span class="math inline">x \star y^{-1}</span> is in <span class="math inline">H</span>.</p>
+<p>Now if <span class="math inline">H</span> satisfies the two properties, we have some <span class="math inline">x \in H</span>, as <span class="math inline">H</span> is not empty. If <span class="math inline">y = x</span>, then</p>
+<p><span class="math display">
+x,x \in H \implies x \star x^{-1} \in H \implies e \in H
+</span></p>
+<p>And then with <span class="math inline">e,x</span></p>
+<p><span class="math display">
+e,x \in H \implies e \star x^{-1} \in H \implies x^{-1} \in H
+</span></p>
+<p>If <span class="math inline">x,y \in H</span> then <span class="math inline">y^{-1} \in H</span>. Thus</p>
+<p><span class="math display">
+x,y^{-1} \in H \implies x \star (y^{-1})^{-1} \in H \implies x \star y \in H
+</span></p>
+<p>So <span class="math inline">H</span> is a group.</p>
+</div>
+</div>
+</section>
+<section id="centralizers-normalizers-center" class="level2">
+<h2 class="anchored" data-anchor-id="centralizers-normalizers-center">Centralizers, Normalizers, Center</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">A</span> be a subset of a group <span class="math inline">G</span>.</p>
+<p>The <span style="color: blue"><strong>Centralizer</strong></span> of <span class="math inline">A</span> in <span class="math inline">G</span> is a set of elements of <span class="math inline">G</span> that commute with all elements of <span class="math inline">A</span>. This is denoted</p>
+<p><span class="math display">
+C_G(A) = \{g \in G \mid gag^{-1} = a, \; \forall a \in A\}
+</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The centralizer of a subset <span class="math inline">A</span> of <span class="math inline">G</span> is a subgroup of <span class="math inline">G</span>. Symbollically <span class="math display">
+C_G(A) \leq G
+</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We know</p>
+<p><span class="math display">
+e \in C_G(A)
+</span></p>
+<p>Thus we can fufill the first property of a subgroup <span class="math inline">C_G(A) \not = \varnothing</span>. Now, let <span class="math inline">x,y \in C_G(A)</span>. We see</p>
+<p><span class="math display">
+y^{-1}yayy^{-1} = y^{-1}ay
+</span></p>
+<p><span class="math display">
+a = y^{-1}ay = y^{-1}a(y^{-1})^{-1}
+</span></p>
+<p>Thus <span class="math inline">y^{-1} \in C_G(A)</span>.</p>
+<p>Now we wish to show <span class="math inline">xy \in C_G(A)</span></p>
+<p><span class="math display">
+(xy)a(xy)^{-1} = xyay^{-1}x^{-1}
+</span></p>
+<p>Because <span class="math inline">x,y \in C_G(A)</span>, we have <span class="math inline">xy \in C_G(A)</span>. Thus</p>
+<p><span class="math display">
+C_G(A) \leq G
+</span></p>
+</div>
+</div>
+<p>Next</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <span style="color: blue"><strong>center</strong></span> of <span class="math inline">G</span> is denoted</p>
+<p><span class="math display">
+Z(G) = \{g \in G \mid gx = xg,\, \forall x \in G\}
+</span></p>
+</div>
+</div>
+<p>The center of <span class="math inline">G</span> is the centralizer where <span class="math inline">A = G</span>. Clearly Then</p>
+<p><span class="math display">
+Z(G) = C_G(G)
+</span></p>
+<p><span class="math display">
+Z(G) \leq G
+</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">A</span> be a subset of a group <span class="math inline">G</span>, such that <span class="math inline">g \in G</span>.</p>
+<p><span class="math display">
+gAg^{-1} = \{gag^{-1} \mid a \in A\}
+</span></p>
+</div>
+</div>
+<p>We use this definition immeditally</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <span style="color: blue"><strong>normalizer</strong></span> of <span class="math inline">A</span> in <span class="math inline">G</span> is denoted</p>
+<p><span class="math display">
+N_G(A) = \{g \in G \mid gAg^{-1} = A\}
+</span></p>
+</div>
+</div>
+<p>Note that <span class="math inline">C_G(A) \leq N_G(A)</span>.</p>
+<p>If <span class="math inline">G</span> is abelian, then</p>
+<p><span class="math display">
+Z(G) = G, \quad C_G(A) = G, \quad N_G(A) = G
+</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">G = D_8</span>, and our subset <span class="math inline">A = \{e,r,r^2,r^3\}</span>.</p>
+<p>We want to find <span class="math inline">C_{D_8}</span></p>
+<p>We know that <span class="math inline">A \subset C_{D_8}(A)</span> because rotations are commutative, that meaning</p>
+<p><span class="math display">
+r^ir^j = r^{i+j} = r^{j+i} = r^jr^i
+</span></p>
+<p>We know that <span class="math inline">sr \not = rs</span>, so <span class="math inline">s\not \in C_{D_8}(A)</span>. We now need to check the remaining elements of <span class="math inline">D_8</span>, <span class="math inline">sr,sr^2,sr^3</span>.</p>
+<p>Because <span class="math inline">C_{D_8}(A) \leq D_8</span> we have</p>
+<p><span class="math display">
+sr^i \in C_{D_8}(A) \implies sr^ir^{-1} = s \in C_{D_8}
+</span></p>
+<p>Which is a contradiction, thus</p>
+<p><span class="math display">
+C_{D_8}(A) = A
+</span></p>
+<p>Now lets find <span class="math inline">N_{D_8}(A)</span>.</p>
+<p>Because <span class="math inline">C_{D_8} \leq N_{D_8}</span>, we know <span class="math inline">A \subseteq N_{D_8}(A)</span>. We have then</p>
+<p><span class="math display">
+sAs^{-1} = \{ses^{-1},srs^{-1},sr^2s^{-1},sr^3s^{-1}\}
+</span></p>
+<p>Take as a fact <span class="math inline">r^is = sr^{-1}</span>. Thus</p>
+<p><span class="math display">
+sAs^{-1} = \{e,r^3,r^2,r\}
+</span></p>
+<p>Thus <span class="math inline">s \in N_{D_8}</span>. We need now check <span class="math inline">sr^i</span>. Because <span class="math inline">N_{D_8}(A) \leq D_8</span>, we have that <span class="math inline">sr^i</span> is in the normalizer. Thus</p>
+<p><span class="math display">
+N_{D_8}(A) = D_8
+</span></p>
+<p>We now wish to find the center of <span class="math inline">D_8</span>. Since</p>
+<p><span class="math display">
+Z(D_8) \leq C_{D_8}(A)
+</span></p>
+<p>We know that <span class="math inline">Z(D_8) \subseteq A</span>.</p>
+<p>We can check these four elements of <span class="math inline">A</span> to see if their commutative with everything. We have</p>
+<p><span class="math display">
+rs = sr^{-1} \not =sr
+</span></p>
+<p>Thus <span class="math inline">r</span> is not commutative with <span class="math inline">s</span>, and is not in the center.</p>
+<p><span class="math display">
+r^2s = sr^{-2} = sr^2
+</span></p>
+<p>So <span class="math inline">r^2</span> commutes with <span class="math inline">s</span>. Now we check if it commutes with <span class="math inline">sr^i</span>.</p>
+<p><span class="math display">
+r^2sr^i = sr^{-2}r^i = sr^ir^{-2}
+</span></p>
+<p>Thus our center is <span class="math display">
+Z(D_8) = \{e,r^2\}
+</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A group <span class="math inline">H</span> is called <span style="color: blue"><strong>cyclic</strong></span> if it is generated by one element. We denote <span class="math inline">H</span></p>
+<p><span class="math display">
+H = \langle x \rangle = \{x^n \mid n \in \mathbb{Z}\}
+</span></p>
+<p><span class="math inline">x</span> is called a <span style="color: blue"><strong>generator</strong></span></p>
+</div>
+</div>
+<p>For example, <span class="math inline">(\mathbb{Z},+)</span></p>
+<p><span class="math display">
+\langle 1 \rangle = \{+(n,1) \mid n\in \mathbb{Z}\}
+</span></p>
+<p>But also</p>
+<p><span class="math display">
+\langle -1 \rangle = \{+(n,-1) \mid n\in \mathbb{Z}\}
+</span></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can find a generator of</p>
+<p><span class="math display">
+(\mathbb{Z}/n\mathbb{Z},+)
+</span></p>
+<p>Using</p>
+<p><span class="math display">
+\langle [1] \rangle = \{[1],[2],\cdots,[n]\} = \{+(n,[1])\mid n \in \{ 1,2,\cdots,n\}\}
+</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Corollary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">(1)</span> Assume <span class="math inline">|x| = \infty</span>. Then <span class="math inline">H = &lt;x^a&gt;</span> iff <span class="math inline">a = \pm 1</span></p>
+<p><span class="math inline">(2)</span> Assume <span class="math inline">|x| = n &lt; \infty</span> then <span class="math inline">&lt;x^a&gt; = H</span> iff <span class="math inline">gcd(a,n) = 1</span></p>
+</div>
+</div>
+<p>Notice</p>
+<p><span class="math display">
+\mathbb{Z}/6\mathbb{Z} = \left&lt;[1]\right&gt;,\left&lt;[5]\right&gt;.
+</span></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All the generators</p>
+<p><span class="math display">
+(\mathbb{Z}/12\mathbb{Z},+)
+</span></p>
+<p>Which are</p>
+<p><span class="math display">
+\left&lt;[1]\right&gt;,\left&lt;[5]\right&gt;,\left&lt;[7]\right&gt;,\left&lt;[11]\right&gt;
+</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">H = \left&lt;x\right&gt;</span> is a cyclic groups</p>
+<p>(<span class="math inline">1</span>) Every subgroup of <span class="math inline">H</span> is cyclic</p>
+<p>(<span class="math inline">2</span>) If <span class="math inline">|H| = n &lt; \infty</span> then for each positive integer a dividing <span class="math inline">n</span>, there is a unique subgroup of <span class="math inline">H</span> of order <span class="math inline">\left&lt;x^{\frac{n}{a}}\right&gt;</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>(<span class="math inline">1</span>) Let <span class="math inline">K \leq H = \left&lt;x\right&gt;</span></p>
+<p>If <span class="math inline">K = \{1\}</span> then done. Otherwise let <span class="math inline">a = \min\{K&gt;0\mid x^k\in K\}</span>.</p>
+<p>The claim is that <span class="math inline">K</span> is generated by <span class="math inline">\left&lt;x^a\right&gt;</span>. Suppose not. Suppose there is some <span class="math inline">x^b \in K</span> such that <span class="math inline">a\not| \,b</span>. Thus</p>
+<p><span class="math display">
+b = aq + r \quad 0 &lt; r &lt; a
+</span></p>
+<p>Note that <span class="math inline">x^{aq} \in K</span>. Meaning <span class="math inline">x^{-aq} \in K</span>. Thus <span class="math inline">x^{b-aq} \in K</span>. Thus <span class="math inline">x^r \in K</span>. But because <span class="math inline">r</span> is less than <span class="math inline">a</span>, and we assumed <span class="math inline">a</span> to be the smallest power of <span class="math inline">x</span> in <span class="math inline">K</span>, we have a contradiction. Thus every subgroup of <span class="math inline">H</span> is cyclic.</p>
+<p>(<span class="math inline">2</span>) If <span class="math inline">H</span> has a finite order <span class="math inline">n</span>, we use our previous proposition to note that <span class="math inline">|\left&lt;x^\frac{n}{a}\right&gt;| = a</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All the subgroups of <span class="math inline">\mathbb{Z}/12\mathbb{Z}</span> are</p>
+<p>Order 12: <span class="math inline">\left&lt;[1]\right&gt;</span></p>
+<p>Order 6: <span class="math inline">\left&lt;[2]\right&gt;</span></p>
+<p>Order 4: <span class="math inline">\left&lt;[3]\right&gt;</span></p>
+<p>Order 3: <span class="math inline">\left&lt;[4]\right&gt;</span></p>
+<p>Order 2: <span class="math inline">\left&lt;[6]\right&gt;</span></p>
+<p>Order 1: <span class="math inline">\left&lt;[0]\right&gt;</span></p>
+</div>
+</div>
+</section>
+<section id="subgroups-generated-by-subsets" class="level2">
+<h2 class="anchored" data-anchor-id="subgroups-generated-by-subsets">2.4 Subgroups generated by subsets</h2>
+<p>Cyclic groups generated by <span class="math inline">x</span> are the smallest subgroups containing <span class="math inline">x</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proposition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For any nonempty collection of subgroups of <span class="math inline">G</span>, the intersection of all of them is also a subgroup of <span class="math inline">G</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">A</span> is any subset of <span class="math inline">G</span>, then</p>
+<p><span class="math display">
+\left&lt;A\right&gt; = \bigcap \limits_{\substack{H\leq G\\ A \subseteq H}} H
+</span></p>
+<p>I.e, the intersection of all subgroups containing <span class="math inline">A</span>. Thus <span class="math inline">\left&lt;A\right&gt;</span> is the minimal subgroup of <span class="math inline">G</span> containing <span class="math inline">A</span>.</p>
+</div>
+</div>
+<p>Another way to define <span class="math inline">\left&lt;A\right&gt;</span> is by using generators. Say</p>
+<p><span class="math display">
+\overline{A} = \left\{ a_1^{\varepsilon_1},a_2^{\varepsilon_2},\cdots,a_n^{\varepsilon_n} \mid n + \mathbb{Z},\:n\geq0,\:a_1\in A,\: \varepsilon_i = \pm 1\right\}
+</span></p>
+<p>Thus <span class="math inline">\overline{A}</span> is the set of finite products of elements of <span class="math inline">A</span> and inverses of these elements.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proposition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Our definitions are equal. Symbollically <span class="math display">
+\overline{A} = \left&lt; A \right&gt;
+</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>First we prove that <span class="math inline">\overline{A}</span> is a group. Then</p>
+<p><span class="math inline">\overline{A} \not= \varnothing</span> because <span class="math inline">A</span> always has the identity.</p>
+<p>if <span class="math inline">a,b \in A</span>, then</p>
+<p><span class="math display">\begin{align*}
+a &amp;= a_1^{\varepsilon_1}a_2^{\varepsilon_2}\cdots a_n^{\varepsilon_n}\\
+b &amp;= b_1^{\delta_1}b_2^{\delta_2}\cdots a_n^{\delta_n}
+\end{align*}</span></p>
+<p>then</p>
+<p><span class="math display">
+a(b^{-1}) = a_1^{\varepsilon_1}a_2^{\varepsilon_2}\cdots a_n^{\varepsilon_n}a_n^{\delta_n}\cdots b_2^{\delta_2}b_1^{\delta_1} \in A
+</span></p>
+<p>Thus</p>
+<p><span class="math display">
+\overline{A} \leq G
+</span></p>
+<p>So <span class="math inline">\left&lt;A\right&gt; \subseteq \overline{A}</span>.</p>
+<p>Now we must show <span class="math inline">\overline{A} \subseteq \left&lt;A\right&gt;</span>. This is true because <span class="math inline">\left&lt;A\right&gt;</span> is closed under multiplication and inverses.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The subgroup</p>
+<p><span class="math display">
+\left&lt;(12),(13)(24)\right&gt; \leq S_4
+</span></p>
+<p>Fun fact, (it’s not) the subset is isomorphic to <span class="math inline">D_8</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\varphi \colon G \to H</span> is a homomorphism, the <span style="color: blue"><strong>kernal</strong></span> of <span class="math inline">\varphi</span> is the set</p>
+<p><span class="math display">
+\ker\varphi = \{g \in G \mid \varphi(g) = e_H\}
+</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\varphi \colon G \to H</span> is a homomorphism, the <span style="color: blue"><strong>image</strong></span> of <span class="math inline">\varphi</span> is the set</p>
+<p><span class="math display">
+\text{im} \varphi = \{\varphi(x) \mid x \in G\}
+</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proposition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">H,G</span> are groups, <span class="math inline">\varphi \colon G \to H</span> is a homomorphism, then the <span class="math inline">\ker \varphi \leq G</span> and <span class="math inline">\text{im} \leq H</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Since <span class="math inline">e_G</span> is such that <span class="math inline">\varphi(e_G) = e_H</span>, we know <span class="math inline">\ker \varphi \not = \varnothing</span>. If <span class="math inline">x,y</span> are in the <span class="math inline">\ker \varphi</span>, then <span class="math inline">xy^{-1}</span> is in the kernal, thus <span class="math inline">\ker \phi</span> is a subgroup of <span class="math inline">G</span>.</p>
+<p>Now take the image of <span class="math inline">\varphi</span>. Note</p>
+<p><span class="math display">
+\varphi(e_G) = e_H \in \text{im} \varphi \implies \text{im} \varphi \not = \varnothing
+</span></p>
+<p>Given <span class="math inline">x,y \in \text{im} \varphi</span>, we know that <span class="math inline">xy^{-1}</span> is in <span class="math inline">\text{im} \varphi</span>. Thus <span class="math inline">\text{im} \varphi \leq H</span>.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,178 @@
+---
+title: "Quotient groups"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Quotient groups
+
+## Definitions 
+
+::: {.callout-note icon="false"}
+## Definition 
+
+If $\varphi \colon G \to H$ is a homomorphism, the [**kernal**]{style="color: blue"} of $\varphi$ is the set 
+
+$$
+\ker\varphi = \{g \in G \mid \varphi(g) = e_H\}
+$$
+
+:::
+
+::: {.callout-note icon="false"}
+## Definition 
+
+If $\varphi \colon G \to H$ is a homomorphism, the [**image**]{style="color: blue"} of $\varphi$ is the set 
+
+$$
+\text{im}\,\varphi = \{\varphi(g) \mid g \in G\}
+$$
+
+:::
+
+::: {.callout-note icon="false"}
+## Proposition 
+
+If $H,G$ are groups, $\varphi \colon G \to H$ is a homomorphism, then  
+
+$$
+\ker \varphi \leq G \: \text{ and } \: \text{im} \leq H
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof 
+
+Since $e_G$ is such that $\varphi(e_G) = e_H$, we know $\ker \varphi \not = \varnothing$. If $x,y$ are in the $\ker \varphi$, then $xy^{-1}$ is in the kernal, thus $\ker \varphi$ is a subgroup of $G$.
+
+Now take the image of $\varphi$. Note 
+
+$$
+\varphi(e_G) = e_H \in \text{im} \varphi \implies \text{im} \varphi \not = \varnothing
+$$
+
+Given $x,y \in \text{im} \varphi$, we know that $xy^{-1}$ is in $\text{im} \varphi$. Thus $\text{im} \varphi \leq H$. 
+
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+Let $\varphi \colon G \to H$ be a surjective homomorphism with $\ker k$. The [**quotient group**]{style="color: blue"} $G/K$ is the group whose elements are the fibers of $\varphi$ with group operation inherited from $H$.
+:::
+
+This definition requires knowing $\varphi$ explictly. You can however define the group operation on fibers in terms of representatives. 
+
+::: {.callout-note icon="false"}
+## Proposition
+
+Let $\varphi \colon G \to H$ be a homomorphism with $\ker k$. Let $X \in G/K$ be the fiber above $a \in H$. $X = \varphi^{-1}(a)$. Then for any $u \in X$, 
+
+$$
+X = \{uk\mid k \in K\}
+$$
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+
+Let $u \in X$, then $\varphi(u) = a$. Let
+
+$$
+uK = \{uk \mid k \in K\}
+$$
+
+We want to show that $X$ is equal to $uK$. We will first show that $uK$ is a subset of $X$. For $k \in K$
+$$
+\varphi(uk) = \varphi(u)\varphi(k) = \varphi(u) = a 
+$$
+
+Thus $uK \subseteq X$. Now to show that $X \subseteq uK$, let $g \in X$ and $k = u^{-1}g$.
+$$
+\varphi(k) = \varphi(u^{-1})\varphi(g) = a^{-1}a = e_H
+$$
+
+Thus $k \in \ker \varphi$ since $k = u^{-1}g$. Thus $X \subseteq uK$
+
+:::
+
+Thus we can write any elements of the quoitent group as the set $uk$ for all $k \in K$.
+
+::: {.callout-note icon="false"}
+## Definition
+
+For any $N \leq G$ and $g \in G$,
+
+$$
+gN = \{gn\mid n \in N\}
+$$
+
+This is a (left) [**coset**]{style="color: blue"} of $N$ in $G$.
+
+:::
+
+::: {.callout-note icon="false"}
+## Theorem
+
+Let $\varphi \colon G \to H$ homomorphism with a kernal $K$. The set of cosets of $K$ in $G$ with operation $uK \star vK = (uv)K$ forms a group.
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+
+Let $X,Y \in G/K$, and $Z = XY \in G/K$. Then for some $a,b \in H$,
+$$
+X = \varphi^{-1}(a)\: Y = \varphi^{-1}(b)
+$$
+
+This implies $Z = \varphi^{-1}(ab)$. Let $u,v$ be representations of $X,Y$ respectivly. We want to show that $uv \in Z$. Which is only true If
+
+$$
+\varphi(uv) \in ab \leftrightarrow \varphi(u)\varphi(v) = ab
+$$
+
+Which is true! Thus by our previous proposition $Z = uvK$.
+:::
+
+You cannot define $G/N$ for any $N \leq G$. 
+
+::: {.callout-note icon="false"}
+## Theorem
+
+You cannot define $G/N$ for any $N \leq G$. 
+
+:::
+::: {.callout-tip icon="false"}
+## Proof
+
+Let $\varphi \colon G \to H$ be a homomorphism with Kernal $K$. Then 
+
+$$
+gKg^{-1} \subseteq K \; \forall g \in G
+$$
+
+$\varphi(gkg^{-1}) = e$
+:::
+
+If we have a subgroup $N$ of $G such that $gNg^{-1} \subseteq N$ for all $g \in G$, then multiplication in $G/N$ is well defined.
+
+::: {.callout-note icon="false"}
+## Theorem
+
+$$G/N \times G/N \rightarrow G/N
+$$
+$$(xN, xG)
+$$
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+
+If $x_1N = x_2N, y_1N=y_2N$ then $x_1^{-1}x_2 \in N$ and $y_1^{-1}y_2 \in N$
+:::
+

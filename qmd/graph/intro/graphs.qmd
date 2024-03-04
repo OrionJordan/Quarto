@@ -1,0 +1,224 @@
+---
+title: "Graphs"
+format:
+  html:
+    css: ../../../styles.css
+    echo: false
+    toc: true
+    html-math-method: katex
+---
+
+This section covers the definition of a graph, and common families of graphs.
+
+# Definition
+
+A [**graph**]{style="color: blue"} is a set of points called [**vertices**]{style="color: blue"} connected by [**edges**]{style="color:blue"}.
+
+::: {style="text-align:center;"}
+```{r, engine = 'tikz', fig.width=2, fig.height=2}
+#| label: example-graph
+#| fig-cap: "The *Petersen Graph*, a notable graph in Graph Theory"
+#| fig-align: 'center'
+
+\usetikzlibrary{graphs}
+\usetikzlibrary{graphs.standard}
+
+\begin{tikzpicture}[every node/.style={draw,circle, fill=black, inner sep=0pt, minimum size=.1cm}]
+  \graph[clockwise, radius=2cm] {subgraph C_n [n=5,name=A] };
+  \graph[clockwise, radius=1cm] {subgraph I_n [n=5,name=B] };
+
+  \foreach \i [evaluate={\j=int(mod(\i+2+4,5)+1)}]
+     in {1,2,3,4,5}{
+    \draw[line width=1pt]  (A \i) -- (B \i);
+    \draw[line width=1pt] (B \j) -- (B \i);
+  }
+\end{tikzpicture}
+```
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+A graph $G = (V,E)$ is a mathematical structure consisting of a [**vertex set**]{style="color: blue"} $V(G)$ and an [**edge set**]{style="color: blue"} $E(G)$. Each edge $e$ in the edge set connects two (not necessarily distinct) vertices known as the [**endpoints**]{style="color: blue"} of $e$.
+:::
+
+An edge is said to [**join**]{style="color: blue"} its endpoints. Say an edge $e$ connects two vertices $u$ and $v$. $u$ is said to be [**adjacent**]{style="color: blue"} and a [**neighbor**]{style="color: blue"} of $v$.
+
+::: {.callout-warning icon="false"}
+## Example
+
+```{r, engine = 'tikz', fig.width=1, fig.height=1}
+#| fig-align: 'center'
+
+\usetikzlibrary{graphs}
+\usetikzlibrary{graphs.standard}
+
+\begin{tikzpicture}
+
+\draw[fill=black] (0,2) circle (3pt);
+\draw[fill=black] (2,0) circle (3pt);
+\draw[fill=black] (2,2) circle (3pt);
+\draw[fill=black] (0,0) circle (3pt);
+\draw[line width=1pt] (0,0) -- (2,0) -- (2,2) -- (0,2) -- (0,0) -- (2,2) -- (0,2) -- (2,0);
+\node at (0,2.4) {a};
+\node at (2,-0.4) {b};
+\node at (2,2.4) {c};
+\node at (0,-0.4) {d};
+
+\end{tikzpicture}
+```
+
+The vertex and edge sets of the graph $G$ above are
+
+$$
+V(G) = \{a,b,c,d\} \quad\quad\quad\quad E(G) = \{ab,ac,ad,bc,bd,cd\}
+$$
+
+Notice how we can denote an edge by concatenating its endpoints. This is only possible in cases where exclusively one edge exist between two vertices.
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+An edge $e$ can be called
+
+-   A [**proper edge**]{style="color: blue"} when the edge joins two distinct vertices
+
+-   A [**loop**]{style="color: blue"} when $e$ joins a vertex to itself
+
+-   A [**multi-edge**]{style="color: blue"} when two or more edges connect the same two vertices
+:::
+
+There are many instances in graph theory where our graphs are both loopless and devoid of multi-edges. In these cases we call the graph [**simple**]{style="color: blue"}. If our graph is empty, we call it a [**null graph**]{style="color: blue"}. If our graph contains one vertex and no edges, the graph is [**trivial**]{style="color: blue"}.
+
+## Alternate definition
+
+A more rigourous definition of a graph $G$ will include an **incidence function** $\psi_G$ that connects vertices to edges.
+
+::: {.callout-note icon="false"}
+## Definition
+
+A *graph* $G$ is an ordered pair $(V(G),E(G))$ where $V(G)$ is a set of vertices and $E(G)$ is a set, disjoint from $V(G)$, of edges, along with an *incidence function* $\psi_G$ that associates each edge in $E(G)$ an unordered pair of vertices in $V(G)$.   
+:::
+
+An edge $e$ is said to *join* its endpoints $u,v$ if $\psi_G(e) = \{u,v\}$. 
+
+::: {.callout-warning icon="false" collapse="true"}
+## Example (Rigourous Graph)
+
+An example of a rigourous graph $G$ is
+
+$$
+G = (V(G),E(G))
+$$
+
+where
+
+$$
+V(G) = \{a,b,c,d,e\}\\
+E(G) = \{e_1,e_2,e_3,e_4,e_5,e_6,e_7,e_8\}
+$$
+
+and $\psi_G$ conncects
+
+$$
+\psi_G(e_1) = \{a,b\}, \psi_G(e_2) = \{a,a\}, \psi_G(e_3) = \{a,c\}, \psi_G(e_4) = \{b,e\}\\
+\psi_G(e_5) = \{b,a\}, \psi_G(e_6) = \{c,b\}, \psi_G(e_7) = \{d,d\}, \psi_G(e_8) = \{c,e\}
+$$
+
+
+:::
+
+# Common Families of Graphs
+
+## Complete Graphs
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**complete graph**]{style="color: blue"} is a simple graph where there exist an edge between every pair of distinct vertices. A complete graph with $n$ vertices is notated $K_n$.
+:::
+
+(Insert picture of graphs K1 through K5)
+
+::: {.callout-note icon="false"}
+## Theorem
+
+A complete graph $K_n$ contains $\binom{n}{2}$ edges.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof
+
+The graph $K_n$ has an edge between every pair of distinct vertices. Because order doesn't affect edges ($e = uv$ is equivalent to $e = vu$), the number of edges is analougous to $n$ choose $2$, $\binom{n}{2}$.
+:::
+
+## Bipartite Graphs
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**bipartite graph**]{style="color: blue"} $G$ is a simple graph whose vertex set can be partitioned into two subsets $U$ and $V$, such that every edge in $G$ has one endpoint in $U$, and one edpoint in $V$.
+:::
+
+(Insert picture of a few bipartite graphs)
+
+::: {.callout-note icon="false"}
+## Proposition
+
+A bipartite graph cannot contain any loops.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof
+
+If an edge was loop, it would connect the same vertex to both endpoints, which contradicts our definition of a bipartite graph.
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**complete bipartite graph**]{style="color: blue"} $G$ is a simple bipartite graph such that every vertex in one of the bipartition subsets is joined to every other vertex in the other bipartite subset. A complete bipartite graph is notated $K_{m,n}$ where $m$ is the number of vertices in one of the graphs bipartite set, and $n$ is the number of vertices in the other.
+:::
+
+(Example of a complete bipartite graph)
+
+## Regular Graphs
+
+To look at regular graphs, we first have to establish the *degree* of a vertex.
+
+::: {.callout-note icon="false"}
+## Definition
+
+The [**degree**]{style="color: blue"} of a vertex $v$ is a positive integer equal to the number of vertices in the neighborhood of $v$.
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**k-regular graph**]{style="color: blue"} is a graph where each vertex has $k$ other vertices in it's neighborhood.
+:::
+
+::: {.callout-warning icon="false"}
+## Example
+
+```{r, engine = 'tikz', fig.width=1.5, fig.height=1.5}
+#| fig-align: 'center'
+
+\usetikzlibrary{graphs}
+\usetikzlibrary{graphs.standard}
+
+\begin{tikzpicture}[every node/.style={draw,circle, fill=black, inner sep=0pt, minimum size=.1cm}]
+  \graph[clockwise, radius=2cm] {subgraph C_n [n=5,name=A] };
+  \graph[clockwise, radius=1cm] {subgraph I_n [n=5,name=B] };
+
+  \foreach \i [evaluate={\j=int(mod(\i+2+4,5)+1)}]
+     in {1,2,3,4,5}{
+    \draw[line width=1pt]  (A \i) -- (B \i);
+    \draw[line width=1pt] (B \j) -- (B \i);
+  }
+\end{tikzpicture}
+```
+
+For example, the Petersen graph is $3$-regular, as each vertex in the graph has three other vertices in it's neighborhood.
+:::

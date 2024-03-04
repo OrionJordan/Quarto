@@ -1,0 +1,146 @@
+---
+title: "The Tower of Hanoi"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+## The problem
+
+The Tower of Hanoi is a problem proposed by Edouard Lucas in 1883.
+We are given a tower of eight disks stacked in decreasing size on one of three pegs. The objective is to transfer the disks from one peg to another, only moving one disk at a time, and never moving a larger disk onto a smaller one.
+
+Say that $T_n$ is the minimum number of moves to transfer a tower of size $n$ to another peg. It is clear $T_1 = 1$, and that $T_2 = 3$. Additionally, one could say $T_0 = 0$.
+
+When given a tower of size $n$, it takes $T_{n-1}$ moves to move the $n-1$ smaller tower onto another peg, one move to move the largest disk onto the desired peg, and then another $T_{n-1}$ moves to move the tower of size $n$ onto the largest disk. This gives us a general formula
+
+$$
+T_0 = 0;\\
+T_n = 2T_{n-1} + 1 
+$$ {#eq-recurrence}
+
+A set of inequalities like the one shown in $\left(1\right)$ is called a [**recurrence**]{style="color: blue"}. Defined by an intial value ($T_0 = 0$) and then a general value in terms of an earlier one $T_{n} = 2T_{n-1} + 1$.
+
+Though finding a numerical value becomes tedious when $n$ is large enough. What would reduce computation time is a 'closed form' for $T_n$, one that can be evaluated without knowing $T_n$ for all smaller values of $n$.
+
+Calculating the first few values of $T$, we get $T_1 = 1$, $T_2 = 3$, $T_3 = 7$, $T_4 = 15$, ect. It would appear that
+$$
+T_n = 2^n - 1 \quad \text{for } n \geq 0
+$${#eq-guess}
+
+But this is not a proof. We can manually confirm it to be true for many values of $n$, but in order to prove it for all values of $n$, we will have to use induction.
+
+::: {.callout-note icon="false"}
+## Proof
+
+We want to show
+
+$$
+T_n = 2^n - 1.
+$$
+
+We use $n = 0$ for our basis, which works as $2^0 - 1 = 0$.
+
+By the induction hypothesis
+
+$$
+T_n = 2T_{n-1} + 1 = 2(2^{n-1} - 1) + 1 = 2^n - 1 
+$$
+
+And thus $T_n = 2^n - 1$ for all $n$.
+
+:::
+
+So we get 
+
+In order to solve this problem, we first found a mathematical expression that allowed us to solve the problem for any number of disks, and then found a closed form for our mathematical expression. The book will focus primarily on finding these closed forms of mathematical expression, and without using a lucky guess to find the closed form. 
+
+Intrestingly enough, our recurrence from $(1)$ can be simplified by adding $1$ to both sides of the equation:
+
+$$
+T_0 + 1 = 1\\
+T_n + 1 = 2T_{n-1} + 2
+$$
+ 
+Now if we let $U_n = T_n + 1$, we get
+
+$$
+U_0 = 1\\
+U_n = 2U_{n-1}
+$$ {#eq-simprec}
+
+It is pretty clear that our closed formula is $U_n = 2^n$; thus $T_n = 2^n - 1$.
+
+## Linear Problem
+
+Now that we have an understanding for the general problem, we can begin making some alterations. In the linear problem, we label the pegs $A,B$ and $C$. A disk can only be moved from peg $A$ to peg $B$, and peg $B$ to peg $C$.
+
+We are tasked with finding the shortest number of moves to get a tower of size $n$ from peg $A$ to peg $C$. Let this minimum be given by $L(n)$. 
+
+The only way to move the bottom disk $n$ is to have the entire tower of $n-1$ disks on peg $C$. Then we can move disk $n$ onto peg $B$. The only way to move the disk forward again is if the $n-1$ tower is on peg $A$ now. We can now move disk $n$ to peg $C$, and the tower back onto peg $C$. This gives us the following recurrence
+
+$$
+L(0) = 0\\
+L(n) = 3L(n-1) + 2
+$$
+
+Using our previous simplification trick, let $U(n) = L(n) + 1$.
+
+$$
+U(n) = L(n) + 1 = 3L(n-1) + 3 = 3(L(n-1) + 1) = 3U(n-1)\\
+$$
+
+Thus we get the closed formula
+
+$$
+L(n) = 3^n - 1
+$$
+
+## Cyclic Problem
+
+Imagine that you could only make clockwise moves. That is, $A$ to $B$, $B$ to $C$, and $C$ to $A$. We let $Q(n)$ be the minimum number of moves to get a tower of size $n$ from peg $A$ to peg $B$, and $R(n)$ to reverse $Q(n)$, that is get a tower from peg $B$ to $A$.
+
+For this problem, we will define $Q$ and $R$ in terms of each other, and solve the recurrence in a later chapter. Starting with $Q(n)$, one can notice by moving the top $n-1$ disks back, the largest disk forward, and then the top $n-1$ disks back, we get
+
+$$
+Q(0) = 0\\
+Q(n) = 2R(n-1) + 1
+$$
+
+Similary for $R(n)$, we can move the top $n-1$ back a peg, the bottom disk forward a peg, the top $n-1$ back to their starting peg, move the bottom peg once more, and then move the top $n-1$ back. This gets us
+
+$$
+R(n) = R(n-1) + 1 + Q(n-1) + 1 + R(n-1)\\
+R(n) = 2R(n-1) + Q(n-1) + 2\\
+R(n) = Q(n) + Q(n-1) + 1
+$$
+
+## Multiple disks
+
+What if we have a tower of $2n$ disks of $n$ sizes. That is we have two disks of each size, which are indistinguishable. After a little tinkering it's clear that it is never beneficial to split the disks up, therefore the optimal solution is just doubling our initial solution. Letting $D(n)$ be the optimal number of moves to move a stack,
+
+$$
+D(n) = 2T(n).
+$$
+
+This problem becomes interesting if we let the two disks be distinguishable, and we wish to create the original tower. Let the minimum number of moves for this tower be $DD(n)$. One may think this could be easily by moving the top $n-1$ towers in this fashion, move the bottom two disks, move $n-1$ back, move the bottom two, and then the top $n-1$ back on top. This gives us
+
+$$
+DD(n) = 3DD(n-1) + 4
+$$
+
+Unfortunetly induction immeditly fails, as $DD(1)$ is $3$. Notice that if we move all the disks of any size $k$ an even number of times, they'll be oriented right. We can minimize $DD(n)$ by moving the bottom disks $3$ times into the right orientation, and all the others an even number of times. Try it out, and notice how we get the following
+
+$$
+DD(n) = 4D(n-1) + 3
+$$
+
+This works with induction, and can be simplified to give us
+
+```{=tex}
+\begin{array}{ll}
+DD(n) &= 4D(n-1) + 3 = 8T(n-1) + 3 = 8(2^{n-1} - 1) + 3\\
+&=  2^{n+2} - 5 = 2^n - 1
+\end{array}
+```

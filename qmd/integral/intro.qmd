@@ -1,0 +1,12 @@
+---
+title: "Integration"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+This section of notes is all about integration. I am currently studying for the 2024 UNT Integration bee. On the left you'll see detailed strategies for solving different types of integrals.
+
+The scope of this section is limited to integrals whos contents may appear in the UNT integration bee. As such no methods for definite integrals will be shown.
+

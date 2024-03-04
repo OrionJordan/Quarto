@@ -1,0 +1,51 @@
+---
+title: "Discrete Calculus"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Discrete calculus, sometimes called Finite calculus, is the study of incremental change, as opposed to regular calculus, the study of continuous change. Discrete calculus most regularly deals with solving summations and functions defined on the natural numbers.
+
+## Discrete Derivative
+
+In continuous calculus, the derivative is the 'instantaneous rate of change' of a function. That concept can't exist with incremental change. The smallest rate of change in a discrete function is the change between integers. Therefore we define our discrete derivative
+
+::: {.callout-note icon="false"}
+## Definition
+
+The [**discrete derivative**]{style="color: blue"} is the smallest change in a discrete function, defined \$\$ \Delta f(x) = f(x+1) - f(x)
+:::
+
+We can now prove may properties about the discrete derivative
+
+::: {.callout-note icon="false"}
+## Theorem
+
+The discrete derivative has the following properties
+
+**Constant rule**
+
+$\Delta c = 0$ for all $c \in \mathbb{N}$
+
+**Linearity**
+
+$\Delta af(x) = a \Delta f(x)$
+
+**Product rule**
+
+$\Delta f(x)g(x) = f(x) \Delta g(x) + g(x) \Delta f(x) + \Delta f(x) \Delta g(x)$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Proof
+
+To-do
+:::
+
+### Functions
+
+Now that we've defined the discrete derivative, we can start finding the discrete derivative of functions. 
+
+Take for example, the function

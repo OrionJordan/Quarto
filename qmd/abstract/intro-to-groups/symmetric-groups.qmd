@@ -1,0 +1,222 @@
+---
+title: "Symmetric Groups"
+format:
+  html:
+    echo: false
+    toc: true
+    html-math-method: katex
+---
+
+Symmetric groups are groups based on symmetries of certain mathematical objects and structures.
+
+## Dihedral groups
+
+An important example of a group comes from symmetries of geometric objects, most notably, polygons.
+
+Lets take a hexagon, and apply an operation *s*, which reflects it along a line of symmetry. We could also apply an operation *r*, which rotates the hexagon by $\pi / 3$ radians. These operations swap the location of the vertices of the hexagon.
+
+::: {style="text-align:center;"}
+```{r, engine = 'tikz', fig.width=2, fig.height=2}
+#| label: example-graph
+#| fig-cap: "(Insert picture of a hexagon being rotated and symetry)"
+#| fig-align: 'center'
+
+\usetikzlibrary{graphs}
+\usetikzlibrary{graphs.standard}
+
+\begin{tikzpicture}[every node/.style={draw,circle, fill=black, inner sep=0pt, minimum size=.1cm}]
+  \graph[clockwise, radius=2cm] {subgraph C_n [n=6,name=A] };
+  \graph[clockwise, radius=2cm] {subgraph C_n [n=6,name=B] };
+  \graph[clockwise, radius=2cm] {subgraph C_n [n=6,name=C] };
+\end{tikzpicture}
+```
+:::
+
+If we represent the orignal labelling of the vertices as
+
+$$
+\{1,2,3,4,5,6\}
+$$
+
+Then we can represent our operations $r$ and $s$ as the permutations
+
+$$
+r = \{2,3,4,5,6,1\} \quad s = \{1,6,5,4,3,2\}
+$$
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**symmetry**]{style="color: blue"} is a reordering of the vertices on a geometric shape such that their structure remains. We typically denote a symmetry with $\sigma$.
+:::
+
+For polygons in $2$-space, we say that the 'structure' of the polygon remains if it can be transferred to $3$-space, rotated, and then placed back into $2$-space.
+
+Thus our operations $r$ and $s$ are symmetries of the polygon. They can be combined to produce additional symmetries. The set of all possible symmetries on a $n$-polygon is denoted $D_{2n}$.
+
+::: {.callout-note icon="false"}
+## Definition
+
+The set of symmetries on an $n$-polygon is denoted $D_{2n}$, and called the [**dihedral group of order**]{style="color: blue"} $2n$.
+:::
+
+We will prove that $D_{2n}$ is indeed a group later, but for now it can be taken as fact. $D_{2n}$ has $2n$ symmetries, all of which can be constructed via compositions of our symmetries $r$ and $s$.
+
+::: {.callout-warning icon="false"}
+## Example
+
+Lets examine the group $D_{12}$, the symmetries of a hexagon.
+
+First lets look at our possible rotations $r$. Let $e$ be the orignal labelling of the vertices, and $r$ be defined
+
+$$
+r \colon \{1,2,3,4,5,6\} \to \{2,3,4,5,6,1\}
+$$
+
+We can repeatedly compose $r$ to construct the following symmetries
+
+$$
+e, r, r^2, r^3, r^4, r^5.
+$$
+
+Note that $r^6 = r^0 = e$, thus $|r| = 6$.
+
+Next we can look at our reflections. Let $s$ be defined 
+
+$$
+s \colon \{1,2,3,4,5,6\} \to \{1,6,5,4,3,2\}
+$$ 
+
+Note that $s^2 = e$. Combining $s$ and $r$, we can create
+$$
+s, sr, sr^2, sr^3, sr^5, sr^6
+$$
+
+Giving us six new symmetries. This gives us a total of 12 symmmetries in $D_{12}$. 
+
+:::
+
+It should be noted that $D_{12}$ is not abelian, which can be clearly be seen with
+
+$$
+rs = \{6,5,4,3,2,1\} = sr^5 \quad sr = \{2,1,6,5,4,3\}
+$$
+
+## Cyclic groups
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**cyclic group**]{style="color: blue"} 
+:::
+
+## Symmetric Groups
+
+Lets define a new symmetric group $\Omega$.
+
+::: {.callout-note icon="false"}
+## Definition
+
+We define a set $\Omega$ by the following rules
+
+Let $\Omega \not = \varnothing$.
+
+Let $S_\Omega$ be the set of all bijections from $\Omega \to \Omega$, called a [**permutation**]{style="color: blue"}.
+
+Let $\sigma,\tau$ be permutations of $\Omega$.
+
+:::
+
+This gives $\Omega$, and more precisly $S_\Omega$ some interesting properties. 
+
+- The identity of $S_\Omega$ is the permutation $1$ where $1(a) = a\, \forall a \in \Omega$.
+
+- Since function composition is associative, the operation is associative.
+
+- Every permutation has an inverse since it's a bijection. Take $\sigma\colon \Omega \to \Omega$, then $\sigma^{-1} \colon \Omega \to \Omega$ and $\sigma \circ \sigma^{-1} = 1$
+
+Therefore, $(S_\Omega, \circ)$ is a group and its called the [**symmetric group**]{style="color: blue"} on $\Omega$. Usually we take $\Omega$ as the first $n$ natural numbers. 
+
+::: {.callout-warning icon="false"}
+## Example
+
+Lets examine $\Omega = \{1,2,3\}$. 
+
+We have $\sigma \in S_3$, which we define by 
+
+$$
+\sigma \colon \{1,2,3\} \to \{2,3,1\}.
+$$
+
+This is represented in shorthand by
+
+$$
+\sigma \colon (1\,2\,3)
+$$
+
+We can also define a permutation $\tau \in S_3$ By
+
+$$
+\tau \colon \{1,2,3\} \to \{2,1,3\}
+$$
+
+Which is represented in shorthand by
+
+$$
+\tau \colon (1\,2)(3) \text{ or } \tau \colon (1\,2)
+$$
+
+::: 
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**cycle**]{style="color: blue"} is a string of integers representing an element of $S_n$ which cyclicly permutes the integers. 
+
+Eg. $(1\,2\,3), (1\,2)(3)$::: {.callout-note icon="false"}
+## Definition
+
+$D_{2n}$ with these operations is called the [**dihedral group of order**]{style="color: blue"} $2n$.
+:::
+::: {.callout-warning icon="false"}
+## Example
+
+Continuing to examine $S_3$, we know that there exist $3! = 6$ total permutations of the set. We can denote the identity permutation
+
+$$
+(1)(2)(3)
+$$
+
+We have three example where we leave one number untouched
+$$
+(1)(2\,3), (2)(1\,3), (3)(1\,2)
+$$
+
+And two examples where we permute every number
+
+$$
+(1\,2\,3), (1\,3\,2)
+$$
+
+::: 
+
+For any $\sigma \in S_n$, the cycle decomposition of $\sigma^{-1}$ is obtained by writing the numbers in cycle of the cycle decomposition of $\sigma$ is in reverse order. For example, given
+
+$$
+\sigma \colon (1\,2\,3),\quad \sigma^{-1} \colon (3\,2\,1)
+$$
+
+When composing in $S_n$, we read from right to left, for example, if we were in $S^4$, and given
+$$
+\sigma \colon (1\,2\,3)(4),\quad \tau \colon (1\,2)(3\,4)
+$$
+
+We can get $\sigma \circ \tau$ by combining the two. Rather tedious, but we eventually get 
+
+$$
+\sigma \circ \tau \colon (1\to 3)(2\to 2)(3\to4)(4\to1) = (1\,3\,4)(2)
+$$
+
+Note that $S_n$ is non-abelian for all $n\geq3$. That being said, disjoint cycles will commute. The order of an element $\sigma \in S_n$ is the l.c.m of the lengths in it's cycle decomposition.
+
+A trasposition is an element of length $2$.

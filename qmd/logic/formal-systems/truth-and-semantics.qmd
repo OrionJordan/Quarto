@@ -1,0 +1,101 @@
+---
+title: "Truth and Semantics"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+We now know how to create a formal language, and how to create new formulas in said system. However, as of now these formulas are merely strings of symbols with no meaning or truth attached to them. Logic isn't very useful without truth, so lets establish some way of assigning truth to a formula.
+
+## Truth Assignment in Proposition logic
+
+In order to keep things simple, we'll be using [**propositional logic**]{style="color: blue"} as our example for truth assignment. Proposition logic contains no quantifiers, functions, relations, or equality, so it'll be simple to work with. Of course a formal definition of propositional logic will be given later, but for now it serves as a simple example for truth.
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**truth value**]{style="color: blue"} is some value relating to the truth of a statement. 
+:::
+
+Most logic contains only two truth values, *truth* denoted $T$ or $1$, and *falsity* denoted $F$ or $0$. There is however no limit to the amount of truth values one could have. 
+
+::: {.callout-note icon="false"}
+## Definition
+
+A [**truth assignment**]{style="color: blue"} is some function $v$ such that for the set of terms $T^S$
+
+$$
+v \colon T^S \to \{T,F\}
+$$
+:::
+
+Thus a truth assignment would take every term, and assign the term as either true or false. It is important to note that $v$ only assigns truth to terms. This is to avoid seemingly contradictory statements like
+
+$$
+v(p \land q) = T\quad v(p) = F,
+$$
+
+which treats the 'And' operator very differently from common expection. The solution to this to define a function $\overline{v}$, which operates on the set of wff for a language
+
+$$
+\overline{v} \colon \mathcal{L}^S \to \{T,F\},
+$$
+
+and assigns the correct truth value to each formula. We define this function such that for any term $p$, 
+$\overline{v}(p) = v(p)$. We define our operators using [**truth tables**]{style="color: blue"}, which gives the truth value for each operator depending on the truth value of the terms.
+
+\begin{array}{|c c c c c c c|}
+% |c c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+p & q & \lnot p & p \land q & p \lor q & p \rightarrow q & p \leftrightarrow q\\ % Use & to separate the columns
+\hline % Put a horizontal line between the table header and the rest.
+T & T & F & T & T & T & T\\
+T & F & F & F & T & F & F\\
+F & T & T & F & T & T & F\\
+F & F & T & F & F & T & T\\
+\end{array}
+
+This is the standard truth table, used in almost all of classical logic. There exists seperate tables for systems with more than two truth values of course, but you'll (likely) never see the $\land$ operator defined differently from the table above.
+
+Of course this is just how truth is defined in propositional logic. Truth is defined very different in logical systems like intuitionistic logic. 
+
+## Semantic consequence
+
+Now that we have an example of a truth assignment, we can work with more general notions of truth.
+
+::: {.callout-note icon="false"}
+## Definition
+
+We say a truth assignment $v$ [**satisfies**]{style="color: blue"} $\varphi$ if and only if $\overline{v}(\varphi) = T$. 
+:::
+
+This leads to our next definition
+
+::: {.callout-note icon="false"}
+## Definition
+
+Let $\Gamma$ and $\varphi$ be sets of wff. We say $\varphi$ is a [**Semantic consequence**]{style="color: blue"} of $\Gamma$ if and only if every truth assignment that satisfies $\Gamma$ also satisfies $\varphi$. This is denoted
+
+$$
+\Gamma \models \varphi
+$$
+
+:::
+
+Thus, this simply means if $\Gamma$ is true, $\varphi$ is too. We define a [**tautology**]{style="color: blue"} $\tau$ if 
+
+$$
+\models \tau
+$$
+
+Meaning that $\tau$ is always true regardless of the truth assignment used. An example of a tautology in classic logic is the *Law of the excluded middle*, denoted
+
+$$
+P \lor \lnot P
+$$
+
+Which is clearly true for all truth values $P$ in propositional logic. However there are systems like intuitionistic logic where truth is defined in a way rejecting the *Law of the excluded middle*.

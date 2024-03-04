@@ -1,0 +1,176 @@
+---
+title: "Unit four"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+## Section 4.5
+
+Suppose we have a matrix $A_{m,n}$. This acts as a function mapping $\mathbb{R}^n$ to $\mathbb{R}^m$.
+
+::: {.callout-note icon="false"}
+## Fact
+
+A matrix $A$ maps $\text{RowSp}(A)$ bijectivly to $\text{ColSp}(A)$.
+:::
+
+::: {.callout-note icon="false"}
+## Proposition
+
+Suppose $x_1,\ldots,x_r$ is a basis of $\text{RowSp}(A)$. Then $Ax_1,\ldots,Ax_r$ is a basis of $\text{ColSp}(A)$. 
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+
+Suppose $c_1Ax_1,\ldots,c_rAx_r = 0$. then
+
+$$
+A(c_1x_1,\ldots,c_rx_r) = 0
+$$
+
+All $c_i$ must be zero as $x_1,\ldots,x_r$ is a basis. Thus $Ax$ is independent.
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+The [**pseudoinverser**]{style="color: blue"} of $A$, $A^+$ is basically
+
+$$
+A|_{\text{RowSp}(A)} \colon \text{RowSp}(A) \to \text{ColSp}(A)
+$$
+
+:::
+
+Note that when we multiply $A^+A$, we get an $n\times n$ matrix. Lets look at what happens to each subspace under $A^+A$.
+
+The Null space disapears, as $A$ maps $\text{NullSp}(A) \to 0$. The row space is restored. Thus we have an interesting map
+
+$$
+A^+A|_{\text{Row(A)}} = P_{\text{Row}(A)}
+$$
+
+We also have
+
+$$
+AA^A|_{\text{Col(A)}} = P_{\text{Col}(A)}
+$$
+
+Somewhat suprisingly, $(A^+)^+ = A$. Every subspace of $A$ is the same under $A^T$ and $A^+$.
+
+::: {.callout-warning icon="false"}
+## Example
+
+If $A_{(n\times n)}$ is invertible, Then
+
+$$
+A^+ = A^{-1}.
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Example
+
+Let 
+
+\begin{align*}
+A = 
+\begin{pmatrix}
+0 & 2\\
+0 & 0
+\end{pmatrix}
+\end{align*}
+
+Then
+
+\begin{align*}
+A = 
+\begin{pmatrix}
+0 & 0\\
+\frac{1}{2} & 0
+\end{pmatrix}
+\end{align*}
+
+Note that 
+
+\begin{align*}
+AA^+ = 
+\begin{pmatrix}
+1 & 0\\
+0 & 0
+\end{pmatrix}= P_{\text{Col}(A)}
+\end{align*}
+
+:::
+
+::: {.callout-warning icon="false"}
+## Example
+
+Let 
+
+\begin{align*}
+A = 
+\begin{pmatrix}
+a & 0\\
+0 & 0\\
+0 & b
+\end{pmatrix}
+\end{align*}
+
+
+:::
+
+## Section 5.1
+
+Permutations matrices are matrices with the same columns as $I$. For an $n\times n$ permutation matrix, there exists $n!$ permutation matrices. 
+
+Half of these matrices are even. Meaning we can get to $P$ via an even number of row exchanges on $I$. Half are odd.
+
+::: {.callout-note icon="false"}
+## Definition
+
+We will define the operation $\text{Prod}(A\colon P)$ as the product of all entries of A matching a non zero entry of $P$.
+
+:::
+
+Thus we define the determinate $\det A$ as
+
+$$
+\det A = \sum\limits_{\text{Even perms }P} \text{Prod}(A\colon P) - \sum\limits_{\text{Odd perms }P} \text{Prod}(A\colon P)
+$$
+
+This is actually just the cofactor expansion formula wrote in a different way. If you multiply a single row of $A$ by a constant $\mu$, then your determinate gets multiplied by $\mu$. If you exchange two rows of $A$, multiply the determinate by negative $1$.
+
+And if you add a row to another, the determinate has no change. The determinate of $A^T$ is equal to the determinate of $A$. This is all the same for rows and columnss. 
+
+If $A$ is upper triangular, then $\text{Prod}(A\colon P) = 0$ if $P \not = I$. Thus $\det A = \text{Prod}(A \colon I) = \Pi$ of the diagonal entries.
+
+The determinate of $A$ is equal to
+
+$$
+\det A = (-1)^{\# \text{ of row exhchanges}} \cdot \text{Product of pivots}
+$$
+
+::: {.callout-note icon="false"}
+## Corollary
+
+$$
+\det A \not = 0
+$$
+
+If and only if $A$ is invertible
+:::
+
+::: {.callout-note icon="false"}
+## Theorem
+
+$$
+\det ZA = \det Z \det A
+$$
+:::
+
+Thus the determinate of $ZA$ is simply the product of the operations of $Z$ on $A$.

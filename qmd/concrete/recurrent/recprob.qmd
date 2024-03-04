@@ -1,0 +1,231 @@
+---
+title: "Recurrent Problems"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+This chapter of 'Concrete Mathematics' explores recurrence problems.
+
+## The Tower of Hanoi
+
+The Tower of Hanoi is a problem proposed by Edouard Lucas in 1883.
+We are given a tower of eight disks stacked in decreasing size on one of three pegs. The objective is to transfer the disks from one peg to another, only moving one disk at a time, and never moving a larger disk onto a smaller one.
+
+The authors present the solution throught the use of two techniques. The authors first look at small cases of the problem, and then create a variable $T_n$ to analyze.
+
+Say that $T_n$ is the minimum number of moves to transfer a tower of size $n$ to another peg. It is clear $T_1 = 1$, and that $T_2 = 3$. Additionally, one could say $T_0 = 0$.
+
+When given a tower of size $n$, it takes $T_{n-1}$ moves to move the $n-1$ smaller tower onto another peg, one move to move the largest disk onto the desired peg, and then another $T_{n-1}$ moves to move the tower of size $n$ onto the largest disk. This gives us a general formula
+
+$$
+T_0 = 0;\\
+T_n = 2T_{n-1} + 1 
+$$ {#eq-recurrence}
+
+A set of inequalities like the one shown in @eq-recurrence is called a [**recurrence**]{style="color: blue"}. Defined as giving an intial value ($T_0 = 0$) and then a general value in terms of an earlier one $T_{n} = 2T_{n-1} + 1$.
+
+Though finding a numerical value becomes tedious when $n$ is large enough. What would reduce computation time is a 'closed form' for $T_n$, one that can be evaluated without knowing $T_n$ for all smaller values of $n$.
+
+Through less than rigourous means, one can determine that the equation
+
+$$
+T_n = 2^n - 1 \quad \text{for } n \geq 0
+$${#eq-guess}
+
+But this is not a proof. We can manually confirm it to be true for many values of $n$, but in order to prove it for all values of $n$, we will use a tool called *Mathematical induction.*
+
+This works by first proving the equation true for one value of $n$, know as $n_0$ called the *basis*. Then proving it for all $ n > n_0$. We assume the statement is true for all values $n_0$ to $n - 1$ inclusive. 
+
+We can use $n = 0$ as our basis, as clearly $T_0 = 2^0 - 1 = 0$. The induction follows for $n > 0$ if we use the induction hypothesis to say $(2)$ holds for $n - 1$
+
+$$
+T_n = 2T_{n-1} + 1 = 2(2^{n-1} - 1) + 1 = 2^n - 1 
+$$
+
+Thus $(2)$ holds for $n$. We have now found and proved our closed formula for $T_n$ holds.
+
+In order to solve this problem, we first found a mathematical expression that allowed us to solve the problem for any number of disks, and then found a closed form for our mathematical expression. The book will focus primarily on finding these closed forms of mathematical expression, and without using a lucky guess to find the closed form. 
+
+Intrestingly enough, our recurrence from $(1)$ can be simplified by adding $1$ to both sides of the equation:
+
+$$
+T_0 + 1 = 1\\
+T_n + 1 = 2T_{n-1} + 2
+$$
+ 
+Now if we let $U_n = T_n + 1$, we get
+
+$$
+U_0 = 1\\
+U_n = 2U_{n-1}
+$$ {#eq-simprec}
+
+It is pretty clear that our closed formula is $U_n = 2^n$; thus $T_n = 2^n - 1$.
+
+## Lines in the Plane
+
+Our next problem is on the plane. What is the maximum number $L_n$ of regions defined by $n$ lines on a plane. This problem was first solved by Jacob Steiner in 1826. If we take a similar approach to the last section, starting with smaller cases:
+
+$$
+L_0 = 1\\
+L_1 = 2\\
+L_2 = 4
+$$
+
+We might come to the natural conclusion that $L_n = 2^n$. And this would be true if each line cut each region in half; but adding a third line makes it clear that we can only split as most $3$ regions, giving us $L_3 = 7$. We realize that a new line on the plane adds $k$ extra regions if and only if it intersects $k$ old regions, and the line intersects $k$ regions if and only if it hits the previous lines in $k-1$ places. Two lines can intersect in at most one point. So the new line can intersect the $n - 1$ lines at $n-1 places$. Thus the upper bound for this problem is
+
+$$
+L_n \leq L_{n-1} + n \quad \text{for} n > 0.
+$$
+
+Furthermore it's easy to change this into equality by adding the restriction that none of the $n$ lines are parrall, and that three lines do not intersect at the same point. This ensures that each new line $n$ intersects every other line at some new point splitting the region. Our recurrence relation is then
+
+$$
+L_0 = 1;\\
+L_n = L_{n-1} + n,\quad \text{for } n > 0.
+$$ {#eq-4}
+
+One can verify there are no silly mistakes by checking our established values of $L_0,L_1$ and $L_2$. All checks out, so we buy the recurrence relation. Now we need a general formula. 
+
+Through some trial and error, we can unfold $L_n$ into
+
+$$
+L_n = L_0 + 1 + 2 + \cdots + n
+$$
+
+Letting 
+
+$$
+S_n = 1 + 2 + \cdots + n
+$$
+
+We get the 'closed form'
+
+$$
+L_n = 1 + S_n
+$$
+
+But this just replaces one recurrence for another. It is said that in 1786, when Guass was nine years old, he had found a closed form of $S_n$ using the following trick 
+
+```{=tex}
+\begin{array}{ll}
+ &S_n &=  &1  &+ &2 &+ \cdots + &(n - 1) &+ &n\\
+ +&S_n &=  &n  &+ &(n-1) &+ \cdots + &2 &+ &1\\
+ \hline
+ 2&S_n &= &(n+1) &+ &(n+1) &+ \cdots + &(n+1) &+ &(n+1)
+\end{array}\\
+```
+Notice how $2S_n$ is now just equal to $n$ copies of $(n + 1)$, therefore
+
+$$
+S_n = \frac{n(n+1)}{2}, \quad \text{for } n \geq 0
+$${#eq-5}
+
+Giving us our closed form
+
+$$
+L_n = \frac{n(n+1)}{2} + 1, \quad \text{for } n \geq 0.
+$${#eq-6}
+
+One might consider this a proof, despite the handwavy techniques used in its derivation. A proof by induction is simple, so we might as well give ourselves some stricter standards. The induction is proved with
+
+$$
+L_n = \frac{(n-1)n}{2} + 1 + n = \frac{n(n+1)}{2} + 1
+$$
+
+Thus we have no doubt $(6)$ is correct.
+
+We can now look at a vairation of the line problem. Suppose instead of straight lines each line has a zig in it. What is the maximum number $Z_n$ of regions determined by $n$. One can see $Z_1 = 2$ and $Z_2 = 7$.
+
+From some thought and small cases, one notices that a line with a zig is simply two lines who don't extend past their intersection point. We can arrange these zigged lines such that the intersection point is far enough from the other lines that we only lose two regions per line. Thus
+
+$$
+Z_n = L_2n - 2n = 2n(2n - 1)/2 + 1 - 2n\\
+Z_n = 2n^2 - n + 1 \quad \text{for } n \geq 0.
+$${#eq-7}
+
+## The Josephus Problem
+
+The Josephus problem is actually an ancient problem dating back to the first century. The problem has $n$ people standing in a circle. Each person kills the person directly to their left, until there is only one left. We want to find the position of the surviving player.
+
+We can easily see $J(1) = 1$. When there is an even number $2n$ of players, note that all the even numbers die the first round. Our circle would then resemble a circle of size $n$, where each players number has been doubled and then had $1$ subtracted from it. That is
+
+$$
+J(2n) = 2J(n) - 1
+$$
+
+Now if we do a similar thing with an odd number of survivors, we see
+
+$$
+J(2n + 1) = 2J(n) + 1
+$$
+
+This can be used to define a recurrence relation
+
+$$
+J(1) = 1\\
+J(2n) = 2J(n) - 1\\
+J(2n + 1) = 2J(n) + 1
+$${#eq-8}
+
+This recurrence is much more effienct than our previous ones. As if we wanted to calculate a large $n$, we would need far fewer than $n$ steps to get our solution (Around $\log_2n$ steps). 
+
+Through some trial and error, we can arrive at the following equation
+
+$$
+J(2^m + l) = 2l + 1
+$${#eq-9}
+
+Which can be solved by induction.
+
+### Binary Representation
+
+Because powers of $2$ played such an important role in finding our solution, one might want to look at $n$ in it's base $2$ reprensentation. Suppose
+
+$$
+n = (b_mb_{m-1}\ldots b_1b_0)_2
+$$
+
+Note that $b_m$ is always $1$. Letting $n = 2^m + l$, we have
+
+$$
+n = (1b_{m-1}\ldots b_1b_0)_2\\
+l = (0b_{m-1}\ldots b_1b_0)_2\\
+2l = (b_{m-1}\ldots b_1b_00)_2\\
+2l + 1 = (b_{m-1}\ldots b_1b_01)_2\\
+J(n) = (b_{m-1}\ldots b_1b_0b_m)_2
+$$
+
+Thus
+
+$$
+J((1b_{m-1}\ldots b_1b_0)_2) = (b_{m-1}\ldots b_1b_0b_m)_2
+$${#eq-10}
+
+This means we can find $J(n)$ by doing a one-bit cyclic shift left on $n$. Which is insanely simple given the amount of work it was to find a solution in base 10! For example, if $n = 1101_2$ then $J(n) = 1011_2$. Note this breaks when $J(1011_2) = 111_2$
+
+If we repeatedly apply $J$ to a number $n$, we will eventually produce a number consisting of bits which are exclusivly $1$, whos value is $2^{v(n)} - 1$ where $v(n)$ is the number of bits of value $1$ in the binary representation of $n$. Because $v(13) = 3$, 
+
+$$
+J(J(\cdots J(13)\cdots)) = 2^3 - 1 = 7.
+$$
+
+How many iterations of $J$ does it take to get this fixed value? No idea.
+
+### Generilized Josephus Problem
+
+What would happen if we generilized $(8)$ with different constants? How would that change our closed form solutions. Lets investiagte this with a more general recurrence
+
+```{=tex}
+\begin{array}{ll}
+f(1) &=& \alpha;\\
+f(2n) &=& 2f(n) + \beta;\\
+f(2n + 1) &=& 2f(n) + \gamma;
+\end{array}
+```
+$$
+$${#eq-11}
+
+Our recurrence $J(n)$ had constants $\alpha = 1, \beta = -1 and \gamma = 1$.

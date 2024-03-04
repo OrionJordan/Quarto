@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>OOMN - Formal Systems</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">OOMN</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/graph/GraphTheory.html" rel="" target="">
+ <span class="menu-text">Graph Theory</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/integral/intro.html" rel="" target="">
+ <span class="menu-text">Integral</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/logic/intro.html" rel="" target="">
+ <span class="menu-text">Mathematical Logic</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#formal-languages" id="toc-formal-languages" class="nav-link active" data-scroll-target="#formal-languages">Formal Languages</a></li>
+  <li><a href="#deductive-systems" id="toc-deductive-systems" class="nav-link" data-scroll-target="#deductive-systems">Deductive systems</a></li>
+  <li><a href="#first-order-logic" id="toc-first-order-logic" class="nav-link" data-scroll-target="#first-order-logic">First-order logic</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Formal Systems</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>A <span style="color: blue"><strong>formal system</strong></span> consists of a formal language, with strict rules on what symbols are allowed and how to connect them, combined with a deductive system, containing axioms and rules for deducing true statements.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A formal system is a mathematical structure consisting of</p>
+<ul>
+<li>A formal language</li>
+<li>A deductive system</li>
+</ul>
+</div>
+</div>
+<p>Of course, without knowledge of what a language or deductive system is, this definition is useless.</p>
+<section id="formal-languages" class="level2">
+<h2 class="anchored" data-anchor-id="formal-languages">Formal Languages</h2>
+<p>A <span style="color: blue"><strong>formal language</strong></span> is defined by its <em>symbols</em>, such as quantifiers or connectives, and its <em>syntax</em>, rules for combining symbols. The most important class of formal language is known as <span style="color: blue"><strong>first-order language</strong></span>, denoted <span class="math inline">\mathcal{L}_1</span>.</p>
+<p>The symbols in a first-order language can be grouped into seven categories. Some authors may however chose to group the symbols into more or less categories, but the disctintion is arbitrary. These categories are</p>
+<ul>
+<li><p><strong>Connectives -</strong> <span class="math inline">\land, \lor, \implies, \iff, \lnot</span></p></li>
+<li><p><strong>Quantifiers -</strong> <span class="math inline">\forall, \exists</span></p></li>
+<li><p><strong>Variables -</strong> <span class="math inline">v_1</span>,<span class="math inline">v_2</span>,<span class="math inline">v_3</span> ect. A first-order language may consist of any countable amount of variables.</p></li>
+<li><p><strong>Constants -</strong> <span class="math inline">c_0</span>, <span class="math inline">c_1</span>, <span class="math inline">c_2</span> ect. A first-order language may consist of any countable amount of constants.</p></li>
+<li><p><strong>Operations -</strong> A first-order language can consist of any amount of countable operations (functions) <span class="math inline">f</span> of any order.</p></li>
+<li><p><strong>Relations -</strong> A first-order language can consist of any amount of countable relations <span class="math inline">p</span> of any order.</p></li>
+<li><p><strong>Parentheses -</strong> Right <span class="math inline">)</span> and left <span class="math inline">(</span>.</p></li>
+</ul>
+<p>Most of the time <span class="math inline">\to</span> will be used instead of <span class="math inline">\implies</span>, and <span class="math inline">\leftrightarrow</span> instead of <span class="math inline">\iff</span>, as the symbols are smaller are easier to read. For readibility sake, parenthesis occur in different sizes, or occansionally as brackets. Commas are also inserted to make formulas easier to read, but are not a formal symbol.</p>
+<p>Now we can begin constructing the syntax for first-order languages.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every variable or constant is a <span style="color: blue"><strong>term</strong></span>. Additionally, if <span class="math inline">f</span> is an operator of degree <span class="math inline">n</span>, and <span class="math inline">t_1,t_2,\dots,t_n</span> are terms, then <span class="math inline">f(t_1,t_2,\dots,t_n)</span> is a term.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">p</span> is a relation of degree <span class="math inline">n</span>, and <span class="math inline">t_1,t_2,\dots,t_n</span> are terms, then <span class="math inline">p(t_1,t_2,\dots,t_n)</span> is a <span style="color: blue"><strong>formula</strong></span>.</p>
+<p>Additionally, if <span class="math inline">P</span> and <span class="math inline">Q</span> are formulas, and <span class="math inline">x</span> is a variable, then the expressions</p>
+<p><span class="math display">
+P \iff Q, P \implies Q, P \land Q, P \lor Q\\
+\lnot P, \forall x P, \exists x P
+</span></p>
+<p>are also formulas.</p>
+</div>
+</div>
+<p>Note that mathematicians almost never write in unabbreviated notation. For example, the equation <span class="math inline">x + y</span> would be wrote <span class="math inline">+(x,y)</span>, which looks silly.</p>
+<p>We now can construct formulas from our symbols. Deciding truth values for these formulas is the role of a deductive system.</p>
+</section>
+<section id="deductive-systems" class="level2">
+<h2 class="anchored" data-anchor-id="deductive-systems">Deductive systems</h2>
+<p>A deductive system (deductive apparatus) is (usually) a set of axioms and rules of inference which are used to deduce one true statement from another. It is very common in math to use a <span style="color: blue"><strong>Hilbert System</strong></span>, which consist of a large number of axioms, and few to no rules of inferences.</p>
+<p>Below is an example of a Hilbert System which describes first-order logic.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+FOL Deductive system example<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Logical Axioms</strong></p>
+<p>The first four axioms describe propositional logic, which is logic without quantifiers like <span class="math inline">\land</span> or <span class="math inline">\lor</span>.</p>
+<p><strong>P1.</strong> <span class="math inline">\phi \rightarrow \phi</span></p>
+<p><strong>P2.</strong> <span class="math inline">\phi \rightarrow (\psi \rightarrow \phi)</span></p>
+<p><strong>P3.</strong> <span class="math inline">(\phi \rightarrow (\psi \rightarrow \zeta)) \rightarrow ((\phi \rightarrow \psi) \rightarrow (\phi \rightarrow \zeta))</span></p>
+<p><strong>P4.</strong> <span class="math inline">(\lnot \phi \rightarrow \lnot \psi) \rightarrow (\psi \rightarrow \phi)</span></p>
+<p>Here, <span class="math inline">\phi,\psi</span> and <span class="math inline">\zeta</span> refer to formulas, as constructed from our language. Thus, P1 could represent <span class="math inline">p \rightarrow p</span> or <span class="math inline">(p \land q) \rightarrow (p \land q)</span>. This axiomitization is in no way unique, and in fact axiom P1 can be proven from P2 and P3.</p>
+<p>The next three axioms allow us to manipulate quantifiers.</p>
+<p><strong>Q5.</strong> <span class="math inline">\forall x\,(\phi) \rightarrow \phi[x:=t]</span> (Meaning <span class="math inline">t</span> may be substituded for <span class="math inline">x</span> in <span class="math inline">\phi</span>)</p>
+<p><strong>Q6.</strong> <span class="math inline">\forall x\,(\phi \rightarrow \psi) \rightarrow (\forall x\,(\phi) \rightarrow \forall x\, (\psi))</span></p>
+<p><strong>Q7.</strong> <span class="math inline">\phi \rightarrow \forall x \,(\phi)</span> (where <span class="math inline">x</span> is not free in <span class="math inline">\phi</span>)</p>
+<p>These three axioms allow us to use the <span class="math inline">\forall</span> quantifier.</p>
+<p>For formal systems where equality is not defined as a relation, the following two axioms are necessary.</p>
+<p><strong>I8</strong>. <span class="math inline">x = x</span> for every variable <span class="math inline">x</span>.</p>
+<p><strong>I9</strong>. <span class="math inline">(x = y) \rightarrow (\phi(x) = \phi(y))</span></p>
+<p><strong>Rules of inference</strong></p>
+<p>Rules of inference are used to deduce a true statement from a previous. Modus ponens is typically the only used rule of inference.</p>
+<p><strong>R1</strong>. Modus ponens</p>
+<p>Modus ponens states that if <span class="math inline">p</span> and <span class="math inline">p \rightarrow q</span> are true, then <span class="math inline">q</span> is true.</p>
+</div>
+</div>
+<p>Note any connective can be formed using only <span class="math inline">\lnot</span> and <span class="math inline">\rightarrow</span>, and the exists quantifier can be defined using connectives and the for all quantifier.</p>
+<p>Now that we’ve defined a formal language to produce formulas, and a deduction system to define truth, we can construct a formal system.</p>
+</section>
+<section id="first-order-logic" class="level2">
+<h2 class="anchored" data-anchor-id="first-order-logic">First-order logic</h2>
+<p>Although we can construct many formal systems by combining different languages with different deductive systems, the most popular formal systems belong to <span style="color: blue"><strong>first-order logic</strong></span>, sometimes called predicate logic.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>First-order logic refers to a collection of formal systems composed of</p>
+<ul>
+<li>A first-order language</li>
+<li>A deductive system equivalent to the example shown above</li>
+</ul>
+</div>
+</div>
+<p>As a concrete example, both ZF (Zermelo-Fraenkel set theory) and PA (Peano arithmetic) are theories in first-order logic. They both use a unique first-order language, and the same deductive system. So they both can be said to use first-order logic.</p>
+<p>What exactly ZF and PA are, and what a theory is, are explained in the next part.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This section is copied from <a href="https://en.wikipedia.org/wiki/Hilbert_system">Wikipedia</a> almost verbatim.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

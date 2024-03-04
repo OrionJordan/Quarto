@@ -1,0 +1,72 @@
+---
+title: "Trees"
+format:
+  html:
+    code-fold: true
+    toc: true
+    html-math-method: katex
+---
+
+## Cayley's Theorem
+
+Recall that there are $\binom{n}{2}^2$ graphs on $n$ 
+vertices.
+
+**Question:** How many trees are there on $n$ vertices?
+
+This question is not at all obvious, and has a suprisingly simple 
+solution! We'll count trees as distinct if their graphs are distinct, i.e. two isomorphic trees will be counted as distinct.
+
+(Give example on $K_3$)
+
+In order to solve this question, we'll first establish the concept of a *pr&uuml;fer code*
+
+### Pr&uuml;fer codes
+
+Take any tree $T$. The need may occasionally arise where we wish to represent $T$ as a sequence of integers, similar to degree sequences for graphs.  
+
+::: {.callout-note icon="false"}
+## Definition (Cayley's Theorem)
+
+A [**pr&uuml;fer code**]{style="color: blue"} is a sequence of length $n-2$ of integers in $\{1,2,\ldots,n\}$ that corresponds to a tree of $n$.
+:::
+
+We're claiming that any tree can be represented by a pr&uuml;fer code. In order to find the pr&uuml;fer code for a tree, we use the following algorithm.
+
+::: {.callout-note icon="false"}
+## Algorithm
+
+Given a tree $T$ on $n$ vertices, delete the *least leaf* of $T$ and record the vertex that this leaf was adjacent to in $T$. Continue until the tree has $2$ vertices.
+
+:::
+
+::: {.callout-note icon="false"}
+## Example
+
+(Give two examples of the algorithm)
+
+:::
+
+We can now represent every tree as a pr&uuml;fer code. What makes 
+pr&uuml;fer code so useful is that unlike degree sequences, every distinct tree has a *unique* pr&uuml;fer code. 
+
+## Theorem (Cayley's Theorem)
+
+There are exactly $n^{n-2}$ many trees on $n$ vertices
+
+:::
+
+::: {.callout-note icon="false"}
+## Proof 
+
+A [**pr&uuml;fer code**]{style="color: blue"} is a sequence of length $n-2$ of integers in $\{1,2,\ldots,n\}$.
+
+Given a tree $T$ on $n$ vertices, we will associate to $T$ a pr&uuml;fer code according to the following algorithm.
+
+**Algorithm:** Given a tree $T$ on $n$ vertices, delete the *least leaf* of $T$ and record the vertex that this leaf was adjacent to in $T$. Continue until the tree has $2$ vertices.
+
+(Give example of the algorithm.)
+
+
+
+:::

@@ -1,0 +1,17 @@
+---
+title: "Dijkstra's algorithm"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Let $G$ be a weighted connected graph $G$. Given two vertices $u,v$, by the least weight path from $u$ to $v$.
+
+::: {.callout-note icon="false"}
+## Algorithm
+
+Start with a vertex $u_0$. At the end of step $k-1$, will have a set $S_{k-1} \subseteq V(G)$, and a function $t$ defined on $S_{k-1} \cup N(S_{k-1})$. We want to define our function $t$ to tell us the minimum distance to $u$ on $S_{k-1}$. On $N(S_{k-1})$, $t$ will tell us the tentative distance to $u$.
+
+At step $k$: Take a vertex $w$ in $N(S_{k-1}) \backslash S_{k-1}$
+:::

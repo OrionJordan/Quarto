@@ -1,0 +1,178 @@
+---
+title: "Basics"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+Basic facts about sets, relations, and functions.
+
+## Relations
+
+A [**binary relation**]{style="color: blue"} on a set $A$ is a subset $R$ of $A \times A$. We denote $a ~ b \rightarrow (a,b) \in \mathbb{R}$. 
+
+We say $~$ is an [**equivalence relation**]{style="color: blue"} if it satisfies the following properties
+
+- $~$ is [**reflexive**]{style="color: blue"}, if $\forall a \in A$ $a ~ a$
+
+- $~$ is [**symmetric**]{style="color: blue"}, if $\forall a,b \in A$ 
+$a~ b \rightarrow b ~ a$
+
+- $~$ is [**transitive**]{style="color: blue"}, if $\forall a,b,c \in A$ $a ~ b \land b ~ c \rightarrow a ~ c$
+
+::: {.callout-note icon="false"}
+## Definition
+
+If $a,b \in \mathbb{Z}$ and $a \not = 0$, we say $a$ [**divides**]{style="color: blue"} $b$ if $\exists c \in \mathbb{Z}$ such that $ac = b$. This is denoted
+
+$$
+a | b
+$$
+:::
+
+::: {.callout-note icon="false"}
+## Definition
+
+Let $~$ be an equivalence relation. The [**equivalence class**]{style="color: blue"} of $a \in A$ is defined 
+
+$$
+[a] = \{x \in A | x ~ a\}
+$$
+:::
+
+::: {.callout-warning icon="false"}
+## Example
+
+Find the equivalance classes of 
+$$
+[x] = \{y \in \mathbb{Z} \mid 2 \mid y - x\}
+$$
+
+If $x$ is even then $\exists n \in \mathbb{Z}$ such that $x = 2n$.
+
+$$
+2 \mid y - x = 2 \mid y - 2n \rightarrow \exists m \in \mathbb{Z}, y = 2m 
+$$
+
+If $x$ is odd then $\exists n \in \mathbb{Z}$ such that $x = 2n + 1$.
+
+$$
+2 \mid y - x = 2 \mid y - 2n + 1 \rightarrow \exists m \in \mathbb{Z}, y = 2m + 1
+$$
+
+Thus we have two equivalance classes for $x$, $[0]$ and $[1]$.
+:::
+
+## Properties of the integers
+
+Properties of the set of integers, $\mathbb{Z}$
+
+::: {.callout-note icon="false"}
+## Definition
+
+If $a,b \in \mathbb{Z} \backslash \{0\}$, then there exists a unique positive integer $d$, such that
+
+
+- $d \mid a, \; d \mid b$
+- If $e \mid a, \; e \mid b$ then $e \mid d$.
+
+We call $d$ the [**greatest common divisor**]{style="color: blue"}, denoted $gcd(a,b)$.
+:::
+
+::: {.callout-note icon="false"}
+## Theorem (The division algorithm)
+
+If $a,b \in \mathbb{Z}$, $b \not = 0$ then there uniquly exists $q,r \in \mathbb{Z}$ such that $a = qb + r$.
+
+Note $0 \leq r \leq \lvert b \rvert$
+
+We call $q$ the [**quoitent**]{style="color: blue"}, and $r$ the [**remainder**]{style="color: blue"}.
+
+:::
+
+
+The Eucldean algorithm provides the greatest common divisor of two non-zero integers by iterating the division algorithm.
+
+\begin{align*}
+a &= q_0 b + r_0\\
+b &= q_1 r_0 + r_1\\
+r_0 &= q_2 r_1 + r_2\\
+&\vdots\\
+r_{n-2} &= q_n r_{n-1} + r_n\\
+r_{n-1} &= q_{n+1}r_n
+\end{align*}
+
+If $m < n$, then $r_m > r_n$. We have $r_n = gcd(a,b)$.
+
+::: {.callout-note icon="false"}
+## Theorem 
+
+When using the Euclidean algorithm
+$$
+gcd(a,b) = gcd(b,r_0)
+$$
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof 
+
+Rearrange
+
+$r_0 = a - q_0 b$
+
+If $d \mid a$ and $d \mid b$ then $d \mid a - q_0b \rightarrow d \mid r_0$.
+:::
+
+::: {.callout-note icon="false"}
+## Theorem 
+
+Given $a,b \in \mathbb{Z}, \exists u,v \in \mathbb{Z}$ such that $au + bv = gcd(a,b)$.
+
+:::
+
+We basically just go backwords. Not that interesting. 
+
+::: {.callout-note icon="false"}
+## Definition
+
+An integer $p > 1$ is prime if and only if it's only positive divisors are $p$ and $1$. 
+
+:::
+
+::: {.callout-note icon="false"}
+## Euclids lemma
+
+Given $p$ as prime, for any $a,b \in \mathbb{Z}$
+
+$$
+p \mid ab \implies p \mid a \lor p \mid b
+$$
+
+:::
+
+::: {.callout-tip icon="false"}
+## Proof
+We know $p \mid ab$. If $p \mid a$ then $gcd(a,p) = 1$. 
+
+Thus we have integers $u,v$ such that $au + pv = 1$.
+
+Then we multiply by $b$, giving $p \mid bau$ and $p \mid bpv$.
+:::
+
+::: {.callout-tip icon="false"}
+## Theorem (Fundemental theorem of arithmatic)
+
+If $n \in \mathbb{Z}$ and $n > 1$, then $n$ can be factored into a unique product of prime numbers.
+
+$$
+n = p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}\cdots p_s^{\alpha_s}
+$$
+:::
+
+::: {.callout-tip icon="false"}
+## Theorem 
+
+There exists infinitly many primes.
+:::

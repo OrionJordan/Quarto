@@ -1,0 +1,329 @@
+---
+title: "Substitution"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+The motivating example for this section will be the integral shown below.
+
+$$
+\int \sec^2(x)e^{1 + \tan{x}} \, dx
+$$
+
+The techniques shown in the last section don't work here. Linearity does not allow for separation of products, and we don't have an identity which gets us a solution. In order to solve these types of integrals, we'll need a new rule.
+
+::: {.callout-warning icon="false"}
+## Example (Substitution)
+
+The integral can be rewrote if one makes the following substitution.
+
+$$
+u = 1 + \tan^2x
+$$
+
+Then computing the differential
+
+$$
+du = \sec^2x \,dx
+$$
+
+We can put these terms into the integral and obtain
+
+$$
+\int e^{u} \, du
+$$
+
+Which clearly evaluates to
+
+$$
+\int e^{u} \, du = e^u + C
+$$
+
+And then undoing the substitution
+
+$$
+\int \sec^2(x)e^{1 + \tan{x}} \, dx = e^{1+\tan x} + C
+$$
+:::
+
+Substitution for integrals is often in the form
+
+$$
+\int f(g(x))g^\prime(x)\, dx = \int f(u)\, du, \text{where } u = g(x).
+$$
+
+## Examples
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.3.1)
+
+Evaluate the following integral
+
+$$
+\int   {{\left( {8x - 12} \right){{\left( {4{x^2} - 12x} \right)}^4}\,dx}}
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Using the substitution 
+
+$$
+u = 4x^2 - 12x
+$$
+
+We get
+$$
+\int   {{\left( {8x - 12} \right){{\left( {4{x^2} - 12x} \right)}^4}\,dx}} = \frac{1}{5}(4x^2 - 12x)^5 + C
+$$
+
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.3.2)
+
+Evaluate the following integral
+
+$$
+\int{{3{t^{ - 4}}{{\left( {2 + 4{t^{ - 3}}} \right)}^{ - 7}}\,dt}}
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Using the substitution 
+
+$$
+u = 2 - 4t^{-3}
+$$
+
+We get
+$$
+\int{{3{t^{ - 4}}{{\left( {2 + 4{t^{ - 3}}} \right)}^{ - 7}}\,dt}} = \frac{1}{24}(2+4t^{-3})^{-6} + C
+$$
+
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.3.14)
+
+Evaluate the following integral
+
+$$
+\int \frac{\csc x \cot c}{2- \csc x} \, dx
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+First notice how $\csc x \cot x$ is clearly the derivative of $-\csc x$. This leads us to try some form of $\csc x$ for $u$. I use
+
+$$
+u = \csc x
+$$
+
+Leading too
+$$
+\int \frac{\csc x \cot c}{2- \csc x} \, dx = - \int \frac{1}{2 - u} \, du 
+$$
+
+Which is clearly
+
+$$
+\int \frac{\csc x \cot c}{2- \csc x} \, dx = \ln |2 - u| + C = \ln |2 - \csc x| + C
+$$
+
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.3.13)
+
+Evaluate the following integral
+
+$$
+\int{{10\sin \left( {2x} \right)\cos \left( {2x} \right)\sqrt {{{\cos }^2}\left( {2x} \right) - 5} \,dx}}
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+While the integral looks incredibly complex, if we substitute the term inside the radical (the usual choice) we can start to break it down.
+
+$$
+u = \cos^2(2x) - 5
+$$
+
+Thus
+$$
+\int{{10\sin \left( {2x} \right)\cos \left( {2x} \right)\sqrt {{{\cos }^2}\left( {2x} \right) - 5} \,dx}} = -\frac{5}{2} \int \sqrt{u} \, du
+$$
+
+Which leads too
+
+$$
+\int{{10\sin \left( {2x} \right)\cos \left( {2x} \right)\sqrt {{{\cos }^2}\left( {2x} \right) - 5} \,dx}} = -\frac{5}{3}(\cos^2(2x) - 5)^\frac{3}{2} + C
+$$
+
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.3.15)
+
+Evaluate the following integral
+
+$$
+\int \frac{6}{7 + y^2} \,dy
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+This does not follow our usual $f(g(x))g^\prime(x)$ example. For this case, we'll try to convert into an identity we know. It is clear we can't have $y^2$ be a term in $u$, as this would only make the integral more complicated (as thers no $y$ to be consumed in the $du$). The integrand sorta resembles the derivative of $\arctan y$, so we can try to rewrite it
+
+$$
+\int \frac{6}{7 + y^2} \,dy = \frac{6}{7} \int \frac{1}{1 + \frac{y^2}{7}} \, dy
+$$
+
+Notice that if we make the substitution
+$$
+u = \frac{y}{\sqrt{7}}
+$$
+
+We get
+
+$$
+\int \frac{6}{7 + y^2} \,dy = \frac{6\sqrt{7}}{7} \int \frac{1}{1 + u^2} \, du
+$$
+
+Which gives us
+
+$$
+\int \frac{6}{7 + y^2} \,dy = \frac{6\sqrt{7}}{7} \arctan \left(\frac{y}{\sqrt{7}}\right) + C
+$$
+
+:::
+
+::: {.callout-warning icon="false"}
+## Problem - Arctan generalization
+
+Evaluate the previous integral in it's general form
+
+$$
+\int \frac{1}{a^2 + x^2} \,dx
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Like last time, we'll factor out $a^2$ from the bottom and then use a substitution.
+
+$$
+\int \frac{1}{a^2 + x^2} \,dx = \frac{1}{a^2} \int \frac{1}{1 + (x^2/a^2)} \, dy
+$$
+
+Makeing the substitution
+$$
+u = \frac{x}{a}
+$$
+
+We get
+
+$$
+\int \frac{1}{a^2 + x^2} \,dx = \frac{1}{a} \int \frac{1}{1 + u^2} \, dx
+$$
+
+Which gives us
+
+$$
+\int \frac{1}{a^2 + x^2} \,dx = \frac{1}{a} \arctan \left(\frac{x}{a}\right) + C 
+$$
+
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus - 5.4.6)
+
+Evaluate the following integral
+
+$$
+\int{{20{{e}^{2 - 8w}}\sqrt {1 + {{e}}^{2 - 8w}}} \, + 7{w^3} - 6\,\,\sqrt[3]{w}\,dw}
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Using linearity on the integral allows us to do different substitutions. Seeing as the last two terms can be integrated with the inverse power rule, we only need to a substitution on the first term. Luckily this is an easy case.
+
+$$
+u = 1 + e^{2-8w}
+$$
+
+Gives
+
+$$
+\int{{20{{e}^{2 - 8w}}\sqrt {1 + {{e}}^{2 - 8w}}} \,dw} = -\frac{5}{2}\int \sqrt{u}\, du
+$$
+
+Which is
+
+$$
+\int{{20{{e}^{2 - 8w}}\sqrt {1 + {{e}}^{2 - 8w}}} \,dw} = -\frac{5}{3}(1 + e^{2-8w})^\frac{3}{2} + C
+$$
+
+Then solving the other terms gives us our solution.
+
+$$
+ = -\frac{5}{3}(1 + e^{2-8w})^\frac{3}{2} + \frac{7}{4}w^4 - \frac{9}{2}w^\frac{4}{3} + C
+$$
+
+:::
+
+::: {.callout-warning icon="false"}
+## Pauls Online Notes (Calculus II - A7.1.18)
+
+Evaluate the following integral
+
+$$
+\int{{\frac{{{x^7}}}{{\sqrt {{x^4} + 1} }}\,dx}}
+$$
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Using the substitution
+
+$$
+u = x^4 + 1
+$$
+
+We get
+
+$$
+\int{{\frac{{{x^7}}}{{\sqrt {{x^4} + 1} }}\,dx}} = \frac{1}{4}\int \frac{u - 1}{\sqrt{u}}
+$$
+
+Which we can then apply linearity and inverse power rule to, giving us
+
+$$
+\int{{\frac{{{x^7}}}{{\sqrt {{x^4} + 1} }}\,dx}} = \frac{1}{4}\left( \frac{2}{3}(x^4 + 1)^\frac{3}{2} + 2(x^4 + 1)^\frac{1}{2}\right) + C
+$$
+
+:::

@@ -1,0 +1,52 @@
+---
+title: "Sets"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+A [**set**]{style="color: blue"} is a collection of [**elements**]{style="color: blue"}, usually denoted with a capital letter $A,B,\cdots,Z$. Important groups of numbers are denoted in Blackboard bold font; for example the set $\mathbb{N}$, which refers to the [**natural numbers**]{style="color: blue"}. Sets are given the following notation
+
+-   If $a$ is an element of $A$, we write $a \in A$
+
+-   If every element in $A$ is in $B$, we write $A \subseteq B$
+
+-   If $A \subseteq B$, and $B \subseteq A$, then $A$ and $B$ are equal, $A = B$
+
+-   If $A \subseteq B$, but $A \not= B$, $A$ is a proper subset of $B$, denoted $A \subsetneq B$
+
+A set $S$ containing the numbers $1,2$ and $3$ as elements is wrote $S = \{1,2,3\}$. The order in which the elements are listed is irrelevant, $S = \{1,2,3\} = \{3,2,1\}$. This notation becomes tedious however when attempting to write a set with a large amount of elements. This is where set builder notation comes in. Set builder notation defines a set in the form
+
+$$
+S = \{\text{A function of}\: x \:|\: \text{A predicate of}\: x\}
+$$
+
+For example, the set of all square numbers would be
+
+$$
+S = \{ x^2 \:|\: x \in \mathbb{N}\} = \{1,4,9,\ldots\}
+$$
+
+There are very commonly used sets we assume the existence of, and denote with special characters to save time
+
+-   The empty set $\varnothing = \{\}$ is simply a set with no elements
+
+-   The natural numbers $\mathbb{N} = \{1,2,3,\ldots\}$
+
+-   The integers[^1] $\mathbb{Z} = \{\ldots, -2, -1, 0, 1, 2, \dots\}$
+
+-   The rational numbers $\mathbb{Q} = \{\frac{a}{b}\:|\: a,b \in \mathbb{Z}\}$
+
+-   And the real numbers $\mathbb{R}$
+
+[^1]: The notation $\mathbb{Z}$ for integers comes from the German word *Zahlen*, which means integer.
+
+**Definition:** Given any set $A$, the \vocab{power set} of $A$, denoted 
+$\mathcal{P}(\mathbb{A})$ is the set of all subsets of $A$; i.e.
+
+$$
+        \mathcal{P}(A) = \{B | B \subseteq A\}
+$$
+
+For example, if $A = \{a,b\}$, then $\mathcal{P}(A) = \{\{\},\{a\},\{b\},\{a,b\}\}$ Notice that $\varnothing$ and $A$ are always elements of $\mathcal{P}(A)$. Also note $a \not\in \mathcal{P}(A)$, but $\{a\} \in \mathcal{P}(A)$.

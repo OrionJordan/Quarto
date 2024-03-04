@@ -1,0 +1,259 @@
+---
+title: "Trig substitutions"
+format:
+  html:
+    code-fold: true
+    toc: true
+    html-math-method: katex
+---
+
+Our motivation for this section is the following integral
+
+$$
+\int \frac{\sqrt{25x^2 - 4}}{x} \, dx
+$$
+
+This integral is very difficult to solve with the previous techniques. The trick comes from the substitution
+
+$$
+x = \frac{2}{5}\sec \theta
+$$
+
+Which after a fair amount of algebra and calculus gives us
+
+$$
+\int \frac{\sqrt{25x^2 - 4}}{x} \, dx = \sqrt{25x^2 - 4} + 2\arccos \left(\frac{2}{5x}\right) + C
+$$
+
+Solving these integrals relies on a method known as [**trigonometric substitutions**]{style="color: blue"}.
+
+## Method
+
+First, lets explain how we solved the previous integral.
+
+::: {.callout-warning icon="false" collapse="false"}
+## Example
+
+We have the following integral, which is difficult to solve using previous techniques.
+
+$$
+\int \frac{\sqrt{25x^2 - 4}}{x} \, dx
+$$
+
+Using the substitution
+
+$$
+x = \frac{2}{5}\sec \theta
+$$
+
+We can reduce the integral and get a solution in terms of $\theta$.
+
+```{=tex}
+\begin{array}{ll}
+
+& = \displaystyle \int \frac{\sqrt{25(\frac{2}{5}\sec \theta)^2 - 4}}{\frac{2}{5}\sec \theta} \, (\frac{2}{5}\tan \theta \sec \theta \, d\theta)\\
+& =  \displaystyle\int \sqrt{4\sec^2 \theta - 4} \, \tan \theta \, d\theta\\
+& = \displaystyle2\int \sqrt{\sec^2 \theta - 1} \, \tan \theta \, d\theta = 2\int\tan^2\theta \, d\theta\\
+& = 2\left(\tan \theta + \theta\right) + C
+\end{array}
+```
+Now we only need to undo our substitution. Notice that
+
+$$
+\sec \theta = \frac{\text{hyp}}{\text{adj}} = \frac{5x}{2}
+$$
+
+This can be visualized in the triangle.
+
+```{r, engine = 'tikz', fig.width=3, fig.height=3}
+#| fig-align: 'center'
+
+\usetikzlibrary{graphs,graphs.standard,angles,quotes}
+
+\begin{tikzpicture}
+
+\draw[fill=black] (0,0);
+\draw[fill=black] (3,0);
+\draw[fill=black] (3,2);
+\draw[line width=1pt] (0,0) -- (3,0) -- (3,2) -- (0,0);
+\node at (1.75,-.25) {$2$};
+\node at (1.2,1.25) {$5x$};
+\node at (3.9,1) {$\sqrt{25x^2 - 4}$};
+
+\coordinate (origo) at (0,0);
+\coordinate (pivot) at (3,2);
+\coordinate (mary) at (3,0);
+
+\pic[draw, -, "$\theta$", angle eccentricity=1.5]{angle = mary--origo--pivot};
+\end{tikzpicture}
+```
+
+From here can see that
+$$
+\tan \theta = \frac{\sqrt{25x^2-4}}{2}
+$$
+
+$$
+\theta = \arccos \left(\frac{2}{5x}\right)
+$$
+
+Giving us our final answer
+
+$$
+\int \frac{\sqrt{25x^2 - 4}}{x} \, dx = \sqrt{25x^2-4} + 2\arccos \left(\frac{2}{5x}\right) + C
+$$
+:::
+
+When faced with an integral containing a radical expression in the form $\sqrt{\pm(bx + c)^2 \pm a}$, we can usually find some subtitution for $x$ which simplifies the expression into a singular trigonometric identity. This is achievable due to the following three identities.
+
+```{=tex}
+\begin{array}{ll}
+1 - \sin^2x &=& \cos^2 x\\ 
+\tan^2x + 1 &=& \sec^2 x\\
+\sec^2x - 1 &=& \tan^2 x 
+\end{array}
+```
+
+Lets see how these identites allow us to reduce certain radicals.
+
+::: {.callout-tip icon="false" collapse="true"}
+## Trig substitutions
+
+Lets examine the three cases where trig identities allow us to simplify a radical expression.
+
+**Case I:** $\sqrt{a - (bx + c)^2}$
+
+Notice how this case is a constant, subtracted by a squared variable term. This resembles our first expression, $1 - \sin^2x = \cos^2 x$. We want to get the expression in these terms so we can reduce the radicle. Notice by making the substitution
+
+$$
+(bx + c) = \sqrt{a}\sin \theta
+$$
+
+We get the equation
+
+$$
+\sqrt{a - (\sqrt{a}\sin\theta)^2} = \sqrt{a}\sqrt{1-\sin^2\theta} = \sqrt{a}\cos\theta
+$$
+
+We have now elimated the variable from the radical.
+
+**Case II:** $\sqrt{(bx + c)^2 + a}$
+
+This case resembles our identity $\tan^2x + 1 = \sec^2 x$. So lets try the substitution
+
+$$
+(bx + c) = \sqrt{a}\tan \theta
+$$
+
+Which gives us
+
+$$
+\sqrt{(\sqrt{a}\tan \theta)^2 + a} = \sqrt{a}\sqrt{\tan^2 \theta + 1} = \sqrt{a}\sec\theta
+$$
+
+We have now elimated the variable from the radical.
+
+**Case III:** $\sqrt{(bx + c)^2 - a}$
+
+This case resembles $\sec^2x - 1$. Using the substitution
+
+$$
+(bx + c) = \sqrt{a}\sec \theta
+$$
+
+We get the equation
+
+$$
+\sqrt{(\sqrt{a}\sec \theta)^2 - a} = \sqrt{a}\sqrt{\sec^2\theta - 1} = \sqrt{a}\tan\theta
+$$
+
+We have now elimated the variable from the radical.
+
+:::
+
+For ease of use, the following table shows what substitution to make depending on the case.
+
+```{=tex}
+\begin{array}{ll}
+\text{Radical expression} \hspace{0.25in} & \text{Substitution}\\
+&\\
+\sqrt{a - (bx + c)^2} \hspace{0.25in} & (bx + c) = \sqrt{a}\sin\theta\\
+&\\
+\sqrt{(bx + c)^2 + a} \hspace{0.25in} & (bx + c) = \sqrt{a}\tan\theta\\
+&\\
+\sqrt{(bx + c)^2 - a} \hspace{0.25in} & (bx + c) = \sqrt{a}\sec\theta
+\end{array}
+```
+## Examples
+
+::: {.callout-warning icon="false"}
+## Problem
+
+Evaluate the following integral
+
+$$
+\int \frac{\sqrt{9 - x^2}}{x^2}\,dx
+$$
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Solution
+
+Notice that the radicle expression resembles the third row of our table. If we make the substitution
+
+$$
+x = 3\sin \theta\\
+dx = 3\cos\theta\,d\theta
+$$
+
+We get
+
+$$
+\int \frac{\sqrt{9 - x^2}}{x^2}\,dx = \int\frac{3\sqrt{1-\sin^2\theta}}{9\sin^2\theta}(3\cos\theta)\,d\theta = \int\frac{\cos^2\theta}{\sin^2\theta} d\theta
+$$
+
+Which evaulates to
+$$
+\int\frac{\cos^2\theta}{\sin^2\theta} d\theta = -\cot\theta - \theta + C
+$$
+
+This however, is only half the problem. We still need to convert the equation back to its orginal variable. Once again, the method of drawing a triangle will help to simplify the final expression.
+
+Note that $\sin \theta = \displaystyle\frac{\text{opp}}{\text{hyp}} = \displaystyle\frac{x}{3}$
+
+```{r, engine = 'tikz', fig.width=3, fig.height=3}
+#| fig-align: 'center'
+
+\usetikzlibrary{graphs,graphs.standard,angles,quotes}
+
+\begin{tikzpicture}
+
+\draw[fill=black] (0,0);
+\draw[fill=black] (3,0);
+\draw[fill=black] (3,2);
+\draw[line width=1pt] (0,0) -- (3,0) -- (3,2) -- (0,0);
+\node at (1.75,-.3) {$\sqrt{9 -x^2}$};
+\node at (1.2,1.25) {$3$};
+\node at (3.2,1) {$x$};
+
+\coordinate (origo) at (0,0);
+\coordinate (pivot) at (3,2);
+\coordinate (mary) at (3,0);
+
+\pic[draw, -, "$\theta$", angle eccentricity=1.5]{angle = mary--origo--pivot};
+\end{tikzpicture}
+```
+
+So
+
+$$
+\cot \theta = \frac{\text{adj}}{\text{opp}} = \frac{\sqrt{9 -x^2}}{x}
+$$
+
+Giving us a final answer of 
+
+$$
+\int \frac{\sqrt{9 - x^2}}{x^2}\,dx = \frac{-\sqrt{9-x^2}}{x} - \arcsin\left(\frac{x}{3}\right) + C
+$$
+
+:::

@@ -1,0 +1,347 @@
+---
+title: "Unit two"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+---
+
+## Elimination
+
+We can put a matrix into upper triangular form as follows
+
+\begin{align*}
+Ax = b \rightarrow
+\begin{pmatrix}
+2 & 3 & 4\\
+4 & 11 & 14\\
+2 & 8 & 17
+\end{pmatrix} \begin{pmatrix}
+x_1\\
+x_2\\
+x_3
+\end{pmatrix} = \begin{pmatrix}
+b_1\\
+b_2\\
+b_3
+\end{pmatrix}
+\end{align*}
+
+\begin{align*}
+\begin{pmatrix}
+2 & 3 & 4\\
+0 & 5 & 6\\
+0 & 0 & 7
+\end{pmatrix} \begin{pmatrix}
+x_1\\
+x_2\\
+x_3
+\end{pmatrix} = \begin{pmatrix}
+b_1\\
+b_2 - 2b_1\\
+b_3 - b_2 + b_1
+\end{pmatrix}
+\end{align*}
+
+Note that we can rewrite this as an elementary row operation matrix
+
+\begin{align*}
+\begin{pmatrix}
+1 & 0 & 0\\
+-2 & 1 & 0\\
+-1 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+2 & 3 & 4\\
+4 & 11 & 14\\
+2 & 8 & 17
+\end{pmatrix} = 
+\begin{pmatrix}
+2 & 3 & 4\\
+0 & 5 & 6\\
+0 & 5 & 13
+\end{pmatrix}
+\end{align*}
+
+We call that first matrix $e_1$. Now we get
+
+\begin{align*}
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & -1 & 1
+\end{pmatrix}
+e_1 A = 
+\begin{pmatrix}
+2 & 3 & 4\\
+0 & 5 & 6\\
+0 & 0 & 7
+\end{pmatrix}
+\end{align*}
+
+Giving us
+
+$$
+e_2 e_1 (Ax = b) \rightarrow Ux = b^\prime
+$$
+
+Let 
+
+$$
+L = e_1^{-1}e_2^{-1}
+$$
+
+We then have 
+
+$$
+LU = A
+$$
+
+Now take for example the matrix
+
+$$
+A = \begin{pmatrix}
+2 & 3 & 4\\
+4 & 6 & 14\\
+2 & 8 & 17
+\end{pmatrix}
+$$
+
+Notice it has the same $e_1$. However, this gives
+
+$$
+e_1A = \begin{pmatrix}
+2 & 3 & 4\\
+0 & 0 & 6\\
+0 & 5 & 13
+\end{pmatrix}
+$$
+
+Which we can preform a row change to get
+
+$$
+F_1E_1A = \begin{pmatrix}
+2 & 3 & 4\\
+0 & 5 & 13\\
+0 & 0 & 6
+\end{pmatrix}
+$$
+
+Where $F_1$ is not a lower triangular matrix. 
+
+$$
+F_1 = \begin{pmatrix}
+1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{pmatrix}
+$$
+
+This creates
+
+$$
+E_1^{-1}F_1^{-1}U = A
+$$
+
+Giving us $LPU$ decomposition.
+
+## Computing inverses
+
+Suppose we have an $n \times n$ matrix $A$. If $A^{-1}$ exists, then there exists a sequence of row operations $R$ such that $R(A) = I$. Thus
+
+$$
+R(\,A \mid I\,) = R(\, I \mid A^{-1}\,). 
+$$
+
+--------
+
+Let $A$ be an invertible square matrix of size $n$. Recall that $A$ has an $LU$ decomposition if and only if every upperleft square submatrix of $A$ is invertable. (As you'll never need row exchanges)
+
+We can repeatedly apply row operations on $A$ to arrive at $U$. Thus 
+
+$$
+A = LU
+$$
+
+Claim, $If L_1^{-1}$ is a lower matrix with some coefficients, $L$ is the same with the negation of those coefficients. Remember that all $LU$ decompositions are exact.
+
+Two uppper triangular matrices when multiplied will have their diagonals multiplied. 
+
+### LDU decomposition
+
+If $A$ is an $(n \times n)$ invertable matrix with an LU factorization, then $A$ has a factor $LDU$ such that $L$ is a lower triangular, $D$ is a diagonal consisting of pivots, $U$ is a unipotent upper triangular matrix. Note tha $LDU$ is unique.
+
+## Transpose
+
+There is a fun relation
+
+$$
+(AB)^T = B^T A^T
+$$
+
+And another
+
+$$
+(A^T)^{-1} = (A^{-1})^T = A^{-T}
+$$
+
+::: {.callout-note icon="false"}
+## Definition
+
+The matrix $A_{n \times n}$ is [**symmetric**]{style="color: blue"} if $A^T = A$.
+
+:::
+
+If $A_{m\times n}$ then $AA^T$ is $m \times m$ and symmetric, and
+$A^TA$ is $n \times n$ and symmetric.
+
+This is because
+
+$$
+(AA^T)^T = (A^T)^TA^T = AA^T
+$$
+
+Note that if $S$ is a symmetric matrix that has an $LU$ decomposition, then $LDU$ is actually $LDL^T$.
+
+$$
+S= LDU
+$$
+$$
+S = U^T D^T L^T
+$$
+
+### PLU decomposition
+
+Let $A$ be an arbitrary $n\times n$ invertable matrix. There there exists a unique factorizatio $A = PLU$ such that $P$ is a permutation matrix, $L$ is a lower triangular with $1$'s on the diagonal. $U$ is upper triangular. They don't alone give uniqueness though.
+
+$A = (PLP^{-1})PU$ is something.
+
+## Permutation matrices
+
+::: {.callout-note icon="false"}
+## Definition
+
+A permutation matrix is a matrix that permutes the order of the rows when left multiplied, and the columns when right multiplied.
+:::
+
+The columns of $P$ are the columns of $I$ permuted. That is to say $P$ is a product of exchange matricies.
+
+If $P$ is a permutation matrix, then $P$ is invertible, and $P^{-1} = P^T$.
+
+This is because 
+
+\begin{align*}
+(P^TP)_{ij} &= (Row_i P^T)\cdot(Col_j P)\\
+&= (Col_i P) \cdot (Col_j P)
+\end{align*}
+
+Thus we have $0$ if $i\not = j$, and $1$ if $i=j$.
+
+Take the $3\times3$ matrix $P$ sending Row $1 \to$ Row $2 \to$ Row $3$
+
+\begin{align*}
+P = \begin{pmatrix}
+0 & 0 & 1\\
+1 & 0 & 0\\
+0 & 1 & 0
+\end{pmatrix}
+\end{align*}
+
+We get this by thinking "What puts Row $3$ into Row $1$", which is the following
+
+$$
+P = e_1e^T_3
+$$
+
+Which can be repeated
+
+$$
+P = e_1e^T_3 + e_2e^T_1 + e_3e_2^T
+$$
+
+Recall the $PLU$ decomposition of an invertible matrix $A$.
+
+If $A = PLU$, then $PLP^{-1}$ is also lower triangular, and the $LPU$ decomposition is $(PLP^{-1})PU$.
+
+Suppose I want to turn the following matrix into upper triangular format
+
+\begin{align*}
+\begin{pmatrix}
+0 & 0 & *\\
+* & * & *\\
+* & * & *
+\end{pmatrix}
+\end{align*}
+
+I would need to switch Row $1$ and Row $3$. This can be accomplished by the matrix $P^{-1}$
+
+\begin{align*}
+P^{-1} = \begin{pmatrix}
+0 & 0 & 1\\
+0 & 1 & 0\\
+1 & 0 & 0
+\end{pmatrix}
+\end{align*}
+
+And then we would want to apply another matrix to generate a pivot in Row $2$ (Assuming Row $1 \not=$ Row $2$). Thus $U = L^{-1}P^{-1}A$.
+
+\begin{align*}
+L^{-1} = \begin{pmatrix}
+1 & 0 & 0\\
+* & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\end{align*}
+
+Through algebra $A = PLU$. Now lets use our fact earlier to get $(PLP^{-1})PU$.
+
+We have the following steps in our algorithm
+
+- Find $A = LPU$
+- To find $A = PLU$, apply $LU$ decomposition to $P^TA$
+
+First, apply lower triangular row operations to have only one non-zero entry in column $1$, giving you the first *pivot row*. 
+
+Second, apply lower triangular row operations to leave only one non-zero entry in column $2$, ignoring the first privot row.
+
+Continue, arriving at $L^{-1}A = PU$ where $L^{-1}$ is the row operations applied. So taking our old matrix.
+
+\begin{align*}
+\begin{pmatrix}
+0 & 0 & *\\
+* & * & *\\
+* & * & *
+\end{pmatrix}
+\end{align*}
+
+We can delete the $*$ in the thrid row of column 1 with the matrix
+
+\begin{align*}
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & * & 1
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & *\\
+* & * & *\\
+* & * & *
+\end{pmatrix}\to
+\begin{pmatrix}
+0 & 0 & *\\
+* & * & *\\
+0 & * & *
+\end{pmatrix}
+\end{align*}
+
+This gives us $L^{-1}A = PU$. But what is $P$? $P$ is simply the permutation matrix consisting on non-zero entries in the pivot locations.
+
+\begin{align*}
+P = \begin{pmatrix}
+0 & 0 & 1\\
+1 & 0 & 0\\
+0 & 1 & 0
+\end{pmatrix}
+\end{align*}
+
+Now lets apply $LU$ decomposition to $P^TA$ In order to get the right $L$ and $U$.
